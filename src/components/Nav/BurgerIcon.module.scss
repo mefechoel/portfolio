@@ -1,0 +1,72 @@
+@use '../../styles/transitions.scss';
+
+$strokeWidth: calc(var(--size) * var(--strokeWidthRatio));
+$strokeOffset: calc(var(--size) * var(--offsetRatio));
+$translateTop: $strokeOffset;
+$translateMiddle: calc((var(--size) - #{$strokeWidth}) / 2);
+$translateBottom: calc(var(--size) - #{$strokeWidth} - #{$strokeOffset});
+
+.icon {
+	// Public parameters
+	--size: 1em;
+	--strokeWidthRatio: 0.15;
+	--color: white;
+	--transitionDuration: 600ms;
+	--offsetRatio: 0.1;
+	--roundness: 0;
+	--bounce: 0;
+
+	position: relative;
+	width: var(--size);
+	height: var(--size);
+}
+
+.line {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: var(--size);
+	height: $strokeWidth;
+	background-color: var(--color);
+	border-radius: calc(var(--roundness) * #{$strokeWidth} / 2);
+
+	--_translate: 0;
+	--_rotate: 0deg;
+
+	transform: translateY(var(--_translate)) rotate(var(--_rotate));
+
+	$transition: transform var(--transitionDuration)
+		cubic-bezier(
+			calc(0.5 + var(--bounce) * 0.5),
+			calc(-1 * var(--bounce)),
+			calc(0.5 - var(--bounce) * 0.5),
+			calc(1 + var(--bounce))
+		);
+	@include transitions.add($transition);
+}
+
+.top {
+	--_translate: #{$translateTop};
+}
+.middle {
+	--_translate: #{$translateMiddle};
+}
+.bottom {
+	--_translate: #{$translateBottom};
+}
+
+.open {
+	.line {
+		--_translate: #{$translateMiddle};
+	}
+
+	.top {
+		--_rotate: calc(3 * 45deg);
+	}
+	.middle {
+		--_rotate: 45deg;
+	}
+	.bottom {
+		--_rotate: calc(5 * 45deg);
+	}
+}

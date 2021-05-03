@@ -1,0 +1,50 @@
+@use './Banner.vars.scss';
+@use '../../styles/transitions.scss';
+
+.banner {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	background: var(--bgCol);
+	height: Banner.$bannerHeight;
+	padding: 0 1rem;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	color: var(--fontCol);
+	z-index: 100;
+	border-bottom: var(--borderWidth) solid var(--separatorCol);
+	pointer-events: auto;
+	opacity: 1;
+
+	@include transitions.add(opacity 200ms ease);
+}
+
+.hidden {
+	opacity: 0;
+	pointer-events: none;
+}
+
+.heading {
+	font-style: oblique;
+	text-transform: uppercase;
+	margin: 0;
+	font-size: var(--fontSize2);
+}
+
+.backButton {
+	color: inherit;
+	background: none;
+	border: none;
+	padding: 0;
+	cursor: pointer;
+	font-size: var(--fontSize1);
+	font-weight: 500;
+	line-height: 1;
+}
+
+.backIcon {
+	width: 1em;
+	height: 1em;
+}

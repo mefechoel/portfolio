@@ -1,0 +1,83 @@
+@use '../../styles/fluid.scss';
+@use '../../styles/transitions.scss';
+
+.nav {
+	position: fixed;
+	bottom: 0;
+	left: 0;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	width: 100%;
+	height: 100vh;
+	transform: translateY(3rem);
+	opacity: 0;
+	pointer-events: none;
+	background-color: var(--bgCol);
+	z-index: 10;
+
+	$transition: transform 400ms ease-in-out, opacity 400ms ease-in-out;
+	@include transitions.add($transition);
+}
+
+.nav.navOpen {
+	transform: translateX(0);
+	opacity: 1;
+	pointer-events: auto;
+}
+
+.navList {
+	list-style: none;
+	padding: 0;
+	margin: 0;
+	display: flex;
+	flex-direction: column;
+}
+
+.navLink {
+	display: grid;
+	place-content: center;
+	color: var(--fontCol);
+	text-decoration: none;
+	height: 4em;
+}
+
+.navLinkText {
+	display: inline-grid;
+	place-content: center;
+	height: 4em;
+	border-bottom: 1px solid var(--fontCol);
+	padding: 0 2em;
+	text-transform: uppercase;
+	font-style: oblique;
+
+	li:last-child .navLink & {
+		border-bottom: none;
+	}
+}
+
+.burgerButton {
+	$size: 3rem;
+	position: fixed;
+	left: calc(50% - #{$size / 2});
+	padding: 0;
+	margin: 0;
+	bottom: 1rem;
+	height: $size;
+	width: $size;
+	display: grid;
+	place-content: center;
+	cursor: pointer;
+	z-index: 20;
+	background-color: var(--bgCol);
+	border: var(--borderWidth) solid var(--separatorCol);
+	border-radius: 50%;
+	box-shadow: 0px 1px 9px -4px var(--shadowCol);
+
+	.burgerIcon {
+		--color: var(--fontCol);
+		--size: 1.3rem;
+		--strokeWidthRatio: 0.1;
+		--roundness: 1;
+	}
+}

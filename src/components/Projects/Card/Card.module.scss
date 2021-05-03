@@ -1,0 +1,41 @@
+.card {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 1rem;
+	max-width: 45rem;
+	border: var(--borderWidth) solid var(--separatorCol);
+	border-radius: var(--borderRadius);
+	background: var(--bgCol);
+	color: var(--fontCol);
+	padding: 1em;
+	text-decoration: none;
+	box-shadow: 0px 1px 9px -4px rgba(0, 0, 0, 0.2);
+	transition: box-shadow 200ms ease;
+
+	&:hover {
+		box-shadow: 0px 3px 9px -2px rgba(0, 0, 0, 0.2);
+	}
+}
+
+.heading {
+	margin: 0;
+	font-size: var(--fontSize2);
+	text-transform: uppercase;
+}
+
+.img {
+	display: flex;
+	align-items: center;
+	width: 100%;
+	min-height: 8rem;
+	flex: 1;
+}
+
+.description {
+	margin: 0;
+}
+
+.body {
+	flex: 4;
+	flex-basis: 60%;
+}

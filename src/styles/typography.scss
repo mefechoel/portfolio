@@ -1,0 +1,130 @@
+@use './fluid.scss';
+
+$rootSize: 18px;
+
+@font-face {
+	font-family: "InterVar";
+	font-weight: 100 900;
+	font-style: oblique 0deg 10deg;
+	font-display: fallback;
+	src: url("/src/fonts/subset/inter-var_3-18.subset.woff2") format("woff2");
+}
+
+// Generate fallback fonts for browsers which do not support variable fonts
+$staticFonts: (
+	"Thin": 100,
+	"ExtraLight": 200,
+	"Light": 300,
+	"Regular": 400,
+	"Medium": 500,
+	"SemiBold": 600,
+	"Bold": 700,
+	"ExtraBold": 800,
+	"Black": 900,
+);
+
+@each $font, $weight in $staticFonts {
+	@font-face {
+		font-family: "Inter";
+		font-weight: $weight;
+		font-style: normal;
+		font-display: fallback;
+		src: url("/src/fonts/subset/Inter-#{$font}.subset.woff2") format("woff2");
+	}
+	@font-face {
+		font-family: "Inter";
+		font-weight: $weight;
+		font-style: oblique;
+		font-display: fallback;
+		src: url("/src/fonts/subset/Inter-#{$font}Italic.subset.woff2")
+			format("woff2");
+	}
+}
+
+:root {
+	font-size: $rootSize;
+}
+
+* {
+	font-family: "InterVar", "Inter", "Roboto", Arial, Helvetica, sans-serif;
+	font-feature-settings: "ss01" 1, "ss03" 1;
+	font-weight: 300;
+	font-style: normal;
+	font-kerning: auto;
+	font-synthesis: none;
+	text-decoration-skip-ink: auto;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	line-height: 1;
+	--letterSpacingAdjust: 0rem;
+	--wordSpacingAdjust: 0rem;
+	--letterSpacing: 0rem;
+	--wordSpacing: 0rem;
+	letter-spacing: calc(var(--letterSpacing) + var(--letterSpacingAdjust));
+	word-spacing: calc(var(--wordSpacing) + var(--wordSpacingAdjust));
+
+	// This works well for Arial, Helvetica and Roboto, which are common
+	// fallback fonts
+	--letterSpacingAdjust: 0.0306rem;
+}
+
+html[data-main-font-loaded] * {
+	--letterSpacingAdjust: 0rem;
+	--wordSpacingAdjust: 0rem;
+}
+
+body {
+	@include fluid.fontSize;
+}
+
+p,
+a {
+	line-height: 1.63;
+}
+
+:root {
+	@include fluid.fontSize(-1, $property: --fontSizeNeg1);
+	@include fluid.fontSize(0, $property: --fontSize0);
+	@include fluid.fontSize(1, $property: --fontSize1);
+	@include fluid.fontSize(2, $property: --fontSize2);
+	@include fluid.fontSize(3, $property: --fontSize3);
+	@include fluid.fontSize(4, $property: --fontSize4);
+}
+
+@mixin fallbackWeight($ideal, $fallback) {
+	font-weight: $fallback;
+	@supports (font-variation-settings: "wght" 250) {
+		font-weight: $ideal;
+	}
+}
+
+h6 {
+	font-size: var(--fontSizeNeg1);
+	@include fallbackWeight(250, 300);
+	font-style: oblique;
+}
+h5 {
+	font-size: var(--fontSize0);
+	@include fallbackWeight(250, 300);
+	font-style: oblique;
+}
+h4 {
+	font-size: var(--fontSize1);
+	@include fallbackWeight(250, 300);
+	font-style: oblique;
+}
+h3 {
+	font-size: var(--fontSize2);
+	@include fallbackWeight(250, 300);
+	font-style: oblique;
+}
+h2 {
+	font-size: var(--fontSize3);
+	@include fallbackWeight(250, 300);
+	font-style: oblique;
+}
+h1 {
+	font-size: var(--fontSize4);
+	@include fallbackWeight(250, 300);
+	font-style: oblique;
+}

@@ -1,0 +1,10 @@
+@function colorTransition($duration, $easing) {
+	@return color $duration $easing, background-color $duration $easing,
+		border-color $duration $easing;
+}
+
+$defaultTransition: colorTransition(300ms, ease-in-out);
+
+@mixin add($transition) {
+	transition: $defaultTransition, $transition;
+}

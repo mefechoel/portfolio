@@ -1,0 +1,98 @@
+$phoneWidth: 4.1rem;
+$phoneHeight: 7.5rem;
+
+.wrapper {
+	width: 100%;
+	display: flex;
+	justify-content: center;
+}
+
+.grid {
+	display: grid;
+	grid-template-columns: repeat(3, #{$phoneWidth});
+	grid-template-rows: repeat(1, 1fr);
+	justify-content: space-around;
+	gap: 0.5rem;
+	width: 100%;
+	max-width: 20rem;
+	height: 7.5rem;
+}
+
+.phone {
+	$phoneTopWidth: 0.6rem;
+	$phoneBottomWidth: 0.9rem;
+
+	position: relative;
+	overflow: hidden;
+	border: 0.3rem solid var(--fontCol);
+	border-top-width: $phoneTopWidth;
+	border-bottom-width: $phoneBottomWidth;
+	border-radius: 0.5rem;
+
+	&::before {
+		$speakerWidth: 0.6rem;
+		$speakerHeight: 0.1rem;
+
+		content: "";
+		position: absolute;
+		top: calc(-1 * (#{$phoneTopWidth} + #{$speakerHeight}) / 2);
+		left: calc(50% - (#{$speakerWidth} / 2));
+		display: block;
+		width: $speakerWidth;
+		height: $speakerHeight;
+		background: #999;
+		border-radius: 10rem;
+	}
+
+	&::after {
+		$homeButtonSize: 0.6rem;
+
+		content: "";
+		position: absolute;
+		bottom: calc(-1 * (#{$phoneBottomWidth} + #{$homeButtonSize}) / 2);
+		left: calc(50% - (#{$homeButtonSize} / 2));
+		display: block;
+		width: $homeButtonSize;
+		height: $homeButtonSize;
+		background: #222;
+		border-radius: 10rem;
+	}
+}
+
+@function gradient($startHue) {
+	@return linear-gradient(
+		90deg,
+		#{hsl }(#{($startHue + 0) % 360}, 90%, 60%) 5%,
+		#{hsl }(#{($startHue + 72) % 360}, 90%, 60%) 20%,
+		#{hsl }(#{($startHue + 144) % 360}, 90%, 60%) 40%,
+		#{hsl }(#{($startHue + 216) % 360}, 90%, 60%) 60%,
+		#{hsl }(#{($startHue + 288) % 360}, 90%, 60%) 80%,
+		#{hsl }(#{($startHue + 360) % 360}, 90%, 60%) 95%
+	);
+}
+
+.phoneBg {
+	// The maximum element width to be optimized for animating
+	// translation in firefox is 3277 for some reason...
+	$bgWidth: 3276px;
+	height: 100%;
+	width: $bgWidth;
+	background: gradient(0);
+	animation: move 10s linear infinite forwards;
+
+	.phone:nth-child(2) & {
+		background: gradient(30);
+	}
+	.phone:nth-child(3) & {
+		background: gradient(60);
+	}
+
+	@keyframes move {
+		0% {
+			transform: translateX(0);
+		}
+		100% {
+			transform: translateX(calc(-1 * (#{$bgWidth} - #{$phoneWidth})));
+		}
+	}
+}

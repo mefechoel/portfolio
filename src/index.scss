@@ -1,0 +1,28 @@
+@use './styles/reset.scss';
+@use './styles/theme.scss';
+@use './styles/typography.scss';
+@use './styles/transitions.scss';
+
+body {
+	color: var(--fontCol);
+	background-color: var(--bgCol);
+	min-height: 100vh;
+}
+
+* {
+	transition: transitions.$defaultTransition;
+}
+
+:focus {
+	outline: 2px dashed currentColor;
+	outline-offset: -2px;
+}
+
+:focus:not(:focus-visible) {
+	outline: none;
+}
+
+:focus-visible {
+	outline: 2px dashed currentColor;
+	outline-offset: -2px;
+}
