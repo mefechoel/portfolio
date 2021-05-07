@@ -1,10 +1,8 @@
 @use '../../styles/fluid.scss';
 @use '../../styles/transitions.scss';
 
-@mixin desktop {
-	@media screen and (min-width: 60em) {
-		@content;
-	}
+.checkbox {
+	display: none;
 }
 
 .nav {
@@ -24,6 +22,12 @@
 
 	$transition: transform 400ms ease-in-out, opacity 400ms ease-in-out;
 	@include transitions.add($transition);
+}
+
+.checkbox:checked ~ .nav {
+	transform: translateX(0);
+	opacity: 1;
+	pointer-events: auto;
 }
 
 .navList {
@@ -53,5 +57,37 @@
 
 	li:last-child .navLink & {
 		border-bottom: none;
+	}
+}
+
+.burgerButton {
+	$size: 3rem;
+	position: fixed;
+	left: calc(50% - #{$size / 2});
+	padding: 0;
+	margin: 0;
+	bottom: 1rem;
+	height: $size;
+	width: $size;
+	display: grid;
+	place-content: center;
+	cursor: pointer;
+	z-index: 30;
+	background-color: var(--bgCol);
+	border: var(--borderWidth) solid var(--separatorCol);
+	border-radius: 50%;
+	box-shadow: 0px 1px 9px -4px var(--shadowCol);
+
+	.burgerIcon {
+		--color: var(--fontCol);
+		--size: 1.3rem;
+		--strokeWidthRatio: 0.1;
+		--roundness: 1;
+	}
+}
+
+@media screen and (min-width: 60em) {
+	.mobileOnly {
+		display: none;
 	}
 }

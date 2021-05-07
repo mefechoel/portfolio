@@ -1,6 +1,14 @@
 import { hydrate } from "preact";
+import { lazy } from "preact/compat";
 import App from "./App";
-import "./index.scss";
+import { createRoutes } from "./routes";
+
+const projects = lazy(() => import("./routes/Projects"));
+const index = lazy(() => import("./routes/Home"));
+const impressum = lazy(() => import("./routes/Impressum"));
+const music = lazy(() => import("./routes/Music"));
+
+const routes = createRoutes({ projects, index, impressum, music });
 
 // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
-hydrate(<App />, document.getElementById("root")!);
+hydrate(<App routes={routes} />, document.getElementById("root")!);

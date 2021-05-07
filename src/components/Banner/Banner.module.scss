@@ -1,19 +1,19 @@
-@use './Banner.vars.scss';
 @use '../../styles/transitions.scss';
 
 .banner {
-	position: fixed;
+	position: -webkit-sticky;
+	position: sticky;
 	top: 0;
 	left: 0;
 	width: 100%;
 	background: var(--bgCol);
-	height: Banner.$bannerHeight;
+	height: var(--bannerHeight);
 	padding: 0 1rem;
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
 	color: var(--fontCol);
-	z-index: 100;
+	z-index: 20;
 	border-bottom: var(--borderWidth) solid var(--separatorCol);
 	pointer-events: auto;
 	opacity: 1;
@@ -30,10 +30,11 @@
 	font-style: oblique;
 	text-transform: uppercase;
 	margin: 0;
-	font-size: var(--fontSize2);
+	font-size: var(--bannerFontSize);
 }
 
 .backButton {
+	flex-shrink: 0;
 	color: inherit;
 	background: none;
 	border: none;

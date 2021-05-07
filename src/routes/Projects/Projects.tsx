@@ -1,5 +1,5 @@
-import Card from "./Card";
-import Pixelnetz from "./Imgs/Pixelnetz";
+import Card from "../../components/Card";
+import Pixelnetz from "../../components/Imgs/Pixelnetz";
 import style from "./Projects.module.scss";
 
 const Project = () => (

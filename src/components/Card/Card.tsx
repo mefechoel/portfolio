@@ -1,5 +1,5 @@
-import { ComponentChildren } from "preact";
-import { Link } from "../../Router";
+import type { ComponentChildren } from "preact";
+import { Link } from "../Router";
 import style from "./Card.module.scss";
 
 const CardHeading = ({ children }: { children: ComponentChildren }) => (

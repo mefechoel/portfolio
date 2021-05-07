@@ -40,6 +40,7 @@ const Home = () => (
 					className={style.portrait}
 					src={portrait}
 					alt="Michel Strelow standing in front of a brick wall"
+					loading="lazy"
 				/>
 			</picture>
 		</div>

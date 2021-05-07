@@ -20,6 +20,8 @@ $accentGradient: linear-gradient(160deg, $accent, $accentSecondary);
 
 	--borderRadius: 0;
 	--borderWidth: 0.15rem;
+	--bannerFontSize: var(--fontSize2);
+	--bannerHeight: calc(var(--fontSize2) * 1.7);
 }
 
 @media (prefers-color-scheme: light) {

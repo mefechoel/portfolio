@@ -1,4 +1,4 @@
-import { JSX } from "preact";
+import type { JSX } from "preact";
 import style from "./Header.module.scss";
 
 const Header = (): JSX.Element => (

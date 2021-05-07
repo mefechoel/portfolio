@@ -18,7 +18,7 @@ export interface IRouteMatch extends IRoute {
 
 export interface IRouterContext {
 	history: NavigatorHistory;
-	registerRoute: (route: IRoute) => void;
+	registerRoute: (route: IRoute) => boolean;
 	unregisterRoute: (id: string) => void;
 	routes: IRoute[];
 	location: NavigatorLocation;

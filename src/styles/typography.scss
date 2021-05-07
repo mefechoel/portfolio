@@ -1,44 +1,24 @@
 @use './fluid.scss';
 
+@mixin supportsVarFonts {
+	@supports (font-variation-settings: "wght" 250) {
+		@content;
+	}
+}
+@mixin doesNotSupportVarFonts {
+	@supports not (font-variation-settings: "wght" 250) {
+		@content;
+	}
+}
+
 $rootSize: 18px;
 
 @font-face {
 	font-family: "InterVar";
 	font-weight: 100 900;
 	font-style: oblique 0deg 10deg;
-	font-display: fallback;
+	font-display: swap;
 	src: url("/src/fonts/subset/inter-var_3-18.subset.woff2") format("woff2");
-}
-
-// Generate fallback fonts for browsers which do not support variable fonts
-$staticFonts: (
-	"Thin": 100,
-	"ExtraLight": 200,
-	"Light": 300,
-	"Regular": 400,
-	"Medium": 500,
-	"SemiBold": 600,
-	"Bold": 700,
-	"ExtraBold": 800,
-	"Black": 900,
-);
-
-@each $font, $weight in $staticFonts {
-	@font-face {
-		font-family: "Inter";
-		font-weight: $weight;
-		font-style: normal;
-		font-display: fallback;
-		src: url("/src/fonts/subset/Inter-#{$font}.subset.woff2") format("woff2");
-	}
-	@font-face {
-		font-family: "Inter";
-		font-weight: $weight;
-		font-style: oblique;
-		font-display: fallback;
-		src: url("/src/fonts/subset/Inter-#{$font}Italic.subset.woff2")
-			format("woff2");
-	}
 }
 
 :root {
@@ -46,7 +26,9 @@ $staticFonts: (
 }
 
 * {
-	font-family: "InterVar", "Inter", "Roboto", Arial, Helvetica, sans-serif;
+	// Fallback to Arial, etc. if var fonts are not supported
+	$fallbackFonts: "Roboto", Arial, Helvetica, sans-serif;
+	font-family: "InterVar", $fallbackFonts;
 	font-feature-settings: "ss01" 1, "ss03" 1;
 	font-weight: 300;
 	font-style: normal;
@@ -63,14 +45,11 @@ $staticFonts: (
 	letter-spacing: calc(var(--letterSpacing) + var(--letterSpacingAdjust));
 	word-spacing: calc(var(--wordSpacing) + var(--wordSpacingAdjust));
 
-	// This works well for Arial, Helvetica and Roboto, which are common
-	// fallback fonts
-	--letterSpacingAdjust: 0.0306rem;
-}
-
-html[data-main-font-loaded] * {
-	--letterSpacingAdjust: 0rem;
-	--wordSpacingAdjust: 0rem;
+	@include doesNotSupportVarFonts {
+		// This works well for Arial, Helvetica and Roboto, which are common
+		// fallback fonts
+		--letterSpacingAdjust: 0.0306rem;
+	}
 }
 
 body {
@@ -93,7 +72,7 @@ a {
 
 @mixin fallbackWeight($ideal, $fallback) {
 	font-weight: $fallback;
-	@supports (font-variation-settings: "wght" 250) {
+	@include supportsVarFonts {
 		font-weight: $ideal;
 	}
 }

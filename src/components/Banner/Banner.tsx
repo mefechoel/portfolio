@@ -1,17 +1,20 @@
+import { useContext, useMemo } from "preact/hooks";
+import AppContext from "../../AppContext";
 import cx from "../../cx";
 import { useHistory, useNavigate } from "../Router";
 import style from "./Banner.module.scss";
 
-const headings: { [key: string]: { heading: string; disabled?: boolean } } = {
-	"/": { heading: "Home", disabled: true },
-	"/projects": { heading: "Projects" },
-	"/impressum": { heading: "Impressum" },
-};
-
 const Banner = () => {
+	const { routeList } = useContext(AppContext);
 	const history = useHistory();
 	const { pathname } = history.location;
-	const hx = headings[pathname];
+	const { disabled, name } = useMemo(() => {
+		const currentRoute = routeList.find((route) => route.path === pathname);
+		return {
+			disabled: !!currentRoute?.headingDisabled === true,
+			name: currentRoute?.pageName || "",
+		};
+	}, [pathname, routeList]);
 
 	const navigate = useNavigate();
 	const handleClick = () => {
@@ -19,7 +22,7 @@ const Banner = () => {
 	};
 
 	return (
-		<div className={cx(style.banner, hx.disabled && style.hidden)}>
+		<div className={cx(style.banner, disabled && style.hidden)}>
 			<button
 				type="button"
 				onClick={handleClick}
@@ -34,7 +37,7 @@ const Banner = () => {
 					/>
 				</svg>
 			</button>
-			<h1 className={style.heading}>{hx.heading}</h1>
+			<h1 className={style.heading}>{name}</h1>
 		</div>
 	);
 };

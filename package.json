@@ -4,7 +4,11 @@
   "license": "MIT",
   "scripts": {
     "dev": "vite",
-    "build": "tsc && cross-env NODE_ENV=production vite build",
+    "build:spa": "tsc && cross-env NODE_ENV=production vite build",
+    "build:ssr": "tsc && cross-env BUILD_MODE=ssr NODE_ENV=production vite build --outDir=distSSR",
+    "build:packages": "npm run build:ssr && npm run build:spa",
+    "prerender": "node distSSR/ssr.cjs.js",
+    "build": "npm run build:packages && npm run prerender",
     "serve": "vite preview",
     "subset": "node subset.mjs",
     "font-comp": "node font"
@@ -17,6 +21,8 @@
   "devDependencies": {
     "@preact/preset-vite": "^2.1.0",
     "@rollup/plugin-replace": "^2.4.2",
+    "@rollup/plugin-strip": "^2.0.0",
+    "@rollup/plugin-url": "^6.0.0",
     "@types/node": "^14.14.37",
     "@typescript-eslint/eslint-plugin": "^4.22.0",
     "@typescript-eslint/parser": "^4.22.0",

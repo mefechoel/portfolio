@@ -1,7 +1,9 @@
-import { ComponentChildren, JSX } from "preact";
+import type { ComponentChildren, JSX } from "preact";
 import { useContext, useLayoutEffect, useState } from "preact/hooks";
 import RouterContext from "./RouterContext";
 import { createRouteId } from "./util";
+
+const isSSR = process.env.BUILD_MODE === "ssr";
 
 function Route({
 	children,
@@ -17,12 +19,17 @@ function Route({
 		RouterContext,
 	);
 
+	let matches = false;
+	if (isSSR) {
+		matches = registerRoute({ id, path, default: !!fallback });
+	}
+
 	useLayoutEffect(() => {
 		registerRoute({ id, path, default: !!fallback });
 		return () => unregisterRoute(id);
 	}, [fallback, id, path, registerRoute, unregisterRoute]);
 
-	return currentRoutes.some((route) => route.id === id)
+	return matches || currentRoutes.some((route) => route.id === id)
 		? (children as JSX.Element)
 		: null;
 }
