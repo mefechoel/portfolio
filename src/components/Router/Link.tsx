@@ -1,5 +1,6 @@
 import type { ComponentChildren } from "preact";
 import { useContext } from "preact/hooks";
+import cx from "../../cx";
 import RouterContext from "./RouterContext";
 
 const shouldNavigate = (event: MouseEvent): boolean =>
@@ -10,10 +11,14 @@ const shouldNavigate = (event: MouseEvent): boolean =>
 const Link = ({
 	children,
 	to,
+	className,
+	activeClassName,
 	...props
 }: {
 	children: ComponentChildren;
 	to: string;
+	className?: string;
+	activeClassName?: string;
 	[prop: string]: unknown;
 }) => {
 	const {
@@ -36,7 +41,13 @@ const Link = ({
 	}
 
 	return (
-		<a {...props} href={href} onClick={handleClick} {...ariaCurrent}>
+		<a
+			{...props}
+			className={cx(className, isCurrent && activeClassName)}
+			href={href}
+			onClick={handleClick}
+			{...ariaCurrent}
+		>
 			{children}
 		</a>
 	);

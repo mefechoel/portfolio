@@ -1,57 +1,74 @@
-@use '../../styles/fluid.scss';
 @use '../../styles/transitions.scss';
-
-@mixin desktop {
-	@media screen and (min-width: 60em) {
-		@content;
-	}
-}
-
-.nav {
-	position: fixed;
-	bottom: 0;
-	left: 0;
-	display: flex;
-	flex-direction: column;
-	justify-content: center;
-	width: 100%;
-	height: 100vh;
-	transform: translateY(3rem);
-	opacity: 0;
-	pointer-events: none;
-	background-color: var(--bgCol);
-	z-index: 10;
-
-	$transition: transform 400ms ease-in-out, opacity 400ms ease-in-out;
-	@include transitions.add($transition);
-}
+@use '../../styles/mq.scss';
 
 .navList {
 	list-style: none;
 	padding: 0;
 	margin: 0;
-	display: flex;
-	flex-direction: column;
+	text-align: center;
 }
 
 .navLink {
-	display: grid;
+	display: inline-grid;
 	place-content: center;
 	color: var(--fontCol);
 	text-decoration: none;
 	height: 4em;
-}
-
-.navLinkText {
-	display: inline-grid;
-	place-content: center;
-	height: 4em;
-	border-bottom: 1px solid var(--fontCol);
+	width: 10em;
 	padding: 0 2em;
 	text-transform: uppercase;
 	font-style: oblique;
-
-	li:last-child .navLink & {
+	border-bottom: 1px solid var(--fontCol);
+	li:last-child & {
 		border-bottom: none;
+	}
+
+	// Disable color transitions for links on mobile.
+	// They are barely noticable, as the menu disapears
+	// at the same time as the color changes.
+	// This way the transition is much smoother
+	transition: none;
+
+	@include mq.wideScreen {
+		height: var(--bannerHeight);
+
+		@include transitions.add(font-weight 300ms ease);
+
+		&,
+		li:last-child & {
+			border: none;
+		}
+	}
+}
+
+.activeLink {
+	color: var(--accentCol);
+	font-weight: bold;
+}
+
+@include mq.wideScreen {
+	.navLink {
+		position: relative;
+
+		&::after {
+			content: "";
+			position: absolute;
+			left: 0;
+			bottom: calc(-0.5 * var(--borderWidth));
+			width: 100%;
+			height: var(--borderWidth);
+			background: var(--accentCol);
+			opacity: 0;
+
+			@include transitions.add(opacity 300ms ease);
+		}
+
+		&:hover::after {
+			opacity: 0.5;
+		}
+
+		&.activeLink::after {
+			opacity: 1;
+		}
 	}
 }

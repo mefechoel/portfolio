@@ -22,11 +22,11 @@ const App = ({
 		<div data-app-wrapper="" className={style.app}>
 			<AppContext.Provider value={{ routes, routeList }}>
 				<Router url={url}>
+					<Banner />
 					<MobileNav />
 					<Route path="/">
 						<Header />
 					</Route>
-					<Banner />
 					<main className={style.main}>
 						{routeList.map((config) => {
 							const { component: Component, name, path, title } = config;

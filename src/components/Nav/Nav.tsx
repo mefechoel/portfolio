@@ -4,12 +4,21 @@ import { Link } from "../Router";
 import AppContext from "../../AppContext";
 import style from "./Nav.module.scss";
 import cx from "../../cx";
+import ColorThemeSwitch from "../ColorThemeSwitch";
 
 const Nav = ({
 	className,
+	listClassName,
+	linkClassName,
 	id,
 	hidden = false,
-}: { className?: string; id?: string; hidden?: boolean } = {}): JSX.Element => {
+}: {
+	className?: string;
+	listClassName?: string;
+	linkClassName?: string;
+	id?: string;
+	hidden?: boolean;
+} = {}): JSX.Element => {
 	const { routeList } = useContext(AppContext);
 	return (
 		<nav
@@ -18,15 +27,23 @@ const Nav = ({
 			aria-label="Main navigation"
 			aria-hidden={hidden}
 		>
-			<ul className={style.navList}>
+			<ul className={cx(style.navList, listClassName)}>
 				{routeList.map((route) => (
 					<li key={route.name} className={style.listItem}>
-						<Link className={style.navLink} to={route.path}>
-							<span className={style.navLinkText}>{route.pageName}</span>
+						<Link
+							className={cx(style.navLink, linkClassName)}
+							activeClassName={style.activeLink}
+							to={route.path}
+							tabIndex={hidden ? -1 : 0}
+						>
+							{route.pageName}
+							{/* <span className={style.navLinkText}>
+								</span> */}
 						</Link>
 					</li>
 				))}
 			</ul>
+			<ColorThemeSwitch />
 		</nav>
 	);
 };

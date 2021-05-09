@@ -1,9 +1,19 @@
+@use '../../styles/mq.scss';
+@use '../../components/Card/Card.vars.scss';
+
 .description {
 	margin: var(--bannerHeight) 0 1em 0;
 }
 
 .cards {
-	display: flex;
-	flex-wrap: wrap;
-	gap: 1em;
+	display: grid;
+	grid-template-columns: repeat(auto-fill, minmax(#{Card.$minWidth}, 1fr));
+	@include mq.smallScreen {
+		grid-template-columns: repeat(
+			auto-fill,
+			minmax(#{Card.$desktopMinWidth}, 1fr)
+		);
+	}
+	grid-auto-rows: auto;
+	gap: var(--sideSpacing);
 }

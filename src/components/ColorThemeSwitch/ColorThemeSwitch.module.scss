@@ -1,0 +1,26 @@
+.checkbox {
+	display: none;
+}
+
+.button {
+	cursor: pointer;
+	display: inline-block;
+	width: 2rem;
+	height: 2rem;
+}
+
+.icon {
+	stroke: var(--fontCol);
+	width: 2rem;
+	height: 2rem;
+}
+
+.hiddenLabel {
+	clip: rect(0 0 0 0);
+	clip-path: inset(50%);
+	height: 1px;
+	overflow: hidden;
+	position: absolute;
+	white-space: nowrap;
+	width: 1px;
+}

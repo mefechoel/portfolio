@@ -1,14 +1,12 @@
 import type { JSX } from "preact";
-import { useContext, useEffect, useRef, useState } from "preact/hooks";
+import { useEffect, useRef, useState } from "preact/hooks";
 import BurgerIcon from "./BurgerIcon";
-import { Link } from "../Router";
 import { useHistory } from "../Router";
-import AppContext from "../../AppContext";
-import style from "./MobileNav.module.scss";
 import cx from "../../cx";
+import Nav from "./Nav";
+import style from "./MobileNav.module.scss";
 
 const MobileNav = (): JSX.Element => {
-	const { routeList } = useContext(AppContext);
 	const [isOpen, setIsOpen] = useState(false);
 	const handleChange = () => setIsOpen((prevIsOpen) => !prevIsOpen);
 
@@ -43,7 +41,7 @@ const MobileNav = (): JSX.Element => {
 	}, [history]);
 
 	return (
-		<div onKeyDown={handleWrapperKeyDown}>
+		<div className={style.mobileOnly} onKeyDown={handleWrapperKeyDown}>
 			<input
 				className={cx(style.checkbox, style.mobileOnly)}
 				checked={isOpen}
@@ -64,22 +62,12 @@ const MobileNav = (): JSX.Element => {
 			>
 				<BurgerIcon isOpen={isOpen} className={style.burgerIcon} />
 			</label>
-			<nav
+			<Nav
 				id="burger-nav"
 				className={style.nav}
-				aria-label="Main navigation"
-				aria-hidden={isOpen ? "false" : "true"}
-			>
-				<ul className={style.navList}>
-					{routeList.map((route) => (
-						<li key={route.name} className={style.listItem}>
-							<Link className={style.navLink} to={route.path}>
-								<span className={style.navLinkText}>{route.pageName}</span>
-							</Link>
-						</li>
-					))}
-				</ul>
-			</nav>
+				listClassName={style.navList}
+				hidden={!isOpen}
+			/>
 		</div>
 	);
 };

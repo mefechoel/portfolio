@@ -9,20 +9,28 @@ body {
 	min-height: 100vh;
 }
 
-* {
+*,
+*::before,
+*::after {
 	transition: transitions.$defaultTransition;
 }
 
-:focus {
-	outline: 2px dashed currentColor;
-	outline-offset: -2px;
+@mixin focusStyles {
+	outline: 0.2rem solid var(--accentCol);
+	outline-offset: -0.2rem;
 }
-
-:focus:not(:focus-visible) {
+@mixin focusReset {
 	outline: none;
 }
 
+:focus {
+	@include focusStyles;
+}
+
+:focus:not(:focus-visible) {
+	@include focusReset;
+}
+
 :focus-visible {
-	outline: 2px dashed currentColor;
-	outline-offset: -2px;
+	@include focusStyles;
 }

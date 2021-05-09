@@ -29,19 +29,19 @@ export const routeDescriptions: {
 		title: "Projects - Portfolio Michel Strelow",
 		pageName: "Projects",
 	},
-	impressum: {
-		path: "/impressum",
-		name: "impressum",
-		filePath: "routes/Impressum/index.ts",
-		title: "Impressum - Portfolio Michel Strelow",
-		pageName: "Impressum",
-	},
 	music: {
 		path: "/music",
 		name: "music",
 		filePath: "routes/Music/index.ts",
 		title: "Music - Portfolio Michel Strelow",
 		pageName: "Music",
+	},
+	impressum: {
+		path: "/impressum",
+		name: "impressum",
+		filePath: "routes/Impressum/index.ts",
+		title: "Impressum - Portfolio Michel Strelow",
+		pageName: "Impressum",
 	},
 };
 

@@ -1,13 +1,13 @@
+@use './Card.vars.scss';
+
 .card {
-	display: flex;
-	flex-wrap: wrap;
-	gap: 1rem;
-	max-width: 45rem;
+	max-width: Card.$maxWidth;
+	// min-width: Card.$minWidth;
 	border: var(--borderWidth) solid var(--separatorCol);
 	border-radius: var(--borderRadius);
 	background: var(--bgCol);
 	color: var(--fontCol);
-	padding: 1em;
+	padding: var(--sideSpacing);
 	text-decoration: none;
 	box-shadow: 0px 1px 9px -4px rgba(0, 0, 0, 0.2);
 	transition: box-shadow 200ms ease;
@@ -18,17 +18,19 @@
 }
 
 .heading {
-	margin: 0;
+	margin: 0 0 0.2em 0;
 	font-size: var(--fontSize2);
 	text-transform: uppercase;
+	line-height: 1.15;
 }
 
 .img {
+	margin-bottom: calc(1.3 * var(--sideSpacing));
 	display: flex;
 	align-items: center;
 	width: 100%;
-	min-height: 8rem;
-	flex: 1;
+	min-width: 8rem;
+	height: 8rem;
 }
 
 .description {
@@ -36,6 +38,5 @@
 }
 
 .body {
-	flex: 4;
-	flex-basis: 60%;
+	margin: 0;
 }

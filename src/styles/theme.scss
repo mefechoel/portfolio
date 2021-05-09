@@ -22,6 +22,11 @@ $accentGradient: linear-gradient(160deg, $accent, $accentSecondary);
 	--borderWidth: 0.15rem;
 	--bannerFontSize: var(--fontSize2);
 	--bannerHeight: calc(var(--fontSize2) * 1.7);
+	--lineHeight: 1.63;
+	--sideSpacing: 1rem;
+	@media screen and (max-width: 20em) {
+		--sideSpacing: 0.5rem;
+	}
 }
 
 @media (prefers-color-scheme: light) {

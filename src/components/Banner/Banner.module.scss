@@ -1,14 +1,14 @@
 @use '../../styles/transitions.scss';
+@use '../../styles/mq.scss';
 
 .banner {
-	position: -webkit-sticky;
-	position: sticky;
+	position: fixed;
 	top: 0;
 	left: 0;
 	width: 100%;
 	background: var(--bgCol);
 	height: var(--bannerHeight);
-	padding: 0 1rem;
+	padding: 0 var(--sideSpacing);
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
@@ -26,11 +26,31 @@
 	pointer-events: none;
 }
 
+.headingWrapper {
+	display: flex;
+	flex-direction: column;
+	height: var(--bannerHeight);
+}
+
 .heading {
+	display: grid;
+	align-content: center;
+	height: var(--bannerHeight);
+	margin: 0;
+	flex-shrink: 0;
 	font-style: oblique;
 	text-transform: uppercase;
-	margin: 0;
 	font-size: var(--bannerFontSize);
+	pointer-events: none;
+	opacity: 0;
+	transform: translateY(calc(-1 * var(--i) * var(--bannerHeight)));
+
+	@include transitions.add(opacity 400ms ease-in-out);
+}
+
+.activeHeading {
+	pointer-events: auto;
+	opacity: 1;
 }
 
 .backButton {
@@ -48,4 +68,16 @@
 .backIcon {
 	width: 1em;
 	height: 1em;
+}
+
+.bannerNav {
+	display: none;
+	@include mq.wideScreen {
+		display: block;
+	}
+}
+
+.navList {
+	display: flex;
+	flex-direction: row;
 }

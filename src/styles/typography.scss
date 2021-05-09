@@ -58,7 +58,7 @@ body {
 
 p,
 a {
-	line-height: 1.63;
+	line-height: var(--lineHeight);
 }
 
 :root {
