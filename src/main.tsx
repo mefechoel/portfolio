@@ -5,10 +5,11 @@ import { createRoutes } from "./routes";
 
 const projects = lazy(() => import("./routes/Projects"));
 const index = lazy(() => import("./routes/Home"));
-const impressum = lazy(() => import("./routes/Impressum"));
 const music = lazy(() => import("./routes/Music"));
+const impressum = lazy(() => import("./routes/Impressum"));
+const datenschutz = lazy(() => import("./routes/Datenschutz"));
 
-const routes = createRoutes({ projects, index, impressum, music });
+const routes = createRoutes({ projects, index, impressum, music, datenschutz });
 
 // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
 hydrate(<App routes={routes} />, document.getElementById("root")!);

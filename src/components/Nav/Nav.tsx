@@ -1,23 +1,26 @@
-import type { JSX } from "preact";
+import type { JSX, ComponentChild } from "preact";
 import { useContext } from "preact/hooks";
 import { Link } from "../Router";
 import AppContext from "../../AppContext";
-import style from "./Nav.module.scss";
 import cx from "../../cx";
-import ColorThemeSwitch from "../ColorThemeSwitch";
+import style from "./Nav.module.scss";
 
 const Nav = ({
 	className,
 	listClassName,
 	linkClassName,
 	id,
+	children = null,
 	hidden = false,
+	footer = false,
 }: {
 	className?: string;
 	listClassName?: string;
 	linkClassName?: string;
 	id?: string;
+	children?: ComponentChild;
 	hidden?: boolean;
+	footer?: boolean;
 } = {}): JSX.Element => {
 	const { routeList } = useContext(AppContext);
 	return (
@@ -28,22 +31,22 @@ const Nav = ({
 			aria-hidden={hidden}
 		>
 			<ul className={cx(style.navList, listClassName)}>
-				{routeList.map((route) => (
-					<li key={route.name} className={style.listItem}>
-						<Link
-							className={cx(style.navLink, linkClassName)}
-							activeClassName={style.activeLink}
-							to={route.path}
-							tabIndex={hidden ? -1 : 0}
-						>
-							{route.pageName}
-							{/* <span className={style.navLinkText}>
-								</span> */}
-						</Link>
-					</li>
-				))}
+				{routeList
+					.filter((route) => footer || !route.footerOnly)
+					.map((route) => (
+						<li key={route.name} className={style.listItem}>
+							<Link
+								className={cx(style.navLink, linkClassName)}
+								activeClassName={style.activeLink}
+								to={route.path}
+								tabIndex={hidden ? -1 : 0}
+							>
+								{route.pageName}
+							</Link>
+						</li>
+					))}
 			</ul>
-			<ColorThemeSwitch />
+			{children}
 		</nav>
 	);
 };

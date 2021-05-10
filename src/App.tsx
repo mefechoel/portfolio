@@ -7,8 +7,9 @@ import { Route, Router } from "./components/Router";
 import Banner from "./components/Banner";
 import type { RouteConfigs } from "./routes";
 import AppContext from "./AppContext";
-import style from "./App.module.scss";
 import DocumentTitle from "./components/DocumentTitle";
+import Footer from "./components/Footer";
+import style from "./App.module.scss";
 
 const App = ({
 	routes,
@@ -48,7 +49,7 @@ const App = ({
 						<Projects />
 					</Route> */}
 					</main>
-					<footer className={style.footer}>Bye!</footer>
+					<Footer />
 				</Router>
 			</AppContext.Provider>
 		</div>

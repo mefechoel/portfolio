@@ -1,6 +1,8 @@
 import Card from "../../components/Card";
 import HPStrelow from "../../components/Imgs/HPStrelow";
+import KochChef from "../../components/Imgs/KochChef";
 import Pixelnetz from "../../components/Imgs/Pixelnetz";
+import Remote from "../../components/Imgs/Remote";
 import SvelteNavigator from "../../components/Imgs/SvelteNavigator";
 import style from "./Projects.module.scss";
 
@@ -26,15 +28,17 @@ const Project = () => (
 				</Card.Body>
 			</Card>
 			<Card route="/kochchef">
-				<Card.Img label="Mobile phones layed out in a grid blinking in various colors">
-					<Pixelnetz />
+				<Card.Img label="Noodle dish in a bowl">
+					<KochChef />
 				</Card.Img>
 				<Card.Body>
-					<Card.Heading>KochChef</Card.Heading>
+					<Card.Heading>Koch&shy;Chef</Card.Heading>
 					<Card.Description>
-						With Pixelnetz (en: pixel grid) the attendees of an event become
-						part of the show. Each visitor can participate in the light show, by
-						connecting their phone to the pixel grid.
+						<q>KochChef</q> is recipe app, that was developed as part of my
+						bachelor thesis. It consists of a backend, responsible for providing
+						the recipe data, and three frontend apps. Each frontend is
+						implemented using a different JavaScript framework, to showcase each
+						frameworks advantages and disadvantages.
 					</Card.Description>
 				</Card.Body>
 			</Card>
@@ -43,7 +47,7 @@ const Project = () => (
 					<Pixelnetz />
 				</Card.Img>
 				<Card.Body>
-					<Card.Heading>Pixelnetz</Card.Heading>
+					<Card.Heading>Pixel&shy;netz</Card.Heading>
 					<Card.Description>
 						With Pixelnetz (en: pixel grid) the attendees of an event become
 						part of the show. Each visitor can participate in the light show, by
@@ -60,6 +64,21 @@ const Project = () => (
 					<Card.Description>
 						hp-strelow.de is the business page for the naturopathic practice of
 						Kristiane Strelow.
+					</Card.Description>
+				</Card.Body>
+			</Card>
+			<Card route="/remote">
+				<Card.Img label="Remote control buttons">
+					<Remote />
+				</Card.Img>
+				<Card.Body>
+					<Card.Heading>Remote Control</Card.Heading>
+					<Card.Description>
+						<q>Remote Control</q> is a simple app you can install on your
+						computer. It allows you to control media playback via a simple web
+						app, that connects to your device. This way you can play or pause
+						videos, alter their loudness or select a new film on a streaming
+						platform.
 					</Card.Description>
 				</Card.Body>
 			</Card>

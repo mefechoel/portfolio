@@ -13,7 +13,7 @@ import style from "./Home.module.scss";
 
 const Home = () => (
 	<>
-		<h2>Lorem Ipsum</h2>
+		<h2>Welcome!</h2>
 		<div className={style.portraitWrapper}>
 			<picture>
 				{/* <source
@@ -45,30 +45,36 @@ const Home = () => (
 			</picture>
 		</div>
 		<p className={style.lorem}>
-			XC X* Ve ve fi re ra ri 0123456789
+			Hello! My name is Michel Strelow and you&apos;ve found my portfolio
+			website. I am interested in the web, programming, music, typography and
+			photography. In the beginning of 2021, I completed my bachelors degree in{" "}
+			<a
+				href="https://www.th-nuernberg.de/en/faculties/efi/study/media-engineering-beng/"
+				target="_blank"
+				rel="noopener noreferrer"
+			>
+				Media Engineering
+			</a>{" "}
+			at{" "}
+			<a
+				href="https://www.th-nuernberg.de/en/"
+				target="_blank"
+				rel="noopener noreferrer"
+			>
+				<q>Technische Hochschule Nürnberg</q>
+			</a>
+			. Parallel to my studies, I am employed as a working student at{" "}
+			<a
+				href="https://www.init.de/en"
+				target="_blank"
+				rel="noopener noreferrer"
+			>
+				]Init[
+			</a>
+			, where work as a frontend web developer.
 			<br />
-			Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab, consequuntur
-			id. Incidunt, veritatis neque unde enim dolorum fuga excepturi aut dolore
-			dolor nesciunt ad dolorem possimus ex similique. Libero possimus rem harum
-			ullam nesciunt iure minus corporis quisquam itaque autem ex officia
-			eveniet sunt assumenda doloribus, facilis blanditiis nulla excepturi
-			temporibus repellat dignissimos reiciendis magnam. Dolores animi ex
-			accusantium nisi. Illum reprehenderit expedita, earum laudantium
-			repellendus quaerat veritatis, eius ea deserunt excepturi id non, vero
-			totam saepe? Necessitatibus eveniet, qui illum laudantium tenetur,
-			quibusdam esse, eius laboriosam fugit perspiciatis enim autem animi
-			reprehenderit corrupti ullam ut dignissimos! Natus sed molestias eligendi
-			qui quasi autem delectus, tempora doloremque ad vitae laudantium?
-			Exercitationem, blanditiis quod minima, quos eum dolores quas ipsam amet
-			repellat perferendis quibusdam corporis odio et dolorem doloribus alias?
-			Magni commodi modi est facilis aspernatur veritatis maiores possimus, eius
-			alias ea aliquid nam sit culpa dolor perspiciatis nihil cumque aperiam
-			sequi magnam facere placeat optio. Eligendi, error quasi labore officiis
-			illum, perspiciatis illo, accusamus quidem exercitationem nulla quis nam a
-			dolores velit nostrum porro facilis sequi repudiandae magni aliquam at aut
-			fuga distinctio? Incidunt corrupti eius, eligendi repellat ut aut!
-			Dolores, minus nisi voluptatem rerum inventore facilis ea asperiores
-			aperiam!
+			For this website, I have selected a few of my private and academic
+			projects.
 		</p>
 	</>
 );

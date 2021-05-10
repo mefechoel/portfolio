@@ -4,6 +4,7 @@ import BurgerIcon from "./BurgerIcon";
 import { useHistory } from "../Router";
 import cx from "../../cx";
 import Nav from "./Nav";
+import ColorThemeSwitch from "../ColorThemeSwitch";
 import style from "./MobileNav.module.scss";
 
 const MobileNav = (): JSX.Element => {
@@ -41,13 +42,17 @@ const MobileNav = (): JSX.Element => {
 	}, [history]);
 
 	return (
-		<div className={style.mobileOnly} onKeyDown={handleWrapperKeyDown}>
+		<div
+			className={cx(style.mobileOnly, style.wrapper)}
+			onKeyDown={handleWrapperKeyDown}
+		>
 			<input
 				className={cx(style.checkbox, style.mobileOnly)}
 				checked={isOpen}
 				onChange={handleChange}
 				type="checkbox"
 				id="burger-nav-toggle"
+				tabIndex={-1}
 			/>
 			<label
 				id="burger-nav-label"
@@ -67,7 +72,9 @@ const MobileNav = (): JSX.Element => {
 				className={style.nav}
 				listClassName={style.navList}
 				hidden={!isOpen}
-			/>
+			>
+				<ColorThemeSwitch />
+			</Nav>
 		</div>
 	);
 };

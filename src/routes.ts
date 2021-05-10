@@ -1,6 +1,11 @@
 import type { JSX } from "preact";
 
-export type RouteNames = "index" | "projects" | "impressum" | "music";
+export type RouteNames =
+	| "index"
+	| "projects"
+	| "impressum"
+	| "music"
+	| "datenschutz";
 
 export interface RouteDescription {
 	path: string;
@@ -9,6 +14,7 @@ export interface RouteDescription {
 	title: string;
 	headingDisabled?: boolean;
 	pageName: string;
+	footerOnly?: boolean;
 }
 
 export const routeDescriptions: {
@@ -42,6 +48,15 @@ export const routeDescriptions: {
 		filePath: "routes/Impressum/index.ts",
 		title: "Impressum - Portfolio Michel Strelow",
 		pageName: "Impressum",
+		footerOnly: true,
+	},
+	datenschutz: {
+		path: "/datenschutz",
+		name: "datenschutz",
+		filePath: "routes/Datenschutz/index.ts",
+		title: "Datenschutz - Portfolio Michel Strelow",
+		pageName: "Datenschutz",
+		footerOnly: true,
 	},
 };
 

@@ -1,6 +1,7 @@
 import { useContext, useMemo } from "preact/hooks";
 import AppContext from "../../AppContext";
 import cx from "../../cx";
+import ColorThemeSwitch from "../ColorThemeSwitch";
 import { Nav } from "../Nav";
 import { useHistory } from "../Router";
 import style from "./Banner.module.scss";
@@ -38,7 +39,9 @@ const Banner = () => {
 				className={style.bannerNav}
 				listClassName={style.navList}
 				linkClassName={style.navLink}
-			/>
+			>
+				<ColorThemeSwitch />
+			</Nav>
 		</div>
 	);
 };

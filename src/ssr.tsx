@@ -4,11 +4,12 @@ import prepass from "preact-ssr-prepass";
 import App from "./App";
 import projects from "./routes/Projects";
 import index from "./routes/Home";
-import impressum from "./routes/Impressum";
 import music from "./routes/Music";
+import impressum from "./routes/Impressum";
+import datenschutz from "./routes/Datenschutz";
 import { createRoutes } from "./routes";
 
-const routes = createRoutes({ projects, index, impressum, music });
+const routes = createRoutes({ projects, index, impressum, music, datenschutz });
 
 async function main() {
 	const distDir = "./dist";

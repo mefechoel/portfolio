@@ -1,0 +1,31 @@
+@use '../../styles/fluid.scss';
+@use '../../styles/mq.scss';
+
+.footer {
+	background: var(--bgCol);
+	width: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	padding: calc(4 * var(--innerSpacing)) var(--sideSpacing);
+	color: var(--fontCol);
+	border-top: var(--borderWidth) solid var(--separatorCol);
+
+	@include mq.wideScreen {
+		justify-content: flex-end;
+	}
+}
+
+.navLink {
+	height: 3em;
+	border: none;
+
+	&::after {
+		display: none;
+	}
+
+	@include mq.wideScreen {
+		justify-content: end;
+		padding: 0;
+	}
+}

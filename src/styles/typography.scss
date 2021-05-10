@@ -61,6 +61,21 @@ a {
 	line-height: var(--lineHeight);
 }
 
+a {
+	text-decoration: none;
+
+	&,
+	&:visited {
+		color: var(--linkCol);
+	}
+
+	&:active,
+	&:hover,
+	&:focus-visible {
+		color: var(--activeLinkCol);
+	}
+}
+
 :root {
 	@include fluid.fontSize(-1, $property: --fontSizeNeg1);
 	@include fluid.fontSize(0, $property: --fontSize0);

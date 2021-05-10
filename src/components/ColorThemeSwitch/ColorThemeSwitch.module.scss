@@ -1,5 +1,8 @@
+@use '../../styles/a11y.scss';
+@use '../../styles/mq.scss';
+
 .checkbox {
-	display: none;
+	@include a11y.visuallyHidden;
 }
 
 .button {
@@ -7,20 +10,36 @@
 	display: inline-block;
 	width: 2rem;
 	height: 2rem;
+	margin-top: 1rem;
+
+	@include mq.wideScreen {
+		width: 3rem;
+		height: 3rem;
+		padding: 0.5rem;
+		margin: 0 0 0 2rem;
+	}
 }
 
 .icon {
 	stroke: var(--fontCol);
 	width: 2rem;
 	height: 2rem;
+	transition: stroke 300ms ease-in-out;
+
+	@include mq.wideScreen {
+		// Only animate stroke width on large screens
+		transition: stroke 300ms ease-in-out, stroke-width 300ms ease-in-out;
+	}
+}
+
+.button:hover .icon,
+.button:focus-visible .icon {
+	@include mq.wideScreen {
+		stroke: var(--accentCol);
+		stroke-width: 0.1em;
+	}
 }
 
 .hiddenLabel {
-	clip: rect(0 0 0 0);
-	clip-path: inset(50%);
-	height: 1px;
-	overflow: hidden;
-	position: absolute;
-	white-space: nowrap;
-	width: 1px;
+	@include a11y.visuallyHidden;
 }

@@ -36,6 +36,9 @@
 
 .outlines {
 	@supports (-webkit-text-stroke-width: 1px) {
+		// Override global color transition. The `color` property
+		// is irrelevant for outlined text
+		transition: -webkit-text-stroke-color 300ms ease-in-out;
 		color: transparent;
 		-webkit-text-stroke-width: 0.025em;
 		-webkit-text-stroke-color: var(--fontCol);

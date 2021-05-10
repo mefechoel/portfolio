@@ -11,7 +11,6 @@
 .navLink {
 	display: inline-grid;
 	place-content: center;
-	color: var(--fontCol);
 	text-decoration: none;
 	height: 4em;
 	width: 10em;
@@ -21,6 +20,13 @@
 	border-bottom: 1px solid var(--fontCol);
 	li:last-child & {
 		border-bottom: none;
+	}
+
+	&,
+	&:active,
+	&:visited,
+	&:hover {
+		color: var(--fontCol);
 	}
 
 	// Disable color transitions for links on mobile.
@@ -42,7 +48,12 @@
 }
 
 .activeLink {
-	color: var(--accentCol);
+	&,
+	&:active,
+	&:visited,
+	&:hover {
+		color: var(--accentCol);
+	}
 	font-weight: bold;
 }
 
@@ -63,8 +74,14 @@
 			@include transitions.add(opacity 300ms ease);
 		}
 
-		&:hover::after {
+		&:hover::after,
+		&:focus-visible::after {
 			opacity: 0.5;
+		}
+
+		&:hover,
+		&:focus-visible {
+			color: var(--accentCol);
 		}
 
 		&.activeLink::after {

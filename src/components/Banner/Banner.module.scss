@@ -73,7 +73,8 @@
 .bannerNav {
 	display: none;
 	@include mq.wideScreen {
-		display: block;
+		display: flex;
+		align-items: center;
 	}
 }
 

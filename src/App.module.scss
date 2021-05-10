@@ -1,20 +1,6 @@
 @use './styles/fluid.scss';
 
 .main {
-	padding: var(--sideSpacing);
-}
-
-.footer {
-	background-color: var(--bgCol);
-	width: 100%;
-	height: 20rem;
-	display: grid;
-	place-content: center;
-	color: var(--fontCol);
-	font-weight: bold;
-	font-style: italic;
-	text-transform: uppercase;
-	border-top: var(--borderWidth) solid var(--separatorCol);
-
-	@include fluid.fontSize(4);
+	padding: var(--innerSpacing) var(--sideSpacing);
+	margin-top: var(--bannerHeight);
 }
