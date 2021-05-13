@@ -2,7 +2,7 @@ import BAThesisImg from "../../components/Imgs/BAThesis";
 import style from "./BAThesis.module.scss";
 
 const BAThesis = () => (
-	<>
+	<div className={style.wrapper}>
 		<div className={style.img}>
 			<BAThesisImg standalone />
 		</div>
@@ -76,7 +76,7 @@ const BAThesis = () => (
 				zeigen.
 			</p>
 		</details>
-	</>
+	</div>
 );
 
 export default BAThesis;
