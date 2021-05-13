@@ -7,8 +7,9 @@
     "build:spa": "tsc && cross-env NODE_ENV=production vite build",
     "build:ssr": "tsc && cross-env BUILD_MODE=ssr NODE_ENV=production vite build --outDir=distSSR",
     "build:packages": "npm run build:ssr && npm run build:spa",
+    "prerender:es": "node distSSR/ssr.es.js",
     "prerender": "node distSSR/ssr.cjs.js",
-    "build": "npm run build:packages && npm run prerender",
+    "build": "npm run build:packages && npm run prerender && node scripts/comp.js && node scripts/copyLicenses.js",
     "serve": "vite preview",
     "subset": "node subset.mjs",
     "font-comp": "node font"
@@ -27,6 +28,7 @@
     "@types/node": "^14.14.37",
     "@typescript-eslint/eslint-plugin": "^4.22.0",
     "@typescript-eslint/parser": "^4.22.0",
+    "autoprefixer": "^10.2.5",
     "cross-env": "^7.0.3",
     "eslint": "^7.25.0",
     "eslint-config-prettier": "^8.3.0",
@@ -40,7 +42,7 @@
     "sass": "^1.32.12",
     "ts-node": "^9.1.1",
     "typescript": "^4.2.4",
-    "vite": "^2.2.4",
+    "vite": "^2.3.2",
     "wasm-brotli": "^2.0.2",
     "wasm-zopfli": "^1.0.2"
   }

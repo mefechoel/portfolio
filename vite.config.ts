@@ -1,6 +1,7 @@
 import { defineConfig } from "vite";
 import preact from "@preact/preset-vite";
 import url from "@rollup/plugin-url";
+import autoprefixer from "autoprefixer";
 
 const production = process.env.NODE_ENV === "production";
 const env = process.env.NODE_ENV || "development";
@@ -19,7 +20,6 @@ export default defineConfig({
 					"**/*.gif",
 					"**/*.webp",
 					"**/*.avif",
-					"**/*.woff(2)?",
 				],
 				limit: 0,
 				publicPath: "/",
@@ -37,6 +37,9 @@ export default defineConfig({
 				? "s[hash:base64:5]"
 				: "[name]__[local]__[hash:base64:5]",
 		},
+		postcss: {
+			plugins: [autoprefixer()],
+		},
 	},
 	build: {
 		...(ssr
@@ -48,11 +51,12 @@ export default defineConfig({
 						fileName: "ssr",
 					},
 					rollupOptions: {
-						external: ["fs/promises"],
+						external: ["fs/promises", "path"],
 					},
 					minify: false,
 			  }
 			: {}),
+		target: "modules",
 		manifest: true,
 		assetsInlineLimit: 0,
 	},

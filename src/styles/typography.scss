@@ -57,8 +57,14 @@ body {
 }
 
 p,
-a {
+a,
+summary {
 	line-height: var(--lineHeight);
+}
+
+p {
+	column-width: 45ch;
+	column-gap: 2em;
 }
 
 a {
@@ -92,33 +98,33 @@ a {
 	}
 }
 
+h1,
+h2,
+h3,
+h4,
+h5,
 h6 {
-	font-size: var(--fontSizeNeg1);
 	@include fallbackWeight(250, 300);
 	font-style: oblique;
-}
-h5 {
-	font-size: var(--fontSize0);
-	@include fallbackWeight(250, 300);
-	font-style: oblique;
-}
-h4 {
-	font-size: var(--fontSize1);
-	@include fallbackWeight(250, 300);
-	font-style: oblique;
-}
-h3 {
-	font-size: var(--fontSize2);
-	@include fallbackWeight(250, 300);
-	font-style: oblique;
-}
-h2 {
-	font-size: var(--fontSize3);
-	@include fallbackWeight(250, 300);
-	font-style: oblique;
+	margin: 0;
+	padding: 0.5em 0;
+	text-transform: uppercase;
 }
 h1 {
 	font-size: var(--fontSize4);
-	@include fallbackWeight(250, 300);
-	font-style: oblique;
+}
+h2 {
+	font-size: var(--fontSize3);
+}
+h3 {
+	font-size: var(--fontSize2);
+}
+h4 {
+	font-size: var(--fontSize1);
+}
+h5 {
+	font-size: var(--fontSize0);
+}
+h6 {
+	font-size: var(--fontSizeNeg1);
 }

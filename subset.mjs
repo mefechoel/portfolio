@@ -72,9 +72,11 @@ async function main() {
 		const outFile = path.join(outDir, woff2Name);
 		await rename(ttfFile, outFile);
 
+		// eslint-disable-next-line no-console
 		console.log(`Subsetting file ${++i} of ${files.length} complete`);
 	});
 
+	// eslint-disable-next-line no-console
 	promises.then(() => console.log("Done!")).catch((err) => console.error(err));
 }
 

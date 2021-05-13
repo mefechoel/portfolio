@@ -32,6 +32,7 @@ const Nav = ({
 		>
 			<ul className={cx(style.navList, listClassName)}>
 				{routeList
+					.filter((route) => route.mainPage !== false)
 					.filter((route) => footer || !route.footerOnly)
 					.map((route) => (
 						<li key={route.name} className={style.listItem}>

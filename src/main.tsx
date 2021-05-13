@@ -8,8 +8,16 @@ const index = lazy(() => import("./routes/Home"));
 const music = lazy(() => import("./routes/Music"));
 const impressum = lazy(() => import("./routes/Impressum"));
 const datenschutz = lazy(() => import("./routes/Datenschutz"));
+const baThesis = lazy(() => import("./routes/BAThesis"));
 
-const routes = createRoutes({ projects, index, impressum, music, datenschutz });
+const routes = createRoutes({
+	projects,
+	index,
+	impressum,
+	music,
+	datenschutz,
+	baThesis,
+});
 
 // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
 hydrate(<App routes={routes} />, document.getElementById("root")!);

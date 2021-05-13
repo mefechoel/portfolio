@@ -1,4 +1,5 @@
 import fs from "fs/promises";
+import path from "path";
 import renderToString from "preact-render-to-string";
 import prepass from "preact-ssr-prepass";
 import App from "./App";
@@ -7,22 +8,32 @@ import index from "./routes/Home";
 import music from "./routes/Music";
 import impressum from "./routes/Impressum";
 import datenschutz from "./routes/Datenschutz";
+import baThesis from "./routes/BAThesis";
 import { createRoutes } from "./routes";
 
-const routes = createRoutes({ projects, index, impressum, music, datenschutz });
+const routes = createRoutes({
+	projects,
+	index,
+	impressum,
+	music,
+	datenschutz,
+	baThesis,
+});
 
 async function main() {
 	const distDir = "./dist";
-	const indexFile = "./dist/index.html";
-	const templateFile = "./dist/_index.html";
+	const indexFile = path.join(distDir, "index.html");
+	const templateFile = path.join(distDir, "_index.html");
 	const hasTemplate = (await fs.readdir(distDir)).includes(templateFile);
 	const template = await fs.readFile(
 		hasTemplate ? templateFile : indexFile,
 		"utf8",
 	);
-	await fs.rename(indexFile, templateFile);
+	if (!hasTemplate) {
+		await fs.rename(indexFile, templateFile);
+	}
 	const manifest = JSON.parse(
-		await fs.readFile("./dist/manifest.json", "utf8"),
+		await fs.readFile(path.join(distDir, "manifest.json"), "utf8"),
 	);
 	const manifestEntries: [
 		string,
@@ -36,10 +47,11 @@ async function main() {
 	][] = Object.entries(manifest);
 
 	const promises = Object.values(routes).map(
-		async ({ path, name, title, filePath }) => {
+		async ({ path: url, name, title, filePath }) => {
+			// eslint-disable-next-line no-console
 			console.log(`Prerendering chunk "${name}"`);
 
-			const app = <App routes={routes} url={path} />;
+			const app = <App routes={routes} url={url} />;
 			const manifestEntry = manifestEntries.find(([file]) =>
 				file.endsWith(filePath),
 			);
@@ -61,11 +73,14 @@ async function main() {
 				.replace(/<!--\s*HTML_OUTLET\s*-->/, html)
 				.replace("</head>", `${additionalLinks}</head>`)
 				.replace(/<title>.*<\/title>/, titleTag);
-			await fs.writeFile(`./dist/${name}.html`, prerender, "utf8");
+			await fs.writeFile(path.join(distDir, `${name}.html`), prerender, "utf8");
+
+			// eslint-disable-next-line no-console
 			console.log(`Prerendering chunk "${name}" completed!`);
 		},
 	);
 
+	// eslint-disable-next-line no-console
 	return Promise.all(promises).then(() => console.log("Prerendering Done!"));
 }
 

@@ -1,4 +1,5 @@
 import Card from "../../components/Card";
+import BAThesis from "../../components/Imgs/BAThesis";
 import HPStrelow from "../../components/Imgs/HPStrelow";
 import KochChef from "../../components/Imgs/KochChef";
 import Pixelnetz from "../../components/Imgs/Pixelnetz";
@@ -9,12 +10,25 @@ import style from "./Projects.module.scss";
 const Project = () => (
 	<>
 		<p className={style.description}>
-			Lorem ipsum dolor sit amet consectetur adipisicing elit. Officiis aliquam
-			laudantium voluptatum possimus beatae! Laudantium odio, ab itaque expedita
-			rem saepe, unde dolore minima reiciendis commodi pariatur cum officiis.
-			Ut?
+			On this page, you will find a list of private and academic software
+			projects. Click a project card to view a more detailed description of a
+			project.
 		</p>
 		<div className={style.cards}>
+			<Card route="/ba-thesis">
+				<Card.Img label="React, Vue and Svelte">
+					<BAThesis />
+				</Card.Img>
+				<Card.Body>
+					<Card.Heading>Bachelor Thesis</Card.Heading>
+					<Card.Description>
+						In my bachelor thesis, I compared three popular reactive frontend
+						JavaScript frameworks. The main points of interest for the
+						comparison were performance, the availability of reusable libraries
+						and resources and the learning curve of each option.
+					</Card.Description>
+				</Card.Body>
+			</Card>
 			<Card route="/svelte-navigator">
 				<Card.Img label="Compass">
 					<SvelteNavigator />

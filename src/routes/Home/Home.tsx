@@ -69,7 +69,7 @@ const Home = () => (
 				target="_blank"
 				rel="noopener noreferrer"
 			>
-				]Init[
+				]init[
 			</a>
 			, where work as a frontend web developer.
 			<br />

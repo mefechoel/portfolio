@@ -1,0 +1,76 @@
+.svg {
+	display: inline-block;
+	height: 1em;
+	transform: translateY(-0.03em);
+}
+
+.link {
+	display: inline-block;
+	height: 1em;
+	cursor: pointer;
+}
+
+$buttonSize: 3.2em;
+$buttonPadding: 0.2em;
+
+.svgButton {
+	border: none;
+	background: var(--accentCol);
+	width: $buttonSize;
+	height: $buttonSize;
+	padding: $buttonPadding;
+	margin: 0;
+	cursor: pointer;
+
+	&:first-child {
+		border-right: 0.05rem solid var(--bgCol);
+		padding-right: $buttonPadding + 0.3em;
+	}
+	&:last-child {
+		border-left: 0.05rem solid var(--bgCol);
+		padding-left: $buttonPadding + 0.3em;
+	}
+
+	&:hover,
+	&:focus-visible {
+		filter: brightness(2);
+	}
+}
+
+.wrapper {
+	position: relative;
+}
+
+.buttonWrapper {
+	position: absolute;
+	top: -#{$buttonSize + 0.5em};
+	left: calc(50% - #{$buttonSize - $buttonPadding});
+	display: flex;
+	border: 0.25rem solid var(--accentCol);
+
+	opacity: 0;
+	transform: translateY(0.16rem);
+	pointer-events: none;
+	transition: opacity 200ms ease, transform 200ms ease;
+
+	&.open,
+	.wrapper:focus-within & {
+		opacity: 1;
+		transform: translateY(0);
+		pointer-events: auto;
+	}
+
+	&::after {
+		$arrowSize: 0.75em;
+		content: "";
+		position: absolute;
+		bottom: -$arrowSize;
+		left: calc(50% - #{$arrowSize});
+		display: block;
+		width: 0;
+		height: 0;
+		border-top: $arrowSize solid var(--accentCol);
+		border-left: $arrowSize solid transparent;
+		border-right: $arrowSize solid transparent;
+	}
+}

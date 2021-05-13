@@ -5,7 +5,8 @@ export type RouteNames =
 	| "projects"
 	| "impressum"
 	| "music"
-	| "datenschutz";
+	| "datenschutz"
+	| "baThesis";
 
 export interface RouteDescription {
 	path: string;
@@ -15,6 +16,7 @@ export interface RouteDescription {
 	headingDisabled?: boolean;
 	pageName: string;
 	footerOnly?: boolean;
+	mainPage?: boolean;
 }
 
 export const routeDescriptions: {
@@ -57,6 +59,14 @@ export const routeDescriptions: {
 		title: "Datenschutz - Portfolio Michel Strelow",
 		pageName: "Datenschutz",
 		footerOnly: true,
+	},
+	baThesis: {
+		path: "/ba-thesis",
+		name: "ba-thesis",
+		filePath: "routes/BAThesis/index.ts",
+		title: "Bachelor Thesis - Portfolio Michel Strelow",
+		pageName: "Bachelor Thesis",
+		mainPage: false,
 	},
 };
 

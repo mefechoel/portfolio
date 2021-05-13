@@ -1,0 +1,49 @@
+@use '../../styles/mq.scss';
+
+.wrapper {
+	width: 100%;
+	height: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	overflow: hidden;
+	flex-grow: 0;
+}
+
+.innerWrapper {
+	display: flex;
+}
+
+.logo {
+	--size: 4rem;
+	width: var(--size);
+	height: var(--size);
+	overflow: hidden;
+	display: grid;
+	place-content: center;
+
+	svg {
+		display: block;
+		height: var(--size);
+	}
+
+	@include mq.smallScreen {
+		--size: 6rem;
+	}
+}
+
+.standalone {
+	@include mq.wideScreen {
+		--size: 10rem;
+	}
+	@include mq.hugeScreen {
+		--size: 14rem;
+	}
+}
+
+.react svg {
+	transform: scale(1.6);
+}
+.svelte svg {
+	transform: scale(0.9);
+}

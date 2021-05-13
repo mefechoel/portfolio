@@ -1,10 +1,11 @@
 /* eslint-disable react/no-unescaped-entities */
+import EMail from "../../components/EMail";
 import style from "./Datenschutz.module.scss";
 
 const Datenschutz = () => (
 	<div className={style.datenschutz} lang="de">
-		<h1>Da&shy;ten&shy;schutz&shy;er&shy;klä&shy;rung</h1>
-		<h2>Einleitung</h2>
+		<h2>Da&shy;ten&shy;schutz&shy;er&shy;klä&shy;rung</h2>
+		<h3>Einleitung</h3>
 		<p>
 			Mit der folgenden Datenschutzerklärung möchten wir Sie darüber aufklären,
 			welche Arten Ihrer personenbezogenen Daten (nachfolgend auch kurz als
@@ -18,7 +19,7 @@ const Datenschutz = () => (
 		</p>
 		<p>Die verwendeten Begriffe sind nicht geschlechtsspezifisch.</p>
 		<p>Stand: 10. Mai 2021</p>
-		<h2>Inhaltsübersicht</h2>{" "}
+		<h3>Inhaltsübersicht</h3>{" "}
 		<ul className="index">
 			<li>
 				<a className="index-link" href="#m14">
@@ -71,7 +72,7 @@ const Datenschutz = () => (
 				</a>
 			</li>
 		</ul>
-		<h2 id="m3">Verantwortlicher</h2>
+		<h3 id="m3">Verantwortlicher</h3>
 		<p>
 			Michel Strelow
 			<br />
@@ -80,9 +81,7 @@ const Datenschutz = () => (
 			28199 Bremen, Deutschland
 		</p>
 		<p>
-			E-Mail-Adresse:{" "}
-			<a href="mailto:michel.strelow97@gmail.com">michel.strelow97@gmail.com</a>
-			.
+			E-Mail-Adresse: <EMail />.
 		</p>
 		<p>
 			Impressum:{" "}
@@ -95,13 +94,13 @@ const Datenschutz = () => (
 			</a>
 			.
 		</p>
-		<h2 id="mOverview">Übersicht der Verarbeitungen</h2>
+		<h3 id="mOverview">Übersicht der Verarbeitungen</h3>
 		<p>
 			Die nachfolgende Übersicht fasst die Arten der verarbeiteten Daten und die
 			Zwecke ihrer Verarbeitung zusammen und verweist auf die betroffenen
 			Personen.
 		</p>
-		<h3>Arten der verarbeiteten Daten</h3>
+		<h4>Arten der verarbeiteten Daten</h4>
 		<ul>
 			<li>Inhaltsdaten (z.B. Eingaben in Onlineformularen).</li>
 			<li>
@@ -112,15 +111,15 @@ const Datenschutz = () => (
 				Zugriffszeiten).
 			</li>
 		</ul>
-		<h3>Kategorien betroffener Personen</h3>
+		<h4>Kategorien betroffener Personen</h4>
 		<ul>
 			<li>Nutzer (z.B. Webseitenbesucher, Nutzer von Onlinediensten).</li>
 		</ul>
-		<h3>Zwecke der Verarbeitung</h3>
+		<h4>Zwecke der Verarbeitung</h4>
 		<ul>
 			<li>Bereitstellung unseres Onlineangebotes und Nutzerfreundlichkeit.</li>
 		</ul>
-		<h3 id="m13">Maßgebliche Rechtsgrundlagen</h3>
+		<h4 id="m13">Maßgebliche Rechtsgrundlagen</h4>
 		<p>
 			Im Folgenden erhalten Sie eine Übersicht der Rechtsgrundlagen der DSGVO,
 			auf deren Basis wir personenbezogenen Daten verarbeiten. Bitte nehmen Sie
@@ -157,7 +156,7 @@ const Datenschutz = () => (
 			Ferner können Landesdatenschutzgesetze der einzelnen Bundesländer zur
 			Anwendung gelangen.
 		</p>
-		<h2 id="m27">Sicherheitsmaßnahmen</h2>
+		<h3 id="m27">Sicherheitsmaßnahmen</h3>
 		<p>
 			Wir treffen nach Maßgabe der gesetzlichen Vorgaben unter Berücksichtigung
 			des Stands der Technik, der Implementierungskosten und der Art, des
@@ -186,7 +185,7 @@ const Datenschutz = () => (
 			SSL-Verschlüsselung. Sie erkennen derart verschlüsselte Verbindungen an
 			dem Präfix https:// in der Adresszeile Ihres Browsers.
 		</p>
-		<h2 id="m24">Datenverarbeitung in Drittländern</h2>
+		<h3 id="m24">Datenverarbeitung in Drittländern</h3>
 		<p>
 			Sofern wir Daten in einem Drittland (d.h., außerhalb der Europäischen
 			Union (EU), des Europäischen Wirtschaftsraums (EWR)) verarbeiten oder die
@@ -212,7 +211,7 @@ const Datenschutz = () => (
 			</a>
 			).
 		</p>
-		<h2 id="m225">Bereitstellung des Onlineangebotes und Webhosting</h2>
+		<h3 id="m225">Bereitstellung des Onlineangebotes und Webhosting</h3>
 		<p>
 			Um unser Onlineangebot sicher und effizient bereitstellen zu können,
 			nehmen wir die Leistungen von einem oder mehreren Webhosting-Anbietern in
@@ -266,7 +265,7 @@ const Datenschutz = () => (
 				S. 1 lit. f. DSGVO).
 			</li>
 		</ul>
-		<h2 id="m15">Änderung und Aktualisierung der Datenschutzerklärung</h2>
+		<h3 id="m15">Änderung und Aktualisierung der Datenschutzerklärung</h3>
 		<p>
 			Wir bitten Sie, sich regelmäßig über den Inhalt unserer
 			Datenschutzerklärung zu informieren. Wir passen die Datenschutzerklärung
@@ -281,7 +280,7 @@ const Datenschutz = () => (
 			wir zu beachten, dass die Adressen sich über die Zeit ändern können und
 			bitten die Angaben vor Kontaktaufnahme zu prüfen.
 		</p>
-		<h2 id="m10">Rechte der betroffenen Personen</h2>
+		<h3 id="m10">Rechte der betroffenen Personen</h3>
 		<p>
 			Ihnen stehen als Betroffene nach der DSGVO verschiedene Rechte zu, die
 			sich insbesondere aus Art. 15 bis 21 DSGVO ergeben:
@@ -341,7 +340,7 @@ const Datenschutz = () => (
 				personenbezogenen Daten gegen die Vorgaben der DSGVO verstößt.
 			</li>
 		</ul>
-		<h2 id="m42">Begriffsdefinitionen</h2>
+		<h3 id="m42">Begriffsdefinitionen</h3>
 		<p>
 			In diesem Abschnitt erhalten Sie eine Übersicht über die in dieser
 			Datenschutzerklärung verwendeten Begrifflichkeiten. Viele der Begriffe

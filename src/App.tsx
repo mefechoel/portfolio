@@ -42,12 +42,6 @@ const App = ({
 								</>
 							);
 						})}
-						{/* <Route path="/">
-						<Home />
-					</Route>
-					<Route path="/projects">
-						<Projects />
-					</Route> */}
 					</main>
 					<Footer />
 				</Router>

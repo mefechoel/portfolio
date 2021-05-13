@@ -1,4 +1,5 @@
 /* eslint-disable react/no-unescaped-entities */
+import EMail from "../../components/EMail";
 import style from "./Impressum.module.scss";
 
 const Impressum = () => (
@@ -14,8 +15,7 @@ const Impressum = () => (
 		<p>
 			Telefon: 015751766448
 			<br />
-			E-Mail:{" "}
-			<a href="mailto:michel.strelow97@gmail.com">michel.strelow97@gmail.com</a>
+			E-Mail: <EMail />
 			<br />
 		</p>
 		<br />
