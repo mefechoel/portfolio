@@ -1,5 +1,6 @@
 @use '../../styles/transitions.scss';
 @use '../../styles/mq.scss';
+@use '../../styles/font.scss';
 
 .banner {
 	position: fixed;
@@ -13,7 +14,7 @@
 	align-items: center;
 	justify-content: space-between;
 	color: var(--fontCol);
-	z-index: 20;
+	z-index: 70;
 	border-bottom: var(--borderWidth) solid var(--separatorCol);
 	pointer-events: auto;
 	opacity: 1;
@@ -38,7 +39,7 @@
 	height: var(--bannerHeight);
 	margin: 0;
 	flex-shrink: 0;
-	font-style: oblique;
+	@include font.style(oblique);
 	text-transform: uppercase;
 	font-size: var(--bannerFontSize);
 	pointer-events: none;
@@ -61,7 +62,7 @@
 	padding: 0;
 	cursor: pointer;
 	font-size: var(--fontSize1);
-	font-weight: 500;
+	@include font.weight(500);
 	line-height: 1;
 }
 

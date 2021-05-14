@@ -1,4 +1,5 @@
 @use './fluid.scss';
+@use './font.scss';
 
 @mixin supportsVarFonts {
 	@supports (font-variation-settings: "wght" 250) {
@@ -30,8 +31,9 @@ $rootSize: 18px;
 	$fallbackFonts: "Roboto", Arial, Helvetica, sans-serif;
 	font-family: "InterVar", $fallbackFonts;
 	font-feature-settings: "ss01" 1, "ss03" 1;
-	font-weight: 300;
-	font-style: normal;
+	font-variation-settings: "wght" var(--fontWeight), "slnt" var(--fontSlant);
+	@include font.weight(300);
+	@include font.style(normal);
 	font-kerning: auto;
 	font-synthesis: none;
 	text-decoration-skip-ink: auto;
@@ -87,9 +89,9 @@ a {
 }
 
 @mixin fallbackWeight($ideal, $fallback) {
-	font-weight: $fallback;
+	@include font.weight($fallback);
 	@include supportsVarFonts {
-		font-weight: $ideal;
+		@include font.weight($ideal);
 	}
 }
 
@@ -100,7 +102,7 @@ h4,
 h5,
 h6 {
 	@include fallbackWeight(250, 300);
-	font-style: oblique;
+	@include font.style(oblique);
 	margin: 0;
 	padding: 0.5em 0;
 	text-transform: uppercase;

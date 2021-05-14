@@ -13,6 +13,7 @@ const Nav = ({
 	children = null,
 	hidden = false,
 	footer = false,
+	onKeyDown,
 }: {
 	className?: string;
 	listClassName?: string;
@@ -21,6 +22,7 @@ const Nav = ({
 	children?: ComponentChild;
 	hidden?: boolean;
 	footer?: boolean;
+	onKeyDown?: (e: KeyboardEvent) => void;
 } = {}): JSX.Element => {
 	const { routeList } = useContext(AppContext);
 	return (
@@ -41,6 +43,7 @@ const Nav = ({
 								activeClassName={style.activeLink}
 								to={route.path}
 								tabIndex={hidden ? -1 : 0}
+								onKeyDown={onKeyDown}
 							>
 								{route.pageName}
 							</Link>

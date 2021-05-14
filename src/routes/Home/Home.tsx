@@ -71,7 +71,7 @@ const Home = () => (
 			>
 				]init[
 			</a>
-			, where work as a frontend web developer.
+			, where I work as a frontend web developer.
 			<br />
 			For this website, I have selected a few of my private and academic
 			projects.

@@ -1,7 +1,7 @@
 @use './styles/fluid.scss';
 
 .main {
-	padding: var(--innerSpacing) var(--sideSpacing);
-	margin-top: var(--bannerHeight);
+	padding: calc(var(--bannerHeight) + var(--innerSpacing)) var(--sideSpacing)
+		var(--innerSpacing) var(--sideSpacing);
 	display: flow-root;
 }

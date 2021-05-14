@@ -1,4 +1,6 @@
 @use '../../styles/animations.scss';
+@use '../../styles/a11y.scss';
+@use '../../styles/font.scss';
 
 .header {
 	background-color: var(--bgCol);
@@ -9,8 +11,14 @@
 	align-content: center;
 	overflow: hidden;
 	padding: 0 var(--sideSpacing);
+	position: relative;
+	z-index: 40;
 
 	@include animations.fadeIn;
+
+	&.navIsOpen {
+		z-index: 10;
+	}
 }
 
 .heading {
@@ -29,9 +37,9 @@
 	padding: 0;
 	display: inline-block;
 	line-height: 1;
-	font-weight: 600;
+	@include font.weight(600);
 	text-transform: uppercase;
-	font-style: oblique;
+	@include font.style(oblique);
 }
 
 .outlines {
@@ -43,4 +51,48 @@
 		-webkit-text-stroke-width: 0.025em;
 		-webkit-text-stroke-color: var(--fontCol);
 	}
+}
+
+.scrollDownLabel {
+	@include a11y.visuallyHidden;
+}
+
+$arrowSize: 2rem;
+
+.scrollDownLink {
+	position: absolute;
+	bottom: 3rem;
+	left: calc(50% - #{$arrowSize / 2});
+	display: grid;
+	place-content: center;
+	color: var(--textCol);
+	cursor: pointer;
+
+	&:visited,
+	&:hover {
+		color: var(--textCol);
+	}
+
+	animation: move 2s ease-in-out 2s 2 forwards;
+
+	@keyframes move {
+		0% {
+			transform: translateY(0);
+		}
+		17% {
+			transform: translateY(-1.2rem);
+		}
+		19% {
+			transform: translateY(-1.2rem);
+		}
+		36% {
+			transform: translateY(0);
+		}
+	}
+}
+
+.arrowDown {
+	display: block;
+	width: $arrowSize;
+	height: $arrowSize;
 }

@@ -1,27 +1,35 @@
 import type { JSX } from "preact";
-import { useEffect, useRef, useState } from "preact/hooks";
+import { useContext, useEffect, useRef } from "preact/hooks";
 import BurgerIcon from "./BurgerIcon";
 import { useHistory } from "../Router";
 import cx from "../../cx";
 import Nav from "./Nav";
 import ColorThemeSwitch from "../ColorThemeSwitch";
+import AppContext from "../../AppContext";
 import style from "./MobileNav.module.scss";
 
 const MobileNav = (): JSX.Element => {
-	const [isOpen, setIsOpen] = useState(false);
-	const handleChange = () => setIsOpen((prevIsOpen) => !prevIsOpen);
+	const { navIsOpen, setNavIsOpen } = useContext(AppContext);
+	const handleChange = () => setNavIsOpen((prevIsOpen) => !prevIsOpen);
+
+	const handleEscKeyDown = (e: KeyboardEvent) => {
+		if (e.key === "Escape") {
+			setNavIsOpen(false);
+		}
+	};
 
 	const handleKeyDown = (e: KeyboardEvent) => {
 		if (["Enter", " "].includes(e.key)) {
 			e.preventDefault();
 			handleChange();
+		} else {
+			handleEscKeyDown(e);
 		}
 	};
 
-	const handleWrapperKeyDown = (e: KeyboardEvent) => {
-		if (e.key === "Escape") {
-			setIsOpen(false);
-		}
+	const handleClick = (e: MouseEvent) => {
+		e.preventDefault();
+		handleChange();
 	};
 
 	const history = useHistory();
@@ -35,21 +43,17 @@ const MobileNav = (): JSX.Element => {
 			) {
 				window.scrollTo(0, 0);
 			}
-			setIsOpen(false);
+			setNavIsOpen(false);
 			prevLocation.current = update.location;
 		});
 		return () => unsubscribe();
-	}, [history]);
+	}, [history, setNavIsOpen]);
 
 	return (
-		<div
-			className={cx(style.mobileOnly, style.wrapper)}
-			onKeyDown={handleWrapperKeyDown}
-		>
+		<>
 			<input
 				className={cx(style.checkbox, style.mobileOnly)}
-				checked={isOpen}
-				onChange={handleChange}
+				checked={navIsOpen}
 				type="checkbox"
 				id="burger-nav-toggle"
 				tabIndex={-1}
@@ -60,22 +64,24 @@ const MobileNav = (): JSX.Element => {
 				role="button"
 				className={cx(style.burgerButton, style.mobileOnly)}
 				tabIndex={0}
+				onClick={handleClick}
 				onKeyDown={handleKeyDown}
-				aria-label={`${isOpen ? "Close" : "open"} menu`}
-				aria-expanded={isOpen ? "true" : "false"}
+				aria-label={`${navIsOpen ? "Close" : "Open"} menu`}
+				aria-expanded={navIsOpen ? "true" : "false"}
 				aria-controls="burger-nav"
 			>
-				<BurgerIcon isOpen={isOpen} className={style.burgerIcon} />
+				<BurgerIcon isOpen={navIsOpen} className={style.burgerIcon} />
 			</label>
 			<Nav
 				id="burger-nav"
 				className={style.nav}
 				listClassName={style.navList}
-				hidden={!isOpen}
+				hidden={!navIsOpen}
+				onKeyDown={handleEscKeyDown}
 			>
-				<ColorThemeSwitch />
+				<ColorThemeSwitch onKeyDown={handleEscKeyDown} />
 			</Nav>
-		</div>
+		</>
 	);
 };
 

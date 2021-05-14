@@ -61,7 +61,11 @@ const getNextColorScheme = (prevScheme: ColorScheme): ColorScheme => {
 	return rotateColorScheme(prevScheme);
 };
 
-const ColorThemeSwitch = () => {
+const ColorThemeSwitch = ({
+	onKeyDown,
+}: {
+	onKeyDown: (e: KeyboardEvent) => void;
+}) => {
 	const [colorScheme, dispatch] = useReducer<
 		ColorScheme,
 		ColorScheme | undefined
@@ -72,6 +76,8 @@ const ColorThemeSwitch = () => {
 		if (["Enter", " "].includes(e.key)) {
 			e.preventDefault();
 			toggleColorScheme();
+		} else {
+			onKeyDown(e);
 		}
 	};
 

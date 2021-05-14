@@ -1,5 +1,6 @@
 @use '../../styles/transitions.scss';
 @use '../../styles/mq.scss';
+@use '../../styles/font.scss';
 
 .navList {
 	list-style: none;
@@ -16,7 +17,7 @@
 	width: 10em;
 	padding: 0 2em;
 	text-transform: uppercase;
-	font-style: oblique;
+	@include font.style(oblique);
 	border-bottom: 1px solid var(--fontCol);
 	li:last-child & {
 		border-bottom: none;
@@ -54,7 +55,7 @@
 	&:hover {
 		color: var(--accentCol);
 	}
-	font-weight: bold;
+	@include font.weight(700);
 }
 
 @include mq.wideScreen {

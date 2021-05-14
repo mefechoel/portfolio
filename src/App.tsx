@@ -1,5 +1,5 @@
 import "./index.scss";
-import { Suspense, useMemo } from "preact/compat";
+import { Suspense, useMemo, useState } from "preact/compat";
 import type { JSX } from "preact";
 import Header from "./components/Header";
 import { MobileNav } from "./components/Nav";
@@ -9,6 +9,7 @@ import type { RouteConfigs } from "./routes";
 import AppContext from "./AppContext";
 import DocumentTitle from "./components/DocumentTitle";
 import Footer from "./components/Footer";
+import RoutePlaceholder from "./components/RoutePlaceholder";
 import style from "./App.module.scss";
 
 const App = ({
@@ -18,24 +19,27 @@ const App = ({
 	routes: RouteConfigs;
 	url?: string;
 }): JSX.Element => {
+	const [navIsOpen, setNavIsOpen] = useState(false);
 	const routeList = useMemo(() => Object.values(routes), [routes]);
 	return (
 		<div data-app-wrapper="" className={style.app}>
-			<AppContext.Provider value={{ routes, routeList }}>
+			<AppContext.Provider
+				value={{ routes, routeList, navIsOpen, setNavIsOpen }}
+			>
 				<Router url={url}>
 					<Banner />
 					<MobileNav />
 					<Route path="/">
 						<Header />
 					</Route>
-					<main className={style.main}>
+					<main id="main" className={style.main}>
 						{routeList.map((config) => {
 							const { component: Component, name, path, title } = config;
 							return (
 								<>
 									<Route key={name} path={path}>
 										<DocumentTitle>{title}</DocumentTitle>
-										<Suspense fallback={null}>
+										<Suspense fallback={<RoutePlaceholder />}>
 											<Component />
 										</Suspense>
 									</Route>
