@@ -10,10 +10,7 @@ const BurgerIcon = ({
 	className?: string;
 }): JSX.Element => {
 	return (
-		<div
-			className={cx(style.icon, isOpen && style.open, className)}
-			aria-hidden="true"
-		>
+		<div className={cx(style.icon, isOpen && style.open, className)}>
 			<div className={cx(style.line, style.top)}></div>
 			<div className={cx(style.line, style.middle)}></div>
 			<div className={cx(style.line, style.bottom)}></div>

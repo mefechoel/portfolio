@@ -42,7 +42,6 @@ const Header = (): JSX.Element => {
 				<span className={style.scrollDownLabel}>Go to main content</span>
 				<svg
 					className={style.arrowDown}
-					aria-hidden="true"
 					xmlns="http://www.w3.org/2000/svg"
 					viewBox="0 0 63.71 73.15"
 				>

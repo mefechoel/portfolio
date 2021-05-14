@@ -1,3 +1,5 @@
+@use '../../styles/a11y.scss';
+
 .svg {
 	display: inline-block;
 	height: 1em;
@@ -14,6 +16,7 @@ $buttonSize: 3.2em;
 $buttonPadding: 0.2em;
 
 .svgButton {
+	position: relative;
 	border: none;
 	background: var(--accentCol);
 	width: $buttonSize;
@@ -35,6 +38,10 @@ $buttonPadding: 0.2em;
 	&:focus-visible {
 		filter: brightness(2);
 	}
+}
+
+.svgButtonLabel {
+	@include a11y.visuallyHidden;
 }
 
 .wrapper {

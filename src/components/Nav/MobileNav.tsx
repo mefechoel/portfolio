@@ -7,10 +7,14 @@ import Nav from "./Nav";
 import ColorThemeSwitch from "../ColorThemeSwitch";
 import AppContext from "../../AppContext";
 import style from "./MobileNav.module.scss";
+import { useId } from "../../util";
 
 const MobileNav = (): JSX.Element => {
 	const { navIsOpen, setNavIsOpen } = useContext(AppContext);
 	const handleChange = () => setNavIsOpen((prevIsOpen) => !prevIsOpen);
+
+	const checkboxId = useId("burger-nav-toggle");
+	const navId = useId("burger-nav");
 
 	const handleEscKeyDown = (e: KeyboardEvent) => {
 		if (e.key === "Escape") {
@@ -55,12 +59,11 @@ const MobileNav = (): JSX.Element => {
 				className={cx(style.checkbox, style.mobileOnly)}
 				checked={navIsOpen}
 				type="checkbox"
-				id="burger-nav-toggle"
+				id={checkboxId}
 				tabIndex={-1}
 			/>
 			<label
-				id="burger-nav-label"
-				htmlFor="burger-nav-toggle"
+				htmlFor={checkboxId}
 				role="button"
 				className={cx(style.burgerButton, style.mobileOnly)}
 				tabIndex={0}
@@ -68,12 +71,12 @@ const MobileNav = (): JSX.Element => {
 				onKeyDown={handleKeyDown}
 				aria-label={`${navIsOpen ? "Close" : "Open"} menu`}
 				aria-expanded={navIsOpen ? "true" : "false"}
-				aria-controls="burger-nav"
+				aria-controls={navId}
 			>
 				<BurgerIcon isOpen={navIsOpen} className={style.burgerIcon} />
 			</label>
 			<Nav
-				id="burger-nav"
+				id={navId}
 				className={style.nav}
 				listClassName={style.navList}
 				hidden={!navIsOpen}

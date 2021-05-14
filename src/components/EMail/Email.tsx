@@ -94,14 +94,9 @@ const EMail = () => {
 				</svg>
 			</a>
 			<div className={cx(style.buttonWrapper, isOpen && style.open)}>
-				<button
-					type="button"
-					className={style.svgButton}
-					aria-label="Copy E-Mail address"
-					onClick={handleCopy}
-				>
+				<button type="button" className={style.svgButton} onClick={handleCopy}>
+					<span className={style.svgButtonLabel}>Copy E-Mail address</span>
 					<svg
-						aria-hidden="true"
 						xmlns="http://www.w3.org/2000/svg"
 						fill="none"
 						stroke="currentColor"
@@ -112,14 +107,9 @@ const EMail = () => {
 						<rect width="6" height="4" x="9" y="3" rx="2" />
 					</svg>
 				</button>
-				<button
-					type="button"
-					className={style.svgButton}
-					aria-label="Write E-Mail"
-					onClick={handleWrite}
-				>
+				<button type="button" className={style.svgButton} onClick={handleWrite}>
+					<span className={style.svgButtonLabel}>Write E-Mail</span>
 					<svg
-						aria-hidden="true"
 						xmlns="http://www.w3.org/2000/svg"
 						fill="none"
 						stroke="currentColor"

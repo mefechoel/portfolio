@@ -1,4 +1,5 @@
 import { useEffect, useReducer } from "preact/hooks";
+import { useId } from "../../util";
 import style from "./ColorThemeSwitch.module.scss";
 
 type ColorScheme = "dark" | "light" | "unset";
@@ -66,6 +67,7 @@ const ColorThemeSwitch = ({
 }: {
 	onKeyDown?: (e: KeyboardEvent) => void;
 }) => {
+	const checkboxId = useId("color-theme-checkbox");
 	const [colorScheme, dispatch] = useReducer<
 		ColorScheme,
 		ColorScheme | undefined
@@ -116,14 +118,14 @@ const ColorThemeSwitch = ({
 	return (
 		<>
 			<input
-				id="color-theme-checkbox"
+				id={checkboxId}
 				type="checkbox"
 				checked={colorScheme === "dark"}
 				className={style.checkbox}
 				tabIndex={-1}
 			/>
 			<label
-				htmlFor="color-theme-checkbox"
+				htmlFor={checkboxId}
 				className={style.button}
 				title={labelText}
 				tabIndex={0}
