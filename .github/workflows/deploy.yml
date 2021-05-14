@@ -21,3 +21,4 @@ jobs:
           branch: main # The branch the action should deploy to.
           folder: dist # The folder the action should deploy.
           repository-name: "mefechoel/mefechoel.github.io"
+          ssh-key: ${{ secrets.DEPLOY_KEY }}
