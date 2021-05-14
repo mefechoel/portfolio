@@ -21,19 +21,19 @@ const Home = () => (
 					type="image/avif"
 				/> */}
 				<source
-					srcSet={`${portraitWebp500} 500w, ${portraitWebp1000} 2x`}
-					type="image/webp"
-				/>
-				<source
 					srcSet={`${portraitWebp300} 300w, ${portraitWebp600} 2x`}
 					type="image/webp"
 				/>
 				<source
-					srcSet={`${portraitJpg500} 500w, ${portraitJpg1000} 2x`}
-					type="image/jpeg"
+					srcSet={`${portraitWebp500} 500w, ${portraitWebp1000} 2x`}
+					type="image/webp"
 				/>
 				<source
 					srcSet={`${portraitJpg300} 300w, ${portraitJpg600} 2x`}
+					type="image/jpeg"
+				/>
+				<source
+					srcSet={`${portraitJpg500} 500w, ${portraitJpg1000} 2x`}
 					type="image/jpeg"
 				/>
 				<img
