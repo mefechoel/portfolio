@@ -76,8 +76,11 @@ async function main() {
 		console.log(`Subsetting file ${++i} of ${files.length} complete`);
 	});
 
-	// eslint-disable-next-line no-console
-	promises.then(() => console.log("Done!")).catch((err) => console.error(err));
+	Promise.all(promises)
+		// eslint-disable-next-line no-console
+		.then(() => console.log("Done!"))
+		// eslint-disable-next-line no-console
+		.catch((err) => console.error(err));
 }
 
 main();
