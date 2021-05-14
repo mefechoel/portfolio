@@ -64,7 +64,7 @@ const getNextColorScheme = (prevScheme: ColorScheme): ColorScheme => {
 const ColorThemeSwitch = ({
 	onKeyDown,
 }: {
-	onKeyDown: (e: KeyboardEvent) => void;
+	onKeyDown?: (e: KeyboardEvent) => void;
 }) => {
 	const [colorScheme, dispatch] = useReducer<
 		ColorScheme,
@@ -77,7 +77,7 @@ const ColorThemeSwitch = ({
 			e.preventDefault();
 			toggleColorScheme();
 		} else {
-			onKeyDown(e);
+			onKeyDown?.(e);
 		}
 	};
 
