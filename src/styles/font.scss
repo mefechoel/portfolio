@@ -2,6 +2,7 @@
 	@if $style != oblique and $style != normal {
 		@error "Property #{$style} must be either oblique or normal.";
 	}
+	font-style: $style;
 	@if $style == oblique {
 		--fontSlant: -10;
 	} @else {
@@ -10,5 +11,6 @@
 }
 
 @mixin weight($weight) {
+	font-weight: $weight;
 	--fontWeight: #{$weight};
 }
