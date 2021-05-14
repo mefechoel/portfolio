@@ -9,6 +9,7 @@ const music = lazy(() => import("./routes/Music"));
 const impressum = lazy(() => import("./routes/Impressum"));
 const datenschutz = lazy(() => import("./routes/Datenschutz"));
 const baThesis = lazy(() => import("./routes/BAThesis"));
+const svelteNavigator = lazy(() => import("./routes/SvelteNavigator"));
 
 const routes = createRoutes({
 	projects,
@@ -17,6 +18,7 @@ const routes = createRoutes({
 	music,
 	datenschutz,
 	baThesis,
+	svelteNavigator,
 });
 
 // eslint-disable-next-line @typescript-eslint/no-non-null-assertion

@@ -6,6 +6,7 @@ export type RouteNames =
 	| "impressum"
 	| "music"
 	| "datenschutz"
+	| "svelteNavigator"
 	| "baThesis";
 
 export interface RouteDescription {
@@ -59,6 +60,14 @@ export const routeDescriptions: {
 		title: "Datenschutz - Portfolio Michel Strelow",
 		pageName: "Datenschutz",
 		footerOnly: true,
+	},
+	svelteNavigator: {
+		path: "/svelte-navigator",
+		name: "svelte-navigator",
+		filePath: "routes/SvelteNavigator/index.ts",
+		title: "Svelte Navigator - Portfolio Michel Strelow",
+		pageName: "Svelte Navigator",
+		mainPage: false,
 	},
 	baThesis: {
 		path: "/ba-thesis",

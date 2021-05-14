@@ -88,7 +88,7 @@ const Datenschutz = () => (
 			<a
 				href="https://mefechoel.github.io/impressum"
 				target="_blank"
-				rel="noreferrer"
+				rel="noopener noreferrer"
 			>
 				https://mefechoel.github.io/impressum
 			</a>
@@ -205,7 +205,7 @@ const Datenschutz = () => (
 			<a
 				href="https://ec.europa.eu/info/law/law-topic/data-protection/international-dimension-data-protection_de"
 				target="_blank"
-				rel="noreferrer"
+				rel="noopener noreferrer"
 			>
 				https://ec.europa.eu/info/law/law-topic/data-protection/international-dimension-data-protection_de
 			</a>

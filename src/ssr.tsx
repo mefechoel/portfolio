@@ -9,6 +9,7 @@ import music from "./routes/Music";
 import impressum from "./routes/Impressum";
 import datenschutz from "./routes/Datenschutz";
 import baThesis from "./routes/BAThesis";
+import svelteNavigator from "./routes/SvelteNavigator";
 import { createRoutes } from "./routes";
 
 const routes = createRoutes({
@@ -18,6 +19,7 @@ const routes = createRoutes({
 	music,
 	datenschutz,
 	baThesis,
+	svelteNavigator,
 });
 
 async function main() {
@@ -81,7 +83,7 @@ async function main() {
 	);
 
 	// eslint-disable-next-line no-console
-	return Promise.all(promises).then(() => console.log("Prerendering Done!"));
+	return Promise.all(promises).then(() => console.log("Prerendering Done!\n"));
 }
 
 main();
