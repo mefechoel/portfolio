@@ -1,0 +1,10 @@
+@use '../../styles/mq.scss';
+
+.container {
+	max-width: 70rem;
+	margin: 0 auto;
+
+	@include mq.wideScreen {
+		text-align: justify;
+	}
+}

@@ -139,6 +139,8 @@ const ColorThemeSwitch = ({
 						className={style.icon}
 						fill="none"
 						viewBox="0 0 24 24"
+						strokeLinecap="round"
+						strokeLinejoin="round"
 					>
 						<path stroke="none" d="M0 0h24v24H0z" />
 						<path d="M12 3h.4a7.5 7.5 0 008 12.4A9 9 0 1112 3zM17 4a2 2 0 002 2 2 2 0 00-2 2 2 2 0 00-2-2 2 2 0 002-2M19 11h2m-1-1v2" />
@@ -148,11 +150,13 @@ const ColorThemeSwitch = ({
 						xmlns="http://www.w3.org/2000/svg"
 						className={style.icon}
 						fill="none"
+						strokeLinecap="round"
+						strokeLinejoin="round"
 						viewBox="0 0 24 24"
 					>
 						<path stroke="none" d="M0 0h24v24H0z" />
-						<circle cx="12" cy="12" r="3" />
-						<path d="M6 6h3.5L12 3.5 14.5 6H18v3.5l2.5 2.5-2.5 2.5V18h-3.5L12 20.5 9.5 18H6v-3.5L3.5 12 6 9.5z" />
+						<circle cx="12" cy="12" r="4" />
+						<path d="M3 12h1m8-9v1m8 8h1m-9 8v1M5.6 5.6l.7.7m12.1-.7l-.7.7m0 11.4l.7.7m-12.1-.7l-.7.7" />
 					</svg>
 				)}
 			</label>

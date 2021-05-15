@@ -8,7 +8,7 @@
 }
 
 .svg {
-	--size: 7rem;
+	--size: var(--sizeOverride, 7rem);
 	width: var(--size);
 	height: 100%;
 }

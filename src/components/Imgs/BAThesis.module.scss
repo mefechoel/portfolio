@@ -15,7 +15,7 @@
 }
 
 .logo {
-	--size: 4rem;
+	--size: var(--sizeOverride, 4rem);
 	width: var(--size);
 	height: var(--size);
 	overflow: hidden;
@@ -28,16 +28,7 @@
 	}
 
 	@include mq.smallScreen {
-		--size: 6rem;
-	}
-}
-
-.standalone {
-	@include mq.wideScreen {
-		--size: 10rem;
-	}
-	@include mq.hugeScreen {
-		--size: 14rem;
+		--size: var(--sizeOverride, 6rem);
 	}
 }
 

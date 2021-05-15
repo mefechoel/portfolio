@@ -1,18 +1,21 @@
-.wrapper p {
-	column-width: 45ch;
-	column-gap: 2em;
-}
+@use '../../styles/mq.scss';
 
 .abstract {
-	opacity: 0.8;
+	color: var(--dimmedFontCol);
 	padding: 0 var(--sideSpacing);
+	column-width: 40ch;
+	column-gap: 2em;
 }
 
 .details {
 	margin-bottom: 1em;
+	cursor: pointer;
 }
 
 .img {
-	font-size: var(--fontSize4);
-	padding: 0.75em 0;
+	--sizeOverride: 1.2em;
+
+	@include mq.smallScreen {
+		--sizeOverride: 1.5em;
+	}
 }

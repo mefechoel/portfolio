@@ -10,6 +10,11 @@ const impressum = lazy(() => import("./routes/Impressum"));
 const datenschutz = lazy(() => import("./routes/Datenschutz"));
 const baThesis = lazy(() => import("./routes/BAThesis"));
 const svelteNavigator = lazy(() => import("./routes/SvelteNavigator"));
+const kochChef = lazy(() => import("./routes/KochChef"));
+const hpStrelow = lazy(() => import("./routes/HPStrelow"));
+const portfolio = lazy(() => import("./routes/Portfolio"));
+const remote = lazy(() => import("./routes/Remote"));
+const pixelnetz = lazy(() => import("./routes/Pixelnetz"));
 
 const routes = createRoutes({
 	projects,
@@ -19,6 +24,11 @@ const routes = createRoutes({
 	datenschutz,
 	baThesis,
 	svelteNavigator,
+	kochChef,
+	hpStrelow,
+	portfolio,
+	remote,
+	pixelnetz,
 });
 
 // eslint-disable-next-line @typescript-eslint/no-non-null-assertion

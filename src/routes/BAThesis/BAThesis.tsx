@@ -1,12 +1,13 @@
+import DetailsWrapper from "../../components/DetailsWrapper";
 import BAThesisImg from "../../components/Imgs/BAThesis";
 import style from "./BAThesis.module.scss";
 
 const BAThesis = () => (
-	<div className={style.wrapper}>
-		<div className={style.img}>
-			<BAThesisImg standalone />
-		</div>
-		<p>
+	<DetailsWrapper>
+		<DetailsWrapper.Img className={style.img}>
+			<BAThesisImg />
+		</DetailsWrapper.Img>
+		<DetailsWrapper.Body>
 			My bachelor thesis was written during the winter semester 2020/2021. It is
 			entitled{" "}
 			<q>
@@ -23,7 +24,7 @@ const BAThesis = () => (
 			libraries and resources and the learning curve of each option.
 			<br />
 			<br />
-		</p>
+		</DetailsWrapper.Body>
 		<details className={style.details}>
 			<summary>Read the abstract in English:</summary>
 			<p className={style.abstract}>
@@ -76,7 +77,7 @@ const BAThesis = () => (
 				zeigen.
 			</p>
 		</details>
-	</div>
+	</DetailsWrapper>
 );
 
 export default BAThesis;

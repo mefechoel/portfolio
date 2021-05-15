@@ -1,5 +1,7 @@
 $black: hsl(0, 0%, 8%);
 $white: hsl(0, 0%, 100%);
+$dimmedBlack: hsl(0, 0%, 40%);
+$dimmedWhite: hsl(0, 0%, 70%);
 $darkGray: hsl(0, 0%, 20%);
 $lightGray: hsl(0, 0%, 90%);
 $translucentGray: hsla(0, 0%, 0%, 0.3);
@@ -21,6 +23,7 @@ $activeLinkColLight: hsl(318, 98%, 24%);
 @mixin darkTheme {
 	--bgCol: #{$black};
 	--fontCol: #{$white};
+	--dimmedFontCol: #{$dimmedWhite};
 	--accentCol: #{$accent};
 	--accentGradient: #{$accentGradient};
 	--separatorCol: #{$darkGray};
@@ -31,6 +34,7 @@ $activeLinkColLight: hsl(318, 98%, 24%);
 @mixin lightTheme {
 	--bgCol: #{$white};
 	--fontCol: #{$black};
+	--dimmedFontCol: #{$dimmedBlack};
 	--accentCol: #{$accentLight};
 	--accentGradient: #{$accentGradient};
 	--separatorCol: #{$lightGray};

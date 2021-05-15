@@ -1,16 +1,16 @@
-import SvelteNavigatorImg from "../../components/Imgs/SvelteNavigator";
 import { Link } from "../../components/Router";
-import style from "./SvelteNavigator.module.scss";
+import DetailsWrapper from "../../components/DetailsWrapper";
+import SvelteNavigatorImg from "../../components/Imgs/SvelteNavigator";
 
 const SvelteNavigator = () => (
-	<div className={style.wrapper}>
-		<div className={style.img}>
+	<DetailsWrapper>
+		<DetailsWrapper.Img>
 			<SvelteNavigatorImg />
-		</div>
-		<p>
+		</DetailsWrapper.Img>
+		<DetailsWrapper.Body>
 			Svelte Navigator is an accessible single page app routing library for apps
 			built with the <q>Svelte</q> frontend framework. When working on the
-			Svelte frontend for my <Link to="ba-thesis">bachelor thesis</Link>, I was
+			Svelte frontend for my <Link to="/ba-thesis">bachelor thesis</Link>, I was
 			unable to find a routing libraries that worked correctly with my app. The
 			main problem was, that the Svelte app was served from a subdirectory on my
 			server, which existing libraries did not handle well.
@@ -46,8 +46,8 @@ const SvelteNavigator = () => (
 				NPM package page
 			</a>
 			.
-		</p>
-	</div>
+		</DetailsWrapper.Body>
+	</DetailsWrapper>
 );
 
 export default SvelteNavigator;

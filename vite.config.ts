@@ -2,6 +2,7 @@ import { defineConfig } from "vite";
 import preact from "@preact/preset-vite";
 import url from "@rollup/plugin-url";
 import autoprefixer from "autoprefixer";
+import banner from "./bundlerPlugins/banner";
 
 const production = process.env.NODE_ENV === "production";
 const env = process.env.NODE_ENV || "development";
@@ -26,6 +27,10 @@ export default defineConfig({
 			}),
 			enforce: "pre",
 		},
+		production &&
+			banner(
+				"/*! Licenses of used libraries, fonts and other software can be found at /lib-licenses.txt */",
+			),
 	],
 	define: {
 		"process.env.NODE_ENV": JSON.stringify(env),

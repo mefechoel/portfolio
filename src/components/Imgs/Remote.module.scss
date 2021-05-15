@@ -7,20 +7,21 @@
 }
 
 .button {
-	border-radius: 0.1rem;
+	--size: var(--sizeOverride, 5rem);
+	border-radius: calc(var(--size) * 0.04);
 	background: #b75d69;
-	width: 5rem;
-	height: 5rem;
+	width: var(--size);
+	height: var(--size);
 	display: grid;
 	place-content: center;
 
 	&:first-child {
-		margin-right: 0.5rem;
+		margin-right: calc(var(--size) * 0.1);
 	}
 
 	svg {
-		width: 2.5rem;
-		height: 2.5rem;
+		width: calc(var(--size) * 0.5);
+		height: calc(var(--size) * 0.5);
 		fill: #fff;
 	}
 }

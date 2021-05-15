@@ -1,17 +1,6 @@
 @use './fluid.scss';
 @use './font.scss';
 
-@mixin supportsVarFonts {
-	@supports (font-variation-settings: "wght" 250) {
-		@content;
-	}
-}
-@mixin doesNotSupportVarFonts {
-	@supports not (font-variation-settings: "wght" 250) {
-		@content;
-	}
-}
-
 $rootSize: 18px;
 
 @font-face {
@@ -47,7 +36,7 @@ $rootSize: 18px;
 	letter-spacing: calc(var(--letterSpacing) + var(--letterSpacingAdjust));
 	word-spacing: calc(var(--wordSpacing) + var(--wordSpacingAdjust));
 
-	@include doesNotSupportVarFonts {
+	@include font.doesNotSupportVarFonts {
 		// This works well for Arial, Helvetica and Roboto, which are common
 		// fallback fonts
 		--letterSpacingAdjust: 0.0306rem;
@@ -88,20 +77,13 @@ a {
 	@include fluid.fontSize(4, $property: --fontSize4);
 }
 
-@mixin fallbackWeight($ideal, $fallback) {
-	@include font.weight($fallback);
-	@include supportsVarFonts {
-		@include font.weight($ideal);
-	}
-}
-
 h1,
 h2,
 h3,
 h4,
 h5,
 h6 {
-	@include fallbackWeight(250, 300);
+	@include font.fallbackWeight(250, 300);
 	@include font.style(oblique);
 	margin: 0;
 	padding: 0.5em 0;

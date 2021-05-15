@@ -1,0 +1,10 @@
+@use '../../styles/mq.scss';
+
+.img {
+	--sizeOverride: 1rem;
+
+	@include mq.smallScreen {
+		font-size: var(--fontSize3);
+		--sizeOverride: 0.35em;
+	}
+}

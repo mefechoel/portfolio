@@ -1,6 +1,7 @@
 @use '../../styles/animations.scss';
 @use '../../styles/a11y.scss';
 @use '../../styles/font.scss';
+@use '../../styles/mq.scss';
 
 .header {
 	background-color: var(--bgCol);
@@ -43,13 +44,14 @@
 }
 
 .outlines {
+	color: var(--accentCol);
 	@supports (-webkit-text-stroke-width: 1px) {
 		// Override global color transition. The `color` property
 		// is irrelevant for outlined text
 		transition: -webkit-text-stroke-color 300ms ease-in-out;
 		color: transparent;
 		-webkit-text-stroke-width: 0.025em;
-		-webkit-text-stroke-color: var(--fontCol);
+		-webkit-text-stroke-color: var(--accentCol);
 	}
 }
 
@@ -89,6 +91,10 @@ $arrowSize: 2rem;
 			transform: translateY(0);
 		}
 	}
+
+	// @include mq.wideScreen {
+	// 	display: none;
+	// }
 }
 
 .arrowDown {

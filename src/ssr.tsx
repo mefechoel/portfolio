@@ -10,6 +10,11 @@ import impressum from "./routes/Impressum";
 import datenschutz from "./routes/Datenschutz";
 import baThesis from "./routes/BAThesis";
 import svelteNavigator from "./routes/SvelteNavigator";
+import kochChef from "./routes/KochChef";
+import hpStrelow from "./routes/HPStrelow";
+import portfolio from "./routes/Portfolio";
+import remote from "./routes/Remote";
+import pixelnetz from "./routes/Pixelnetz";
 import { createRoutes } from "./routes";
 
 const routes = createRoutes({
@@ -20,6 +25,11 @@ const routes = createRoutes({
 	datenschutz,
 	baThesis,
 	svelteNavigator,
+	kochChef,
+	hpStrelow,
+	portfolio,
+	remote,
+	pixelnetz,
 });
 
 async function main() {

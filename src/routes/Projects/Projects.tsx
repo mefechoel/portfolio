@@ -1,20 +1,21 @@
 import Card from "../../components/Card";
+import GridPage from "../../components/GridPage";
 import BAThesis from "../../components/Imgs/BAThesis";
 import HPStrelow from "../../components/Imgs/HPStrelow";
 import KochChef from "../../components/Imgs/KochChef";
 import Pixelnetz from "../../components/Imgs/Pixelnetz";
+import Portfolio from "../../components/Imgs/Portfolio";
 import Remote from "../../components/Imgs/Remote";
 import SvelteNavigator from "../../components/Imgs/SvelteNavigator";
-import style from "./Projects.module.scss";
 
 const Project = () => (
-	<>
-		<p className={style.description}>
+	<GridPage>
+		<GridPage.Desc>
 			On this page, you will find a list of private and academic software
 			projects. Click a project card to view a more detailed description of a
 			project.
-		</p>
-		<div className={style.cards}>
+		</GridPage.Desc>
+		<GridPage.Cards>
 			<Card route="/ba-thesis">
 				<Card.Img label="React, Vue and Svelte">
 					<BAThesis />
@@ -48,7 +49,7 @@ const Project = () => (
 				<Card.Body>
 					<Card.Heading>Koch&shy;Chef</Card.Heading>
 					<Card.Description>
-						<q>KochChef</q> is recipe app, that was developed as part of my
+						<q>KochChef</q> is a recipe app, that was developed as part of my
 						bachelor thesis. It consists of a backend, responsible for providing
 						the recipe data, and three frontend apps. Each frontend is
 						implemented using a different JavaScript framework, to showcase each
@@ -57,7 +58,7 @@ const Project = () => (
 				</Card.Body>
 			</Card>
 			<Card route="/pixelnetz">
-				<Card.Img label="Mobile phones layed out in a grid blinking in various colors">
+				<Card.Img label="Mobile phones laid out in a grid blinking in various colors">
 					<Pixelnetz />
 				</Card.Img>
 				<Card.Body>
@@ -96,8 +97,19 @@ const Project = () => (
 					</Card.Description>
 				</Card.Body>
 			</Card>
-		</div>
-	</>
+			<Card route="/portfolio">
+				<Card.Img label="The letter 'M'">
+					<Portfolio />
+				</Card.Img>
+				<Card.Body>
+					<Card.Heading>Portfolio</Card.Heading>
+					<Card.Description>
+						[Insert joke about recursion here]
+					</Card.Description>
+				</Card.Body>
+			</Card>
+		</GridPage.Cards>
+	</GridPage>
 );
 
 export default Project;

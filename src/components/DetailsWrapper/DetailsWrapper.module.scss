@@ -1,0 +1,13 @@
+.body {
+	column-width: 40ch;
+	column-gap: 2em;
+}
+
+.img {
+	width: 100%;
+	font-size: var(--fontSize4);
+	padding: 0.5em 0;
+
+	--size: 2em;
+	--sizeOverride: 2em;
+}

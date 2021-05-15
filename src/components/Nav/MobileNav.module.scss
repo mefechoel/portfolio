@@ -2,6 +2,8 @@
 @use '../../styles/mq.scss';
 @use '../../styles/a11y.scss';
 
+$buttonSpacing: 1rem;
+
 .checkbox {
 	@include a11y.visuallyHidden;
 }
@@ -36,9 +38,10 @@
 	$size: 3rem;
 	position: fixed;
 	left: calc(50% - #{$size / 2});
+	bottom: $buttonSpacing;
+
 	padding: 0;
 	margin: 0;
-	bottom: 1rem;
 	height: $size;
 	width: $size;
 	display: grid;
@@ -56,6 +59,15 @@
 		--strokeWidthRatio: 0.1;
 		--roundness: 1;
 	}
+}
+
+// In the samsung internet browser, there is a "scroll to top"
+// button at the same position as the burger button.
+// To avoid accidentally clicking it, we move the burger button to
+// the bottom left corner for this browser
+:global .ua-samsung :local .burgerButton {
+	right: $buttonSpacing;
+	left: unset;
 }
 
 @include mq.wideScreen {

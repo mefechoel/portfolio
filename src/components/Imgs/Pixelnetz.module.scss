@@ -1,7 +1,12 @@
-$phoneWidth: 4.1rem;
-$phoneHeight: 7.5rem;
+@function size($ratio) {
+	@return calc(#{$ratio} * var(--size));
+}
+
+$phoneWidth: size(4.1);
+$phoneHeight: size(7.5);
 
 .wrapper {
+	--size: var(--sizeOverride, 1rem);
 	width: 100%;
 	display: flex;
 	justify-content: center;
@@ -12,51 +17,51 @@ $phoneHeight: 7.5rem;
 	grid-template-columns: repeat(3, #{$phoneWidth});
 	grid-template-rows: repeat(1, 1fr);
 	justify-content: space-around;
-	gap: 0.5rem;
+	gap: size(0.5);
 	width: 100%;
 	max-width: 20rem;
-	height: 7.5rem;
+	height: size(7.5);
 }
 
 .phone {
-	$phoneTopWidth: 0.6rem;
-	$phoneBottomWidth: 0.9rem;
+	$phoneTopWidth: size(0.6);
+	$phoneBottomWidth: size(0.9);
 
 	position: relative;
 	overflow: hidden;
-	border: 0.3rem solid var(--fontCol);
+	border: size(0.3) solid var(--fontCol);
 	border-top-width: $phoneTopWidth;
 	border-bottom-width: $phoneBottomWidth;
-	border-radius: 0.5rem;
+	border-radius: size(0.5);
 
-	&::before {
-		$speakerWidth: 0.6rem;
-		$speakerHeight: 0.1rem;
+	// &::before {
+	// 	$speakerWidth: 0.6rem;
+	// 	$speakerHeight: 0.1rem;
 
-		content: "";
-		position: absolute;
-		top: calc(-1 * (#{$phoneTopWidth} + #{$speakerHeight}) / 2);
-		left: calc(50% - (#{$speakerWidth} / 2));
-		display: block;
-		width: $speakerWidth;
-		height: $speakerHeight;
-		background: #999;
-		border-radius: 10rem;
-	}
+	// 	content: "";
+	// 	position: absolute;
+	// 	top: calc(-1 * (#{$phoneTopWidth} + #{$speakerHeight}) / 2);
+	// 	left: calc(50% - (#{$speakerWidth} / 2));
+	// 	display: block;
+	// 	width: $speakerWidth;
+	// 	height: $speakerHeight;
+	// 	background: #999;
+	// 	border-radius: 999em;
+	// }
 
-	&::after {
-		$homeButtonSize: 0.6rem;
+	// &::after {
+	// 	$homeButtonSize: 0.6rem;
 
-		content: "";
-		position: absolute;
-		bottom: calc(-1 * (#{$phoneBottomWidth} + #{$homeButtonSize}) / 2);
-		left: calc(50% - (#{$homeButtonSize} / 2));
-		display: block;
-		width: $homeButtonSize;
-		height: $homeButtonSize;
-		background: #222;
-		border-radius: 10rem;
-	}
+	// 	content: "";
+	// 	position: absolute;
+	// 	bottom: calc(-1 * (#{$phoneBottomWidth} + #{$homeButtonSize}) / 2);
+	// 	left: calc(50% - (#{$homeButtonSize} / 2));
+	// 	display: block;
+	// 	width: $homeButtonSize;
+	// 	height: $homeButtonSize;
+	// 	background: #222;
+	// 	border-radius: 999em;
+	// }
 }
 
 @function gradient($startHue) {

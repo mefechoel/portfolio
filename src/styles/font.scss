@@ -1,3 +1,16 @@
+$chromiumFontWeightAdjust: 35;
+
+@mixin supportsVarFonts {
+	@supports (font-variation-settings: "wght" 250) {
+		@content;
+	}
+}
+@mixin doesNotSupportVarFonts {
+	@supports not (font-variation-settings: "wght" 250) {
+		@content;
+	}
+}
+
 @mixin style($style) {
 	@if $style != oblique and $style != normal {
 		@error "Property #{$style} must be either oblique or normal.";
@@ -10,7 +23,21 @@
 	}
 }
 
-@mixin weight($weight) {
+@mixin weight($weight, $adjustChromiumWeight: true) {
 	font-weight: $weight;
 	--fontWeight: #{$weight};
+
+	@if $adjustChromiumWeight {
+		[class~="ua-chromium"] & {
+			font-weight: $weight + $chromiumFontWeightAdjust;
+			--fontWeight: #{$weight + $chromiumFontWeightAdjust};
+		}
+	}
+}
+
+@mixin fallbackWeight($ideal, $fallback) {
+	@include weight($fallback, false);
+	@include supportsVarFonts {
+		@include weight($ideal);
+	}
 }

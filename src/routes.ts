@@ -7,6 +7,11 @@ export type RouteNames =
 	| "music"
 	| "datenschutz"
 	| "svelteNavigator"
+	| "kochChef"
+	| "hpStrelow"
+	| "portfolio"
+	| "remote"
+	| "pixelnetz"
 	| "baThesis";
 
 export interface RouteDescription {
@@ -67,6 +72,46 @@ export const routeDescriptions: {
 		filePath: "routes/SvelteNavigator/index.ts",
 		title: "Svelte Navigator - Portfolio Michel Strelow",
 		pageName: "Svelte Navigator",
+		mainPage: false,
+	},
+	kochChef: {
+		path: "/kochchef",
+		name: "kochchef",
+		filePath: "routes/KochChef/index.ts",
+		title: "KochChef - Portfolio Michel Strelow",
+		pageName: "KochChef",
+		mainPage: false,
+	},
+	hpStrelow: {
+		path: "/hp-strelow",
+		name: "hp-strelow",
+		filePath: "routes/HPStrelow/index.ts",
+		title: "HP-Strelow - Portfolio Michel Strelow",
+		pageName: "HP-Strelow",
+		mainPage: false,
+	},
+	portfolio: {
+		path: "/portfolio",
+		name: "portfolio",
+		filePath: "routes/Portfolio/index.ts",
+		title: "Portfolio - Portfolio Michel Strelow",
+		pageName: "Portfolio",
+		mainPage: false,
+	},
+	remote: {
+		path: "/remote",
+		name: "remote",
+		filePath: "routes/Remote/index.ts",
+		title: "Remote Control - Portfolio Michel Strelow",
+		pageName: "Remote Control",
+		mainPage: false,
+	},
+	pixelnetz: {
+		path: "/pixelnetz",
+		name: "pixelnetz",
+		filePath: "routes/Pixelnetz/index.ts",
+		title: "Pixelnetz - Portfolio Michel Strelow",
+		pageName: "Pixelnetz",
 		mainPage: false,
 	},
 	baThesis: {
