@@ -10,7 +10,9 @@ import AppContext from "./AppContext";
 import DocumentTitle from "./components/DocumentTitle";
 import Footer from "./components/Footer";
 import RoutePlaceholder from "./components/RoutePlaceholder";
+import NavigationManager from "./components/NavigationManager";
 import style from "./App.module.scss";
+import SkipLink from "./components/SkipLink";
 
 const App = ({
 	routes,
@@ -27,27 +29,30 @@ const App = ({
 				value={{ routes, routeList, navIsOpen, setNavIsOpen }}
 			>
 				<Router url={url}>
-					<Banner />
-					<MobileNav />
-					<Route path="/">
-						<Header />
-					</Route>
-					<main id="main" className={style.main}>
-						{routeList.map((config) => {
-							const { component: Component, name, path, title } = config;
-							return (
-								<>
-									<Route key={name} path={path}>
-										<DocumentTitle>{title}</DocumentTitle>
-										<Suspense fallback={<RoutePlaceholder />}>
-											<Component />
-										</Suspense>
-									</Route>
-								</>
-							);
-						})}
-					</main>
-					<Footer />
+					<NavigationManager>
+						<SkipLink targetId="main">Skip to main content</SkipLink>
+						<Banner />
+						<MobileNav />
+						<Route path="/">
+							<Header />
+						</Route>
+						<main id="main" className={style.main}>
+							{routeList.map((config) => {
+								const { component: Component, name, path, title } = config;
+								return (
+									<>
+										<Route key={name} path={path}>
+											<DocumentTitle>{title}</DocumentTitle>
+											<Suspense fallback={<RoutePlaceholder />}>
+												<Component />
+											</Suspense>
+										</Route>
+									</>
+								);
+							})}
+						</main>
+						<Footer />
+					</NavigationManager>
 				</Router>
 			</AppContext.Provider>
 		</div>

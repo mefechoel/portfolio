@@ -1,7 +1,6 @@
 import type { JSX } from "preact";
-import { useContext, useEffect, useRef } from "preact/hooks";
+import { useContext } from "preact/hooks";
 import BurgerIcon from "./BurgerIcon";
-import { useHistory } from "../Router";
 import cx from "../../cx";
 import Nav from "./Nav";
 import ColorThemeSwitch from "../ColorThemeSwitch";
@@ -35,23 +34,6 @@ const MobileNav = (): JSX.Element => {
 		e.preventDefault();
 		handleChange();
 	};
-
-	const history = useHistory();
-	const prevLocation = useRef(history.location);
-
-	useEffect(() => {
-		const unsubscribe = history.subscribe((update) => {
-			if (
-				update.action === "PUSH" &&
-				prevLocation.current.pathname !== update.location.pathname
-			) {
-				window.scrollTo(0, 0);
-			}
-			setNavIsOpen(false);
-			prevLocation.current = update.location;
-		});
-		return () => unsubscribe();
-	}, [history, setNavIsOpen]);
 
 	return (
 		<>

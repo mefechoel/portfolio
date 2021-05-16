@@ -17,7 +17,7 @@ body {
 
 @mixin focusStyles {
 	outline: 0.2rem solid var(--accentCol);
-	outline-offset: -0.2rem;
+	outline-offset: 0.2rem;
 }
 @mixin focusReset {
 	outline: none;

@@ -1,0 +1,22 @@
+@use '../../styles/font.scss';
+
+.skipLink {
+	position: fixed;
+	top: 1em;
+	left: 1em;
+	padding: 1em 2em;
+	background: var(--accentCol);
+	z-index: 100;
+	@include font.weight(600);
+
+	&,
+	&:hover,
+	&:focus,
+	&:visited {
+		color: var(--fontCol);
+	}
+
+	&:not(:focus) {
+		transform: translateY(calc(-1 * (100% + 2em)));
+	}
+}
