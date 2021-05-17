@@ -49,7 +49,7 @@ export const createStdSrcSet = ({
 	1000: w1000,
 }: StdSizeStepMap<string>): SrcSetEntry => ({
 	250: { "1x": w250, "2x": w500 },
-	500: { "1x": w500, "2x": w1000 },
+	500: { "1x": w500, "1.5x": w750, "2x": w1000 },
 	750: { "1x": w750, "1.5x": w1000 },
 	1000: { "1x": w1000 },
 });

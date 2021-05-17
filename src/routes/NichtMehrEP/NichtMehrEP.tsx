@@ -12,6 +12,25 @@ const NichtMehrEp = () => (
 			instruments, organic samples, synthesizers, electric guitar and acoustic
 			and electronic drums. To my ears, the EP has a relaxed, atmospheric indie
 			vibe.
+			<br />
+			<br />
+			<a
+				href="https://open.spotify.com/album/4iFKAnjFgZ0RFafM2pTaku"
+				target="_blank"
+				rel="noopener noreferrer"
+			>
+				Listen to the EP on Spotify
+			</a>
+			.
+			<br />
+			<a
+				href="https://michelstrelow.bandcamp.com/album/nicht-mehr"
+				target="_blank"
+				rel="noopener noreferrer"
+			>
+				Download the EP on Bandcamp
+			</a>
+			.
 		</MusicWrapper.Body>
 	</MusicWrapper>
 );

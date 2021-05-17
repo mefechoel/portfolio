@@ -83,3 +83,13 @@
 	display: flex;
 	flex-direction: row;
 }
+
+.navLink {
+	padding: 0 1.5em;
+	width: 8em;
+
+	@media screen and (min-width: 80em) {
+		padding: 0 2em;
+		width: 10em;
+	}
+}
