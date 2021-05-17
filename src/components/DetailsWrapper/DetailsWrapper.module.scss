@@ -5,9 +5,9 @@
 
 .img {
 	width: 100%;
-	font-size: var(--fontSize4);
-	padding: 0.5em 0;
+	padding: calc(0.5 * var(--fontSize4)) 0;
+	--baseSize: var(--fontSize4);
 
-	--size: 2em;
-	--sizeOverride: 2em;
+	--size: calc(2 * var(--fontSize4));
+	--sizeOverride: calc(2 * var(--fontSize4));
 }

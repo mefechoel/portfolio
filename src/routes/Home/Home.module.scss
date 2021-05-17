@@ -23,9 +23,9 @@
 	object-position: center;
 
 	@include mq.smallScreen {
-		font-size: var(--fontSize4);
-		width: 3.5em;
-		height: 3.5em;
+		$size: calc(3.5 * var(--fontSize4));
+		width: $size;
+		height: $size;
 		max-width: 22rem;
 		max-height: 22rem;
 	}

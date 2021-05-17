@@ -13,9 +13,9 @@
 }
 
 .wrapper .img {
-	--sizeOverride: 1.2em;
+	--sizeOverride: calc(1.2 * var(--baseSize));
 
 	@include mq.smallScreen {
-		--sizeOverride: 1.5em;
+		--sizeOverride: calc(1.5 * var(--baseSize));
 	}
 }

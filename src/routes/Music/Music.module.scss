@@ -5,6 +5,5 @@
 }
 
 .coverImg {
-	font-size: var(--fontSize2);
-	margin-bottom: 0.3em;
+	margin-bottom: calc(0.3 * var(--fontSize2));
 }
