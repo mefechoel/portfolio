@@ -59,7 +59,7 @@ export default defineConfig({
 						fileName: "ssr",
 					},
 					rollupOptions: {
-						external: ["fs/promises", "path"],
+						external: ["fs/promises", "path", "html-minifier-terser"],
 					},
 					minify: false,
 					brotliSize: false,

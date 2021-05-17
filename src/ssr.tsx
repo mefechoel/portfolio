@@ -50,6 +50,14 @@ const minifierOptions = {
 	minifyURLs: true,
 };
 
+interface Chunk {
+	file: string;
+	src?: string;
+	isDynamicEntry?: boolean;
+	imports?: string[];
+	css?: string[];
+}
+
 async function main() {
 	const distDir = "./dist";
 	const indexFile = path.join(distDir, "index.html");
@@ -62,19 +70,28 @@ async function main() {
 	if (!hasTemplate) {
 		await fs.rename(indexFile, templateFile);
 	}
-	const manifest = JSON.parse(
+	const manifest: {
+		[k: string]: Chunk;
+	} = JSON.parse(
 		await fs.readFile(path.join(distDir, "manifest.json"), "utf8"),
 	);
-	const manifestEntries: [
-		string,
-		{
-			file: string;
-			src?: string;
-			isDynamicEntry?: boolean;
-			imports?: string[];
-			css?: string[];
-		},
-	][] = Object.entries(manifest);
+	const manifestEntries: [string, Chunk][] = Object.entries(manifest);
+
+	const loopDependentChunks = (
+		chunk: Chunk,
+		cb: (c: Chunk) => void,
+		visited = new Set<string>(),
+	) => {
+		chunk.imports?.forEach((file) => {
+			if (visited.has(file)) return;
+			visited.add(file);
+			const nextChunk = manifest[file];
+			if (nextChunk) {
+				cb(nextChunk);
+				loopDependentChunks(nextChunk, cb, visited);
+			}
+		});
+	};
 
 	const promises = Object.values(routes).map(
 		async ({ path: url, name, title, filePath }) => {
@@ -90,11 +107,29 @@ async function main() {
 			}
 			const [, chunk] = manifestEntry;
 
-			const cssLinks = (chunk.css || []).map(
-				(cssFile) => `<link rel="stylesheet" href="/${cssFile}" />`,
-			);
-			const modulePreload = `<link rel="modulepreload" href="/${chunk.file}" />`;
-			const additionalLinks = [...cssLinks, modulePreload].join("\n");
+			const createCssLinks = (cssFileList: string[]) =>
+				cssFileList.map(
+					(cssFile) => `<link rel="stylesheet" href="/${cssFile}" />`,
+				);
+			const createModuleLinks = (jsFileList: string[]) =>
+				jsFileList.map(
+					(jsFile) => `<link rel="modulepreload" href="/${jsFile}" />`,
+				);
+
+			let cssFiles: string[] = [...(chunk.css || [])];
+			let jsFiles: string[] = [chunk.file];
+
+			loopDependentChunks(chunk, (c) => {
+				if (c.css) {
+					cssFiles = [...cssFiles, ...c.css];
+				}
+				jsFiles = [...jsFiles, c.file];
+			});
+
+			const cssLinks = [...new Set(createCssLinks(cssFiles))];
+			const modulePreload = [...new Set(createModuleLinks(jsFiles))];
+
+			const additionalLinks = [...cssLinks, ...modulePreload].join("\n");
 
 			await prepass(app);
 			const html = renderToString(app);
