@@ -1,32 +1,18 @@
-// import { FontFaceSet } from "./FontFaceSet";
+const uaIncludes = (str: string) => navigator.userAgent.includes(str);
+const addClass = (condition: boolean, className: string) => {
+	if (condition) {
+		document.documentElement.classList.add(className);
+	}
+};
 
-// // eslint-disable-next-line @typescript-eslint/no-explicit-any
-// const fonts = (window.document as any)?.fonts as FontFaceSet;
+const isChromium = uaIncludes("Chrome");
+const isSamsung = uaIncludes("SamsungBrowser");
+const isSafari = uaIncludes("Safari") && !uaIncludes("Chrome");
+const isEdge = uaIncludes("Edg/") || uaIncludes("Edge/");
 
-// const loadFonts = () => {
-// 	if (fonts) {
-// 		// Load main font
-// 		fonts.load('1em "InterVar"').then((matches) => {
-// 			if (matches?.length) {
-// 				document.documentElement.dataset.mainFontLoading = "false";
-// 				document.documentElement.dataset.mainFontLoaded = "true";
-// 			}
-// 		});
-// 	}
-// };
-
-// fonts?.ready.then(() => {
-// 	loadFonts();
-// });
-
-const isChromium = navigator.userAgent.includes("Chrome");
-const isSamsung = navigator.userAgent.includes("SamsungBrowser");
-
-if (isChromium) {
-	document.documentElement.classList.add("ua-chromium");
-}
-if (isSamsung) {
-	document.documentElement.classList.add("ua-samsung");
-}
+addClass(isChromium, "ua-chromium");
+addClass(isSamsung, "ua-samsung");
+addClass(isSafari, "ua-safari");
+addClass(isEdge, "ua-edge");
 
 export {};

@@ -1,0 +1,43 @@
+@use '.././../styles/mq.scss';
+
+$maxWidth: 38rem;
+
+.wrapper {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 2em;
+
+	@media screen and (min-width: $maxWidth) {
+		justify-content: center;
+	}
+}
+
+.img {
+	max-width: calc(#{$maxWidth} - (2 * var(--sideSpacing)));
+
+	// Older edge and safari don't support flex gap, so we need to
+	// use padding to fake it
+	[class~="ua-safari"],
+	[class~="ua-edge"] {
+		@media screen and (min-width: $maxWidth) {
+			padding: 0 1em;
+		}
+	}
+}
+
+.body {
+	max-width: 55ch;
+
+	@media screen and (min-width: $maxWidth) {
+		text-align: justify;
+	}
+
+	// Older edge and safari don't support flex gap, so we need to
+	// use padding to fake it
+	[class~="ua-safari"],
+	[class~="ua-edge"] {
+		@media screen and (min-width: $maxWidth) {
+			padding: 0 1em;
+		}
+	}
+}

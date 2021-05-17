@@ -16,6 +16,8 @@ import hpStrelow from "./routes/HPStrelow";
 import portfolio from "./routes/Portfolio";
 import remote from "./routes/Remote";
 import pixelnetz from "./routes/Pixelnetz";
+import nichtMehr from "./routes/NichtMehrEP";
+import prag from "./routes/PragSingle";
 import { createRoutes } from "./routes";
 
 const routes = createRoutes({
@@ -31,6 +33,8 @@ const routes = createRoutes({
 	portfolio,
 	remote,
 	pixelnetz,
+	nichtMehr,
+	prag,
 });
 
 const minifierOptions = {

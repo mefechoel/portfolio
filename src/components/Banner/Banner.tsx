@@ -19,7 +19,7 @@ const Banner = () => {
 	}, [pathname, routeList]);
 
 	return (
-		<div className={cx(style.banner, disabled && style.hidden)}>
+		<header className={cx(style.banner, disabled && style.hidden)}>
 			<div className={style.headingWrapper}>
 				{routeList.map((route, i) => (
 					<h1
@@ -42,7 +42,7 @@ const Banner = () => {
 			>
 				<ColorThemeSwitch />
 			</Nav>
-		</div>
+		</header>
 	);
 };
 

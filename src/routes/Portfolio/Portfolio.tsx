@@ -31,8 +31,8 @@ const Portfolio = () => (
 				preact-ssr-prepass
 			</a>
 			. To further improve performance, all assets are compressed using modern
-			codecs, such as WebP for images and Zopfli (an improved Gzip algorithm)
-			for text files.
+			codecs, such as WebP and AVIF for images and Zopfli (an improved Gzip
+			algorithm) for text files.
 			<br />
 			<br />A custom, lightweight router, based on the{" "}
 			<a

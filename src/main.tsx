@@ -15,6 +15,8 @@ const hpStrelow = lazy(() => import("./routes/HPStrelow"));
 const portfolio = lazy(() => import("./routes/Portfolio"));
 const remote = lazy(() => import("./routes/Remote"));
 const pixelnetz = lazy(() => import("./routes/Pixelnetz"));
+const nichtMehr = lazy(() => import("./routes/NichtMehrEP"));
+const prag = lazy(() => import("./routes/PragSingle"));
 
 const routes = createRoutes({
 	projects,
@@ -29,6 +31,8 @@ const routes = createRoutes({
 	portfolio,
 	remote,
 	pixelnetz,
+	nichtMehr,
+	prag,
 });
 
 // eslint-disable-next-line @typescript-eslint/no-non-null-assertion

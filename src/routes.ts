@@ -12,7 +12,9 @@ export type RouteNames =
 	| "portfolio"
 	| "remote"
 	| "pixelnetz"
-	| "baThesis";
+	| "baThesis"
+	| "nichtMehr"
+	| "prag";
 
 export interface RouteDescription {
 	path: string;
@@ -120,6 +122,22 @@ export const routeDescriptions: {
 		filePath: "routes/BAThesis/index.ts",
 		title: "Bachelor Thesis - Portfolio Michel Strelow",
 		pageName: "Bachelor Thesis",
+		mainPage: false,
+	},
+	nichtMehr: {
+		path: "/nicht-mehr-ep",
+		name: "nicht-mehr-ep",
+		filePath: "routes/NichtMehrEP/index.ts",
+		title: "Nicht Mehr EP - Portfolio Michel Strelow",
+		pageName: "Nicht Mehr",
+		mainPage: false,
+	},
+	prag: {
+		path: "/prag-single",
+		name: "prag-single",
+		filePath: "routes/PragSingle/index.ts",
+		title: "Prag Single - Portfolio Michel Strelow",
+		pageName: "Prag",
 		mainPage: false,
 	},
 };

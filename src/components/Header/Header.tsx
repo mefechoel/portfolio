@@ -28,7 +28,7 @@ const Header = (): JSX.Element => {
 	};
 
 	return (
-		<header className={cx(style.header, isOpen && style.navIsOpen)}>
+		<div className={cx(style.header, isOpen && style.navIsOpen)}>
 			<h1 className={style.heading}>
 				<div className={style.headingText}>
 					<span>Port</span>
@@ -51,7 +51,7 @@ const Header = (): JSX.Element => {
 					/>
 				</svg>
 			</a>
-		</header>
+		</div>
 	);
 };
 
