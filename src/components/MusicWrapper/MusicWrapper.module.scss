@@ -4,7 +4,7 @@ $maxWidth: 38rem;
 
 @mixin fakeGap {
 	[class~="ua-safari"] &,
-	[class~="ua-edge"] & {
+	[class~="ua-legacy-edge"] & {
 		@media screen and (min-width: $maxWidth) {
 			@content;
 		}

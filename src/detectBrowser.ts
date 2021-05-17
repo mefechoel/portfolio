@@ -5,14 +5,18 @@ const addClass = (condition: boolean, className: string) => {
 	}
 };
 
-const isChromium = uaIncludes("Chrome");
 const isSamsung = uaIncludes("SamsungBrowser");
 const isSafari = uaIncludes("Safari") && !uaIncludes("Chrome");
-const isEdge = uaIncludes("Edg/") || uaIncludes("Edge/");
+const isEdgium = uaIncludes("Edg/");
+const isLegacyEdge = uaIncludes("Edge/");
+const isChromium = uaIncludes("Chrome") && !isLegacyEdge;
+const isEdge = isEdgium || isLegacyEdge;
 
 addClass(isChromium, "ua-chromium");
 addClass(isSamsung, "ua-samsung");
 addClass(isSafari, "ua-safari");
 addClass(isEdge, "ua-edge");
+addClass(isEdgium, "ua-edgeium");
+addClass(isLegacyEdge, "ua-legacy-edge");
 
 export {};
