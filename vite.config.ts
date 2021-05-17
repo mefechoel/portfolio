@@ -23,13 +23,16 @@ export default defineConfig({
 					"**/*.avif",
 				],
 				limit: 0,
-				publicPath: "/",
+				publicPath: "/assets/img/",
+				destDir: "dist/assets/img/",
+				emitFiles: !ssr,
+				fileName: "[name].[hash][extname]",
 			}),
 			enforce: "pre",
 		},
 		production &&
 			banner(
-				"/*! Licenses of used libraries, fonts and other software can be found at /lib-licenses.txt */",
+				"/*! Licenses of used libraries, fonts and other software can be found at /lib-licenses.txt */\n",
 			),
 	],
 	define: {
@@ -59,6 +62,7 @@ export default defineConfig({
 						external: ["fs/promises", "path"],
 					},
 					minify: false,
+					brotliSize: false,
 			  }
 			: {}),
 		target: "modules",

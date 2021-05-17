@@ -2,6 +2,7 @@ import fs from "fs/promises";
 import path from "path";
 import renderToString from "preact-render-to-string";
 import prepass from "preact-ssr-prepass";
+import { minify as minifyHtml } from "html-minifier-terser";
 import App from "./App";
 import projects from "./routes/Projects";
 import index from "./routes/Home";
@@ -31,6 +32,19 @@ const routes = createRoutes({
 	remote,
 	pixelnetz,
 });
+
+const minifierOptions = {
+	removeComments: false,
+	collapseWhitespace: true,
+	removeRedundantAttributes: true,
+	useShortDoctype: true,
+	removeEmptyAttributes: true,
+	removeStyleLinkTypeAttributes: true,
+	quoteCharacter: '"',
+	minifyJS: true,
+	minifyCSS: true,
+	minifyURLs: true,
+};
 
 async function main() {
 	const distDir = "./dist";
@@ -85,7 +99,12 @@ async function main() {
 				.replace(/<!--\s*HTML_OUTLET\s*-->/, html)
 				.replace("</head>", `${additionalLinks}</head>`)
 				.replace(/<title>.*<\/title>/, titleTag);
-			await fs.writeFile(path.join(distDir, `${name}.html`), prerender, "utf8");
+			const minifiedHtml = minifyHtml(prerender, minifierOptions);
+			await fs.writeFile(
+				path.join(distDir, `${name}.html`),
+				minifiedHtml,
+				"utf8",
+			);
 
 			// eslint-disable-next-line no-console
 			console.log(`Prerendering chunk "${name}" completed!`);

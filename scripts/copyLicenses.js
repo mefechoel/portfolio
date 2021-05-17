@@ -2,6 +2,7 @@
 const fs = require("fs");
 const path = require("path");
 
+// eslint-disable-next-line no-console
 console.log("\nCopying license file...");
 
 const licenses = fs.readFileSync(
@@ -14,4 +15,5 @@ fs.writeFileSync(
 	"utf8",
 );
 
-console.log("Done!\n");
+// eslint-disable-next-line no-console
+console.log("\nDone!\n");
