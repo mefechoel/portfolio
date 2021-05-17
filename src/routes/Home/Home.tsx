@@ -1,14 +1,3 @@
-// import portrait from "./imgs/portrait-1000.jpg";
-// import portraitAvif1000 from "./imgs/portrait-1000.avif";
-// import portraitAvif500 from "./imgs/portrait-500.avif";
-// import portraitWebp1000 from "./imgs/portrait-1000.webp";
-// import portraitWebp500 from "./imgs/portrait-500.webp";
-// import portraitWebp600 from "./imgs/portrait-600.webp";
-// import portraitWebp300 from "./imgs/portrait-300.webp";
-// import portraitJpg1000 from "./imgs/portrait-1000.jpg";
-// import portraitJpg500 from "./imgs/portrait-500.jpg";
-// import portraitJpg600 from "./imgs/portrait-600.jpg";
-// import portraitJpg300 from "./imgs/portrait-300.jpg";
 import portrait1000Jpg from "./imgs/portrait-1000.jpg";
 import portrait750Jpg from "./imgs/portrait-750.jpg";
 import portrait500Jpg from "./imgs/portrait-500.jpg";
@@ -19,7 +8,9 @@ import portrait500Webp from "./imgs/portrait-500.webp";
 import portrait250Webp from "./imgs/portrait-250.webp";
 import portrait1000Avif from "./imgs/portrait-1000.avif";
 import portrait750Avif from "./imgs/portrait-750.avif";
-import portrait500Avif from "./imgs/portrait-500.avif";
+// For some reason, the 500px avif version breaks when pubished
+// to prod system...
+import portrait512Avif from "./imgs/portrait-512.avif";
 import portrait250Avif from "./imgs/portrait-250.avif";
 import TextContainer from "../../components/TextContainer";
 import Img, { createStdSrcSet } from "../../components/Img";
@@ -35,7 +26,7 @@ const Home = () => (
 						avif: createStdSrcSet({
 							1000: portrait1000Avif,
 							750: portrait750Avif,
-							500: portrait500Avif,
+							500: portrait512Avif,
 							250: portrait250Avif,
 						}),
 						webp: createStdSrcSet({
@@ -58,30 +49,6 @@ const Home = () => (
 					height={750}
 					loading="lazy"
 				/>
-				{/* <picture>
-					<source
-						srcSet={`${portraitWebp300} 300w, ${portraitWebp600} 2x`}
-						type="image/webp"
-					/>
-					<source
-						srcSet={`${portraitWebp500} 500w, ${portraitWebp1000} 2x`}
-						type="image/webp"
-					/>
-					<source
-						srcSet={`${portraitJpg300} 300w, ${portraitJpg600} 2x`}
-						type="image/jpeg"
-					/>
-					<source
-						srcSet={`${portraitJpg500} 500w, ${portraitJpg1000} 2x`}
-						type="image/jpeg"
-					/>
-					<img
-						className={style.portrait}
-						src={portrait}
-						alt="Michel Strelow standing in front of a brick wall"
-						loading="lazy"
-					/>
-				</picture> */}
 			</div>
 			<p className={style.text}>
 				Hello! My name is Michel Strelow and you&apos;ve found my portfolio
