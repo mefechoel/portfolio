@@ -17,8 +17,8 @@ $maxWidth: 38rem;
 
 	// Older edge and safari don't support flex gap, so we need to
 	// use padding to fake it
-	[class~="ua-safari"],
-	[class~="ua-edge"] {
+	[class~="ua-safari"] &,
+	[class~="ua-edge"] & {
 		@media screen and (min-width: $maxWidth) {
 			padding: 0 1em;
 		}
@@ -34,8 +34,8 @@ $maxWidth: 38rem;
 
 	// Older edge and safari don't support flex gap, so we need to
 	// use padding to fake it
-	[class~="ua-safari"],
-	[class~="ua-edge"] {
+	[class~="ua-safari"] &,
+	[class~="ua-edge"] & {
 		@media screen and (min-width: $maxWidth) {
 			padding: 0 1em;
 		}
