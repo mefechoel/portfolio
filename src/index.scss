@@ -13,6 +13,10 @@ body {
 *::before,
 *::after {
 	transition: transitions.$defaultTransition;
+
+	@include transitions.whenBlocked {
+		transition: none;
+	}
 }
 
 @mixin focusStyles {

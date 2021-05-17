@@ -5,6 +5,24 @@
 
 $defaultTransition: colorTransition(300ms, ease-in-out);
 
+@mixin whenBlocked {
+	[data-prevent-color-transitions="true"] & {
+		@content;
+	}
+}
+
 @mixin add($transition) {
 	transition: $defaultTransition, $transition;
+
+	@include whenBlocked {
+		transition: $transition;
+	}
+}
+
+@mixin set($transition) {
+	transition: $transition;
+
+	@include whenBlocked {
+		transition: $transition;
+	}
 }

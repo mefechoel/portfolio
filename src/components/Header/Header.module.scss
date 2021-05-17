@@ -2,6 +2,7 @@
 @use '../../styles/a11y.scss';
 @use '../../styles/font.scss';
 @use '../../styles/mq.scss';
+@use '../../styles/transitions.scss';
 
 .header {
 	background-color: var(--bgCol);
@@ -46,12 +47,17 @@
 .outlines {
 	color: var(--accentCol);
 	@supports (-webkit-text-stroke-width: 1px) {
-		// Override global color transition. The `color` property
-		// is irrelevant for outlined text
-		transition: -webkit-text-stroke-color 300ms ease-in-out;
 		color: transparent;
 		-webkit-text-stroke-width: 0.025em;
 		-webkit-text-stroke-color: var(--accentCol);
+
+		// Override global color transition. The `color` property
+		// is irrelevant for outlined text
+		transition: -webkit-text-stroke-color 300ms ease-in-out;
+
+		@include transitions.whenBlocked {
+			transition: none;
+		}
 	}
 }
 

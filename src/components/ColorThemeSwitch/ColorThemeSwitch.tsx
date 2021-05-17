@@ -1,4 +1,4 @@
-import { useEffect, useReducer } from "preact/hooks";
+import { useEffect, useLayoutEffect, useReducer } from "preact/hooks";
 import { useId } from "../../util";
 import style from "./ColorThemeSwitch.module.scss";
 
@@ -6,6 +6,8 @@ type ColorScheme = "dark" | "light" | "unset";
 
 const STORAGE_KEY = "colorScheme";
 const SESSION_KEY = Math.random().toString(36);
+const DARK_THEME_COLOR = "#141414";
+const LIGHT_THEME_COLOR = "#fff";
 
 const getMediaMatch = (
 	colorScheme: "dark" | "light",
@@ -25,11 +27,24 @@ interface StoredPref {
 	value: ColorScheme;
 	sessionKey?: string;
 }
+
 const parseStoragePref = (prefJSON: string | null): StoredPref | null => {
 	if (!prefJSON) return null;
 	const pref: StoredPref = JSON.parse(prefJSON);
 	return pref;
 };
+
+let transitionGateApplied = false;
+const applyTransitionGate = () => {
+	if (!transitionGateApplied) {
+		transitionGateApplied = true;
+		document.documentElement.dataset.preventColorTransitions = "true";
+		setTimeout(() => {
+			document.documentElement.dataset.preventColorTransitions = "false";
+		}, 600);
+	}
+};
+
 const getStoredPref = (): StoredPref => {
 	const storedPref = localStorage.getItem(STORAGE_KEY);
 	if (!storedPref) return { value: "unset" };
@@ -37,6 +52,7 @@ const getStoredPref = (): StoredPref => {
 	const { value, sessionKey } = parseStoragePref(storedPref)!;
 	return { value, sessionKey };
 };
+
 const setStoredPref = (value: ColorScheme) => {
 	const storagePref = { value, sessionKey: SESSION_KEY };
 	localStorage.setItem(STORAGE_KEY, JSON.stringify(storagePref));
@@ -67,6 +83,10 @@ const ColorThemeSwitch = ({
 }: {
 	onKeyDown?: (e: KeyboardEvent) => void;
 }) => {
+	useLayoutEffect(() => {
+		applyTransitionGate();
+	}, []);
+
 	const checkboxId = useId("color-theme-checkbox");
 	const [colorScheme, dispatch] = useReducer<
 		ColorScheme,
@@ -114,6 +134,13 @@ const ColorThemeSwitch = ({
 	}, [colorScheme]);
 
 	const computedColorScheme = colorScheme === "unset" ? mediaPref : colorScheme;
+
+	useEffect(() => {
+		const themeColorMeta = document.querySelector("[data-theme-color]");
+		const themeColor =
+			computedColorScheme === "light" ? LIGHT_THEME_COLOR : DARK_THEME_COLOR;
+		themeColorMeta?.setAttribute("content", themeColor);
+	}, [computedColorScheme]);
 
 	return (
 		<>

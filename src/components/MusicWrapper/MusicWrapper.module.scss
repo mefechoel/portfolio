@@ -2,6 +2,15 @@
 
 $maxWidth: 38rem;
 
+@mixin fakeGap {
+	[class~="ua-safari"] &,
+	[class~="ua-edge"] & {
+		@media screen and (min-width: $maxWidth) {
+			@content;
+		}
+	}
+}
+
 .wrapper {
 	display: flex;
 	flex-wrap: wrap;
@@ -10,18 +19,17 @@ $maxWidth: 38rem;
 	@media screen and (min-width: $maxWidth) {
 		justify-content: center;
 	}
+
+	@include fakeGap {
+		gap: 0;
+	}
 }
 
 .img {
 	max-width: calc(#{$maxWidth} - (2 * var(--sideSpacing)));
 
-	// Older edge and safari don't support flex gap, so we need to
-	// use padding to fake it
-	[class~="ua-safari"] &,
-	[class~="ua-edge"] & {
-		@media screen and (min-width: $maxWidth) {
-			padding: 0 1em;
-		}
+	@include fakeGap {
+		padding: 0 1em;
 	}
 }
 
@@ -32,12 +40,7 @@ $maxWidth: 38rem;
 		text-align: justify;
 	}
 
-	// Older edge and safari don't support flex gap, so we need to
-	// use padding to fake it
-	[class~="ua-safari"] &,
-	[class~="ua-edge"] & {
-		@media screen and (min-width: $maxWidth) {
-			padding: 0 1em;
-		}
+	@include fakeGap {
+		padding: 0 1em;
 	}
 }

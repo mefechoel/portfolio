@@ -1,5 +1,6 @@
 @use '../../styles/a11y.scss';
 @use '../../styles/mq.scss';
+@use '../../styles/transitions.scss';
 
 .checkbox {
 	@include a11y.visuallyHidden;
@@ -26,9 +27,17 @@
 	height: 2rem;
 	transition: stroke 300ms ease-in-out;
 
+	@include transitions.whenBlocked {
+		transition: none;
+	}
+
 	@include mq.wideScreen {
 		// Only animate stroke width on large screens
 		transition: stroke 300ms ease-in-out, stroke-width 300ms ease-in-out;
+
+		@include transitions.whenBlocked {
+			transition: none;
+		}
 	}
 }
 

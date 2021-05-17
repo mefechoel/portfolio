@@ -1,4 +1,5 @@
 @use '../../styles/a11y.scss';
+@use '../../styles/transitions.scss';
 
 .svg {
 	display: inline-block;
@@ -58,7 +59,8 @@ $buttonPadding: 0.2em;
 	opacity: 0;
 	transform: translateY(0.16rem);
 	pointer-events: none;
-	transition: opacity 200ms ease, transform 200ms ease;
+
+	@include transitions.set(#{opacity 200ms ease, transform 200ms ease});
 
 	&.open,
 	.wrapper:focus-within & {
