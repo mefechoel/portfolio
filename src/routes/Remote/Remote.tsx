@@ -3,7 +3,7 @@ import RemoteImg from "../../components/Imgs/Remote";
 import style from "./Remote.module.scss";
 
 const Remote = () => (
-	<DetailsWrapper>
+	<DetailsWrapper className={style.wrapper}>
 		<DetailsWrapper.Img className={style.img}>
 			<RemoteImg />
 		</DetailsWrapper.Img>

@@ -3,7 +3,7 @@ import BAThesisImg from "../../components/Imgs/BAThesis";
 import style from "./BAThesis.module.scss";
 
 const BAThesis = () => (
-	<DetailsWrapper>
+	<DetailsWrapper className={style.wrapper}>
 		<DetailsWrapper.Img className={style.img}>
 			<BAThesisImg />
 		</DetailsWrapper.Img>

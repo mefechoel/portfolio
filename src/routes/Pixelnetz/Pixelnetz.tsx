@@ -3,7 +3,7 @@ import PixelnetzImg from "../../components/Imgs/Pixelnetz";
 import style from "./Pixelnetz.module.scss";
 
 const Pixelnetz = () => (
-	<DetailsWrapper>
+	<DetailsWrapper className={style.wrapper}>
 		<DetailsWrapper.Img className={style.img}>
 			<PixelnetzImg />
 		</DetailsWrapper.Img>

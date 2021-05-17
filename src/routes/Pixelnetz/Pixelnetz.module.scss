@@ -1,6 +1,6 @@
 @use '../../styles/mq.scss';
 
-.img {
+.wrapper .img {
 	--sizeOverride: 1rem;
 
 	@include mq.smallScreen {

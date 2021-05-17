@@ -12,7 +12,7 @@
 	cursor: pointer;
 }
 
-.img {
+.wrapper .img {
 	--sizeOverride: 1.2em;
 
 	@include mq.smallScreen {
