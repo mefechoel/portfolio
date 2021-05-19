@@ -7,7 +7,12 @@
 	display: flex;
 	align-items: center;
 	justify-content: center;
-	padding: calc(4 * var(--innerSpacing)) var(--sideSpacing);
+	$paddingTopBottom: calc(4 * var(--innerSpacing));
+	$paddingLeftRight: var(--sideSpacing);
+	padding-top: $paddingTopBottom;
+	padding-right: $paddingLeftRight;
+	padding-bottom: $paddingTopBottom;
+	padding-left: $paddingLeftRight;
 	color: var(--fontCol);
 	border-top: var(--borderWidth) solid var(--separatorCol);
 

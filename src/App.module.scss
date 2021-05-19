@@ -1,7 +1,11 @@
 @use './styles/fluid.scss';
 
 .main {
-	padding: calc(var(--bannerHeight) + var(--innerSpacing)) var(--sideSpacing)
-		calc(var(--innerSpacing) * 4) var(--sideSpacing);
+	// We can't use the padding shorthand here, because legacy edge chokes
+	// and ignores the padding entirely
+	padding-top: calc(var(--bannerHeight) + var(--innerSpacing));
+	padding-right: var(--sideSpacing);
+	padding-bottom: calc(var(--innerSpacing) * 4);
+	padding-left: var(--sideSpacing);
 	display: flow-root;
 }

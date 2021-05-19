@@ -1,7 +1,8 @@
 .imgWrapper {
 	width: 100%;
-	display: grid;
-	place-content: center;
+	display: flex;
+	align-items: center;
+	justify-content: center;
 }
 
 .coverImg {

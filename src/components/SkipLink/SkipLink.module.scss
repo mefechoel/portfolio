@@ -17,6 +17,6 @@
 	}
 
 	&:not(:focus) {
-		transform: translateY(calc(-1 * (100% + 2em)));
+		transform: translateY(-500em);
 	}
 }

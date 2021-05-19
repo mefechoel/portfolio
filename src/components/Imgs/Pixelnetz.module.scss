@@ -92,12 +92,14 @@ $phoneHeight: size(7.5);
 		background: gradient(60);
 	}
 
+	--translateX: calc(-1 * (#{$bgWidth} - #{$phoneWidth}));
+
 	@keyframes move {
 		0% {
 			transform: translateX(0);
 		}
 		100% {
-			transform: translateX(calc(-1 * (#{$bgWidth} - #{$phoneWidth})));
+			transform: translateX(var(--translateX));
 		}
 	}
 }

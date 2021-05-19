@@ -10,12 +10,12 @@
 }
 
 .navLink {
-	display: inline-grid;
-	place-content: center;
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
 	text-decoration: none;
 	height: 4em;
-	width: 10em;
-	padding: 0 2em;
+	width: 12em;
 	text-transform: uppercase;
 	@include font.style(oblique);
 	border-bottom: 1px solid var(--fontCol);

@@ -71,8 +71,9 @@ $arrowSize: 2rem;
 	position: absolute;
 	bottom: 3rem;
 	left: calc(50% - #{$arrowSize / 2});
-	display: grid;
-	place-content: center;
+	display: flex;
+	align-items: center;
+	justify-content: center;
 	color: var(--textCol);
 	cursor: pointer;
 

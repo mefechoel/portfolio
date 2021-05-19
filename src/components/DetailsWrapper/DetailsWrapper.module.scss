@@ -5,7 +5,12 @@
 
 .img {
 	width: 100%;
-	padding: calc(0.5 * var(--fontSize4)) 0;
+	$paddingTopBottom: calc(0.5 * var(--fontSize4));
+	padding-top: $paddingTopBottom;
+	padding-right: 0;
+	padding-bottom: $paddingTopBottom;
+	padding-left: 0;
+
 	--baseSize: var(--fontSize4);
 
 	--size: calc(2 * var(--fontSize4));

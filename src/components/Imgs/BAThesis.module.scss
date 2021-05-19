@@ -19,8 +19,9 @@
 	width: var(--size);
 	height: var(--size);
 	overflow: hidden;
-	display: grid;
-	place-content: center;
+	display: flex;
+	align-items: center;
+	justify-content: center;
 
 	svg {
 		display: block;

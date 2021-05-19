@@ -12,8 +12,9 @@
 	background: #b75d69;
 	width: var(--size);
 	height: var(--size);
-	display: grid;
-	place-content: center;
+	display: flex;
+	align-items: center;
+	justify-content: center;
 
 	&:first-child {
 		margin-right: calc(var(--size) * 0.1);
