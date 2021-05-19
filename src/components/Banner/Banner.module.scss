@@ -47,7 +47,7 @@
 	// Move translate value to variable. Legacy Edge does not
 	// seem to handle it otherwise...
 	--translateY: calc(-1 * var(--i) * var(--bannerHeight));
-	transform: translateY(var(--tranlateY));
+	transform: translateY(var(--translateY));
 
 	@include transitions.add(opacity 400ms ease-in-out);
 }

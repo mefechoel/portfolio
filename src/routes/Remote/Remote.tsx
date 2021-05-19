@@ -11,7 +11,7 @@ const Remote = () => (
 			<q>Remote Control</q> is a simple app you can install on your computer. It
 			allows you to control media playback via a simple web app, that connects
 			to your device. This way you can play or pause videos, alter their
-			loudness or select a new film on a streaming platform.
+			loudness or select a new movie on a streaming platform.
 			<br />
 			The application you install on your computer is a simple program, written
 			in Rust, that hosts a server on the local network. The server is

@@ -30,7 +30,7 @@
 	}
 
 	@include mq.wideScreen {
-		justify-content: end;
+		justify-content: flex-end;
 		padding: 0;
 	}
 }
