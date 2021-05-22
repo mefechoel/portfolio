@@ -8,8 +8,7 @@ const Music = () => (
 	<GridPage>
 		<GridPage.Desc>
 			On this page, you will find music I composed, recorded, mixed, mastered
-			and released. Click on a card to read more about the project and find
-			links to the released songs.
+			and released. Click on a card to find links to the released songs.
 		</GridPage.Desc>
 		<GridPage.Cards>
 			<Card route="/nicht-mehr-ep">
@@ -22,8 +21,8 @@ const Music = () => (
 						<q>Nicht Mehr</q> (en: <q>Not any more</q>) is the first EP I
 						released. It features three instrumental songs. The sounds are a
 						blend of electronic instruments, organic samples, synthesizers,
-						electric guitar and acoustic and electronic drums. To my ears, the
-						EP has a relaxed, atmospheric indie vibe.
+						electric guitar and acoustic as well as electronic drums. To my
+						ears, the EP has a relaxed, atmospheric indie vibe.
 					</Card.Description>
 				</Card.Body>
 			</Card>
