@@ -28,50 +28,32 @@
 }
 
 .headingWrapper {
+	position: relative;
 	display: flex;
 	flex-direction: column;
 	height: var(--bannerHeight);
 }
 
 .heading {
+	position: absolute;
+	top: 0;
+	left: 0;
 	display: grid;
 	align-content: center;
 	height: var(--bannerHeight);
+	white-space: nowrap;
 	margin: 0;
-	flex-shrink: 0;
+	padding: 0;
 	@include font.style(oblique);
-	text-transform: uppercase;
 	font-size: var(--bannerFontSize);
 	pointer-events: none;
 	opacity: 0;
-	// Move translate value to variable. Legacy Edge does not
-	// seem to handle it otherwise...
-	--translateY: calc(-1 * var(--i) * var(--bannerHeight));
-	transform: translateY(var(--translateY));
-
 	@include transitions.add(opacity 400ms ease-in-out);
 }
 
 .activeHeading {
 	pointer-events: auto;
 	opacity: 1;
-}
-
-.backButton {
-	flex-shrink: 0;
-	color: inherit;
-	background: none;
-	border: none;
-	padding: 0;
-	cursor: pointer;
-	font-size: var(--fontSize1);
-	@include font.weight(500);
-	line-height: 1;
-}
-
-.backIcon {
-	width: 1em;
-	height: 1em;
 }
 
 .bannerNav {
