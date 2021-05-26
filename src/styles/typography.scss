@@ -68,6 +68,14 @@ a {
 	}
 }
 
+figcaption {
+	line-height: var(--lineHeight);
+	text-align: center;
+	color: var(--dimmedFontCol);
+	font-size: 0.9rem;
+	@include font.style(oblique);
+}
+
 :root {
 	@include fluid.fontSize(-1, $property: --fontSizeNeg1);
 	@include fluid.fontSize(0, $property: --fontSize0);

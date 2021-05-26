@@ -12,11 +12,7 @@ $desktopMinWidth: 16rem;
 	padding-top: calc(2 * var(--innerSpacing));
 
 	figcaption {
-		line-height: var(--lineHeight);
 		padding: 1em 1em;
-		text-align: center;
-		color: var(--dimmedFontCol);
-		font-size: 0.9rem;
 	}
 
 	figure {
