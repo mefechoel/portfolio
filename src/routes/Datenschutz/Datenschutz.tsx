@@ -7,19 +7,20 @@ const Datenschutz = () => (
 		<h2>Da&shy;ten&shy;schutz&shy;er&shy;klä&shy;rung</h2>
 		<h3>Einleitung</h3>
 		<p>
-			Mit der folgenden Datenschutzerklärung möchten wir Sie darüber aufklären,
-			welche Arten Ihrer personenbezogenen Daten (nachfolgend auch kurz als
-			"Daten“ bezeichnet) wir zu welchen Zwecken und in welchem Umfang
-			verarbeiten. Die Datenschutzerklärung gilt für alle von uns durchgeführten
-			Verarbeitungen personenbezogener Daten, sowohl im Rahmen der Erbringung
-			unserer Leistungen als auch insbesondere auf unseren Webseiten, in mobilen
-			Applikationen sowie innerhalb externer Onlinepräsenzen, wie z.B. unserer
-			Social-Media-Profile (nachfolgend zusammenfassend bezeichnet als
-			"Onlineangebot“).
+			Mit der folgenden Da&shy;ten&shy;schutz&shy;er&shy;klä&shy;rung möchten
+			wir Sie darüber aufklären, welche Arten Ihrer personenbezogenen Daten
+			(nachfolgend auch kurz als "Daten“ bezeichnet) wir zu welchen Zwecken und
+			in welchem Umfang verarbeiten. Die
+			Da&shy;ten&shy;schutz&shy;er&shy;klä&shy;rung gilt für alle von uns
+			durchgeführten Verarbeitungen personenbezogener Daten, sowohl im Rahmen
+			der Erbringung unserer Leistungen als auch insbesondere auf unseren
+			Webseiten, in mobilen Applikationen sowie innerhalb externer
+			Onlinepräsenzen, wie z.B. unserer Social-Media-Profile (nachfolgend
+			zusammenfassend bezeichnet als "Onlineangebot“).
 		</p>
 		<p>Die verwendeten Begriffe sind nicht geschlechtsspezifisch.</p>
 		<p>Stand: 10. Mai 2021</p>
-		<h3>Inhaltsübersicht</h3>{" "}
+		<h3>In&shy;halts&shy;über&shy;sicht</h3>{" "}
 		<ul className="index">
 			<li>
 				<a className="index-link" href="#m14">
@@ -58,7 +59,8 @@ const Datenschutz = () => (
 			</li>
 			<li>
 				<a className="index-link" href="#m15">
-					Änderung und Aktualisierung der Datenschutzerklärung
+					Änderung und Aktualisierung der
+					Da&shy;ten&shy;schutz&shy;er&shy;klä&shy;rung
 				</a>
 			</li>
 			<li>
@@ -72,7 +74,7 @@ const Datenschutz = () => (
 				</a>
 			</li>
 		</ul>
-		<h3 id="m3">Verantwortlicher</h3>
+		<h3 id="m3">Ver&shy;ant&shy;wort&shy;lich&shy;er</h3>
 		<p>
 			Michel Strelow
 			<br />
@@ -94,7 +96,7 @@ const Datenschutz = () => (
 			</a>
 			.
 		</p>
-		<h3 id="mOverview">Übersicht der Verarbeitungen</h3>
+		<h3 id="mOverview">Übersicht der Ver&shy;ar&shy;bei&shy;tung&shy;en</h3>
 		<p>
 			Die nachfolgende Übersicht fasst die Arten der verarbeiteten Daten und die
 			Zwecke ihrer Verarbeitung zusammen und verweist auf die betroffenen
@@ -119,14 +121,15 @@ const Datenschutz = () => (
 		<ul>
 			<li>Bereitstellung unseres Onlineangebotes und Nutzerfreundlichkeit.</li>
 		</ul>
-		<h4 id="m13">Maßgebliche Rechtsgrundlagen</h4>
+		<h4 id="m13">Maßgebliche Rechts&shy;grund&shy;la&shy;gen</h4>
 		<p>
 			Im Folgenden erhalten Sie eine Übersicht der Rechtsgrundlagen der DSGVO,
 			auf deren Basis wir personenbezogenen Daten verarbeiten. Bitte nehmen Sie
 			zur Kenntnis, dass neben den Regelungen der DSGVO nationale
 			Datenschutzvorgaben in Ihrem bzw. unserem Wohn- oder Sitzland gelten
 			können. Sollten ferner im Einzelfall speziellere Rechtsgrundlagen
-			maßgeblich sein, teilen wir Ihnen diese in der Datenschutzerklärung mit.
+			maßgeblich sein, teilen wir Ihnen diese in der
+			Da&shy;ten&shy;schutz&shy;er&shy;klä&shy;rung mit.
 		</p>
 		<ul>
 			<li>
@@ -156,7 +159,7 @@ const Datenschutz = () => (
 			Ferner können Landesdatenschutzgesetze der einzelnen Bundesländer zur
 			Anwendung gelangen.
 		</p>
-		<h3 id="m27">Sicherheitsmaßnahmen</h3>
+		<h3 id="m27">Sicher&shy;heits&shy;maß&shy;nahm&shy;en</h3>
 		<p>
 			Wir treffen nach Maßgabe der gesetzlichen Vorgaben unter Berücksichtigung
 			des Stands der Technik, der Implementierungskosten und der Art, des
@@ -185,7 +188,9 @@ const Datenschutz = () => (
 			SSL-Verschlüsselung. Sie erkennen derart verschlüsselte Verbindungen an
 			dem Präfix https:// in der Adresszeile Ihres Browsers.
 		</p>
-		<h3 id="m24">Datenverarbeitung in Drittländern</h3>
+		<h3 id="m24">
+			Da&shy;ten&shy;ver&shy;ar&shy;bei&shy;tung in Dritt&shy;län&shy;dern
+		</h3>
 		<p>
 			Sofern wir Daten in einem Drittland (d.h., außerhalb der Europäischen
 			Union (EU), des Europäischen Wirtschaftsraums (EWR)) verarbeiten oder die
@@ -211,7 +216,10 @@ const Datenschutz = () => (
 			</a>
 			).
 		</p>
-		<h3 id="m225">Bereitstellung des Onlineangebotes und Webhosting</h3>
+		<h3 id="m225">
+			Bereit&shy;stel&shy;lung des Online&shy;an&shy;ge&shy;bot&shy;es und
+			Web&shy;hosting
+		</h3>
 		<p>
 			Um unser Onlineangebot sicher und effizient bereitstellen zu können,
 			nehmen wir die Leistungen von einem oder mehreren Webhosting-Anbietern in
@@ -265,22 +273,26 @@ const Datenschutz = () => (
 				S. 1 lit. f. DSGVO).
 			</li>
 		</ul>
-		<h3 id="m15">Änderung und Aktualisierung der Datenschutzerklärung</h3>
+		<h3 id="m15">
+			Änderung und Ak&shy;tu&shy;ali&shy;sie&shy;rung der
+			Da&shy;ten&shy;schutz&shy;er&shy;klä&shy;rung
+		</h3>
 		<p>
 			Wir bitten Sie, sich regelmäßig über den Inhalt unserer
-			Datenschutzerklärung zu informieren. Wir passen die Datenschutzerklärung
-			an, sobald die Änderungen der von uns durchgeführten Datenverarbeitungen
-			dies erforderlich machen. Wir informieren Sie, sobald durch die Änderungen
-			eine Mitwirkungshandlung Ihrerseits (z.B. Einwilligung) oder eine sonstige
+			Da&shy;ten&shy;schutz&shy;er&shy;klä&shy;rung zu informieren. Wir passen
+			die Da&shy;ten&shy;schutz&shy;er&shy;klä&shy;rung an, sobald die
+			Änderungen der von uns durchgeführten Datenverarbeitungen dies
+			erforderlich machen. Wir informieren Sie, sobald durch die Änderungen eine
+			Mitwirkungshandlung Ihrerseits (z.B. Einwilligung) oder eine sonstige
 			individuelle Benachrichtigung erforderlich wird.
 		</p>
 		<p>
-			Sofern wir in dieser Datenschutzerklärung Adressen und
-			Kontaktinformationen von Unternehmen und Organisationen angeben, bitten
-			wir zu beachten, dass die Adressen sich über die Zeit ändern können und
-			bitten die Angaben vor Kontaktaufnahme zu prüfen.
+			Sofern wir in dieser Da&shy;ten&shy;schutz&shy;er&shy;klä&shy;rung
+			Adressen und Kontaktinformationen von Unternehmen und Organisationen
+			angeben, bitten wir zu beachten, dass die Adressen sich über die Zeit
+			ändern können und bitten die Angaben vor Kontaktaufnahme zu prüfen.
 		</p>
-		<h3 id="m10">Rechte der betroffenen Personen</h3>
+		<h3 id="m10">Rechte der be&shy;trof&shy;fen&shy;en Per&shy;son&shy;en</h3>
 		<p>
 			Ihnen stehen als Betroffene nach der DSGVO verschiedene Rechte zu, die
 			sich insbesondere aus Art. 15 bis 21 DSGVO ergeben:
@@ -340,14 +352,14 @@ const Datenschutz = () => (
 				personenbezogenen Daten gegen die Vorgaben der DSGVO verstößt.
 			</li>
 		</ul>
-		<h3 id="m42">Begriffsdefinitionen</h3>
+		<h3 id="m42">Be&shy;griffs&shy;de&shy;fi&shy;ni&shy;tio&shy;nen</h3>
 		<p>
 			In diesem Abschnitt erhalten Sie eine Übersicht über die in dieser
-			Datenschutzerklärung verwendeten Begrifflichkeiten. Viele der Begriffe
-			sind dem Gesetz entnommen und vor allem im Art. 4 DSGVO definiert. Die
-			gesetzlichen Definitionen sind verbindlich. Die nachfolgenden
-			Erläuterungen sollen dagegen vor allem dem Verständnis dienen. Die
-			Begriffe sind alphabetisch sortiert.
+			Da&shy;ten&shy;schutz&shy;er&shy;klä&shy;rung verwendeten
+			Begrifflichkeiten. Viele der Begriffe sind dem Gesetz entnommen und vor
+			allem im Art. 4 DSGVO definiert. Die gesetzlichen Definitionen sind
+			verbindlich. Die nachfolgenden Erläuterungen sollen dagegen vor allem dem
+			Verständnis dienen. Die Begriffe sind alphabetisch sortiert.
 		</p>
 		<ul className="glossary">
 			<li>

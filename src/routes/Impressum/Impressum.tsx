@@ -20,7 +20,7 @@ const Impressum = () => (
 		</p>
 		<br />
 		<br />
-		<h2>Disclaimer – rechtliche Hinweise</h2>
+		<h2>Dis&shy;claimer – recht&shy;liche Hin&shy;weise</h2>
 		§ 1 Warnhinweis zu Inhalten
 		<br />
 		Die kostenlosen und frei zugänglichen Inhalte dieser Webseite wurden mit
