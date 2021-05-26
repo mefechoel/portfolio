@@ -76,7 +76,8 @@ const Home = () => (
 					target="_blank"
 					rel="noopener noreferrer"
 				>
-					]init[
+					<span aria-hidden="true">]</span>init<span aria-hidden="true">[</span>{" "}
+					AG
 				</a>
 				, where I work as a frontend web developer. For this website, I have
 				selected a few of my private and academic projects.

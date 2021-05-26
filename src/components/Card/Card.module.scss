@@ -31,15 +31,20 @@
 		}
 	}
 
-	&:visited {
+	&:visited,
+	&:focus,
+	&:active {
 		color: var(--fontCol);
 	}
 
-	&:hover,
-	&:focus-visible {
-		color: var(--accentCol);
-		&::after {
-			opacity: 1;
+	@include mq.wideScreen {
+		&:hover,
+		&:focus-visible {
+			color: var(--accentCol);
+
+			&::after {
+				opacity: 1;
+			}
 		}
 	}
 }
