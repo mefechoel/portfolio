@@ -1,6 +1,5 @@
 import { defineConfig } from "vite";
 import preact from "@preact/preset-vite";
-import url from "@rollup/plugin-url";
 import autoprefixer from "autoprefixer";
 import cssDeclarationSorter from "css-declaration-sorter";
 import banner from "./bundlerPlugins/banner";
@@ -13,24 +12,6 @@ const ssr = process.env.BUILD_MODE === "ssr";
 export default defineConfig({
 	plugins: [
 		preact(),
-		production && {
-			...url({
-				include: [
-					"**/*.svg",
-					"**/*.png",
-					"**/*.jp(e)?g",
-					"**/*.gif",
-					"**/*.webp",
-					"**/*.avif",
-				],
-				limit: 0,
-				publicPath: "/assets/img/",
-				destDir: "dist/assets/img/",
-				emitFiles: !ssr,
-				fileName: "[name].[hash][extname]",
-			}),
-			enforce: "pre",
-		},
 		production &&
 			banner(
 				"/*! Licenses of used libraries, fonts and other software can be found at /lib-licenses.txt */\n",
