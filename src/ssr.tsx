@@ -19,6 +19,7 @@ import pixelnetz from "./routes/Pixelnetz";
 import nichtMehr from "./routes/NichtMehrEP";
 import prag from "./routes/PragSingle";
 import { createRoutes } from "./routes";
+import { resetIdCounter } from "./util";
 
 const routes = createRoutes({
 	projects,
@@ -98,6 +99,10 @@ async function main() {
 			// eslint-disable-next-line no-console
 			console.log(`Prerendering chunk "${name}"`);
 
+			// Reset the id counter, so that no global state is persisted
+			// between pre-renders
+			resetIdCounter();
+
 			const app = <App routes={routes} url={url} />;
 			const manifestEntry = manifestEntries.find(([file]) =>
 				file.endsWith(filePath),
@@ -119,19 +124,17 @@ async function main() {
 			let cssFiles: string[] = [...(chunk.css || [])];
 			let jsFiles: string[] = [chunk.file];
 
-			await prepass(app);
-			const html = renderToString(app);
-
 			loopDependentChunks(chunk, (c) => {
 				if (c.css) {
 					const addCss = c.css.filter(
-						(css) =>
-							!html.includes(`href="/${css}"`) &&
-							!html.includes(`src="/${css}"`),
+						(css) => !template.includes(`href="/${css}"`),
 					);
 					cssFiles = [...cssFiles, ...addCss];
 				}
-				if (!html.includes(`href="/${c.file}"`)) {
+				if (
+					!template.includes(`href="/${c.file}"`) &&
+					!template.includes(`src="/${c.file}"`)
+				) {
 					jsFiles = [...jsFiles, c.file];
 				}
 			});
@@ -141,6 +144,8 @@ async function main() {
 
 			const additionalLinks = [...cssLinks, ...modulePreload].join("\n");
 
+			await prepass(app);
+			const html = renderToString(app);
 			const titleTag = `<title>${title}</title>`;
 			const prerender = template
 				.replace(/<!--\s*HTML_OUTLET\s*-->/, html)
