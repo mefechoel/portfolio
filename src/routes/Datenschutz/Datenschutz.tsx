@@ -92,7 +92,7 @@ const Datenschutz = () => (
 				target="_blank"
 				rel="noopener noreferrer"
 			>
-				https://mefechoel.github.io/impressum
+				https://me&shy;fe&shy;cho&shy;el.git&shy;hub.io/im&shy;pres&shy;sum
 			</a>
 			.
 		</p>
