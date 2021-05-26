@@ -70,7 +70,6 @@ export default defineConfig({
 					brotliSize: false,
 			  }
 			: {}),
-		polyfillDynamicImport: true,
 		target: "modules",
 		manifest: true,
 		assetsInlineLimit: 0,
