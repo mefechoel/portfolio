@@ -23,11 +23,19 @@ const Portfolio = () => (
 				Vite JavaScript bundler
 			</a>{" "}
 			and the Preact utilities{" "}
-			<a href="https://vitejs.dev/" target="_blank" rel="noopener noreferrer">
+			<a
+				href="https://github.com/preactjs/preact-render-to-string"
+				target="_blank"
+				rel="noopener noreferrer"
+			>
 				preact-render-to-string
 			</a>{" "}
 			and{" "}
-			<a href="https://vitejs.dev/" target="_blank" rel="noopener noreferrer">
+			<a
+				href="https://github.com/preactjs/preact-ssr-prepass"
+				target="_blank"
+				rel="noopener noreferrer"
+			>
 				preact-ssr-prepass
 			</a>
 			. To further improve performance, all assets are compressed using modern
