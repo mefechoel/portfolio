@@ -103,95 +103,101 @@ const Remote = () => (
 		</DetailsWrapper.Body>
 		<ImgGrid>
 			<figure>
-				<Img
-					srcset={{
-						avif: createStdSrcSet({
-							"1000": page1Avif1000,
-							"750": page1Avif750,
-							"500": page1Avif500,
-							"250": page1Avif250,
-						}),
-						webp: createStdSrcSet({
-							"1000": page1Webp1000,
-							"750": page1Webp750,
-							"500": page1Webp500,
-							"250": page1Webp250,
-						}),
-						jpeg: createStdSrcSet({
-							"1000": page1Jpg1000,
-							"750": page1Jpg750,
-							"500": page1Jpg500,
-							"250": page1Jpg250,
-						}),
-					}}
-					width={750}
-					height={1478}
-					src={page1Jpg750}
-					alt="Page one of the app displaying a grid of control buttons"
-					loading="lazy"
-				/>
+				<a href={page1Jpg1000} target="_blank" rel="noopener noreferrer">
+					<Img
+						srcset={{
+							avif: createStdSrcSet({
+								"1000": page1Avif1000,
+								"750": page1Avif750,
+								"500": page1Avif500,
+								"250": page1Avif250,
+							}),
+							webp: createStdSrcSet({
+								"1000": page1Webp1000,
+								"750": page1Webp750,
+								"500": page1Webp500,
+								"250": page1Webp250,
+							}),
+							jpeg: createStdSrcSet({
+								"1000": page1Jpg1000,
+								"750": page1Jpg750,
+								"500": page1Jpg500,
+								"250": page1Jpg250,
+							}),
+						}}
+						width={750}
+						height={1478}
+						src={page1Jpg750}
+						alt="Page one of the app displaying a grid of control buttons"
+						loading="lazy"
+					/>
+				</a>
 				<figcaption>
 					Page one - Control buttons for the main functions, such as play/pause
 				</figcaption>
 			</figure>
 			<figure>
-				<Img
-					srcset={{
-						avif: createStdSrcSet({
-							"1000": page2Avif1000,
-							"750": page2Avif750,
-							"500": page2Avif500,
-							"250": page2Avif250,
-						}),
-						webp: createStdSrcSet({
-							"1000": page2Webp1000,
-							"750": page2Webp750,
-							"500": page2Webp500,
-							"250": page2Webp250,
-						}),
-						jpeg: createStdSrcSet({
-							"1000": page2Jpg1000,
-							"750": page2Jpg750,
-							"500": page2Jpg500,
-							"250": page2Jpg250,
-						}),
-					}}
-					width={750}
-					height={1478}
-					src={page2Jpg750}
-					alt="Page two of the app displaying a trackpad to move the mouse"
-					loading="lazy"
-				/>
+				<a href={page2Jpg1000} target="_blank" rel="noopener noreferrer">
+					<Img
+						srcset={{
+							avif: createStdSrcSet({
+								"1000": page2Avif1000,
+								"750": page2Avif750,
+								"500": page2Avif500,
+								"250": page2Avif250,
+							}),
+							webp: createStdSrcSet({
+								"1000": page2Webp1000,
+								"750": page2Webp750,
+								"500": page2Webp500,
+								"250": page2Webp250,
+							}),
+							jpeg: createStdSrcSet({
+								"1000": page2Jpg1000,
+								"750": page2Jpg750,
+								"500": page2Jpg500,
+								"250": page2Jpg250,
+							}),
+						}}
+						width={750}
+						height={1478}
+						src={page2Jpg750}
+						alt="Page two of the app displaying a trackpad to move the mouse"
+						loading="lazy"
+					/>
+				</a>
 				<figcaption>Page two - Trackpad to move and click the mouse</figcaption>
 			</figure>
 			<figure>
-				<Img
-					srcset={{
-						avif: createStdSrcSet({
-							"1000": page3Avif1000,
-							"750": page3Avif750,
-							"500": page3Avif500,
-							"250": page3Avif250,
-						}),
-						webp: createStdSrcSet({
-							"1000": page3Webp1000,
-							"750": page3Webp750,
-							"500": page3Webp500,
-							"250": page3Webp250,
-						}),
-						jpeg: createStdSrcSet({
-							"1000": page3Jpg1000,
-							"750": page3Jpg750,
-							"500": page3Jpg500,
-							"250": page3Jpg250,
-						}),
-					}}
-					width={750}
-					height={1478}
-					src={page3Jpg750}
-					alt="Page three of the app displaying settings"
-					loading="lazy"
-				/>
+				<a href={page3Jpg1000} target="_blank" rel="noopener noreferrer">
+					<Img
+						srcset={{
+							avif: createStdSrcSet({
+								"1000": page3Avif1000,
+								"750": page3Avif750,
+								"500": page3Avif500,
+								"250": page3Avif250,
+							}),
+							webp: createStdSrcSet({
+								"1000": page3Webp1000,
+								"750": page3Webp750,
+								"500": page3Webp500,
+								"250": page3Webp250,
+							}),
+							jpeg: createStdSrcSet({
+								"1000": page3Jpg1000,
+								"750": page3Jpg750,
+								"500": page3Jpg500,
+								"250": page3Jpg250,
+							}),
+						}}
+						width={750}
+						height={1478}
+						src={page3Jpg750}
+						alt="Page three of the app displaying settings"
+						loading="lazy"
+					/>
+				</a>
 				<figcaption>Page three - Settings page</figcaption>
 			</figure>
 		</ImgGrid>

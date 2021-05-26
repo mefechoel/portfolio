@@ -12,6 +12,7 @@ import pixelnetzJpg1000 from "./img/pixelnetz-1000.jpg";
 import pixelnetzJpg750 from "./img/pixelnetz-750.jpg";
 import pixelnetzJpg500 from "./img/pixelnetz-500.jpg";
 import pixelnetzJpg250 from "./img/pixelnetz-250.jpg";
+import pixelnetzJpg from "./img/pixelnetz.jpg";
 import style from "./Pixelnetz.module.scss";
 
 const Pixelnetz = () => (
@@ -84,27 +85,29 @@ const Pixelnetz = () => (
 			.
 		</DetailsWrapper.Body>
 		<figure className={style.figure}>
-			<picture>
-				<source
-					type="image/avif"
-					srcSet={`${pixelnetzAvif1000} 1000w, ${pixelnetzAvif750} 750w, ${pixelnetzAvif500} 500w, ${pixelnetzAvif250} 250w`}
-				/>
-				<source
-					type="image/webp"
-					srcSet={`${pixelnetzWebp1000} 1000w, ${pixelnetzWebp750} 750w, ${pixelnetzWebp500} 500w, ${pixelnetzWebp250} 250w`}
-				/>
-				<source
-					type="image/jpeg"
-					srcSet={`${pixelnetzJpg1000} 1000w, ${pixelnetzJpg750} 750w, ${pixelnetzJpg500} 500w, ${pixelnetzJpg250} 250w`}
-				/>
-				<img
-					width={1000 * 2}
-					height={562 * 2}
-					src={pixelnetzJpg1000}
-					alt="Multiple smartphones displaying a colorful gradient, next to a computer, controlling the animation via the control web app"
-					loading="lazy"
-				/>
-			</picture>
+			<a href={pixelnetzJpg} target="_blank" rel="noopener noreferrer">
+				<picture>
+					<source
+						type="image/avif"
+						srcSet={`${pixelnetzAvif1000} 1000w, ${pixelnetzAvif750} 750w, ${pixelnetzAvif500} 500w, ${pixelnetzAvif250} 250w`}
+					/>
+					<source
+						type="image/webp"
+						srcSet={`${pixelnetzWebp1000} 1000w, ${pixelnetzWebp750} 750w, ${pixelnetzWebp500} 500w, ${pixelnetzWebp250} 250w`}
+					/>
+					<source
+						type="image/jpeg"
+						srcSet={`${pixelnetzJpg1000} 1000w, ${pixelnetzJpg750} 750w, ${pixelnetzJpg500} 500w, ${pixelnetzJpg250} 250w`}
+					/>
+					<img
+						width={1000 * 2}
+						height={562 * 2}
+						src={pixelnetzJpg1000}
+						alt="Multiple smartphones displaying a colorful gradient, next to a computer, controlling the animation via the control web app"
+						loading="lazy"
+					/>
+				</picture>
+			</a>
 			<figcaption className={style.caption}>
 				Control web page running an animation
 			</figcaption>

@@ -88,131 +88,139 @@ const RecipeApp = () => (
 		</DetailsWrapper.Body>
 		<ImgGrid>
 			<figure>
-				<Img
-					srcset={{
-						avif: createStdSrcSet({
-							"1000": recipeHomeAvif1000,
-							"750": recipeHomeAvif750,
-							"500": recipeHomeAvif500,
-							"250": recipeHomeAvif250,
-						}),
-						webp: createStdSrcSet({
-							"1000": recipeHomeWebp1000,
-							"750": recipeHomeWebp750,
-							"500": recipeHomeWebp500,
-							"250": recipeHomeWebp250,
-						}),
-						jpeg: createStdSrcSet({
-							"1000": recipeHomeJpg1000,
-							"750": recipeHomeJpg750,
-							"500": recipeHomeJpg500,
-							"250": recipeHomeJpg250,
-						}),
-					}}
-					width={750}
-					height={1361}
-					src={recipeHomeJpg750}
-					alt="The home page of the recipe app, displaying a random recipe"
-					loading="lazy"
-				/>
+				<a href={recipeHomeJpg1000} target="_blank" rel="noopener noreferrer">
+					<Img
+						srcset={{
+							avif: createStdSrcSet({
+								"1000": recipeHomeAvif1000,
+								"750": recipeHomeAvif750,
+								"500": recipeHomeAvif500,
+								"250": recipeHomeAvif250,
+							}),
+							webp: createStdSrcSet({
+								"1000": recipeHomeWebp1000,
+								"750": recipeHomeWebp750,
+								"500": recipeHomeWebp500,
+								"250": recipeHomeWebp250,
+							}),
+							jpeg: createStdSrcSet({
+								"1000": recipeHomeJpg1000,
+								"750": recipeHomeJpg750,
+								"500": recipeHomeJpg500,
+								"250": recipeHomeJpg250,
+							}),
+						}}
+						width={750}
+						height={1361}
+						src={recipeHomeJpg750}
+						alt="The home page of the recipe app, displaying a random recipe"
+						loading="lazy"
+					/>
+				</a>
 				<figcaption>
 					Home page - A new random recipe is displayed on every visit
 				</figcaption>
 			</figure>
 			<figure>
-				<Img
-					srcset={{
-						avif: createStdSrcSet({
-							"1000": recipeSearchAvif1000,
-							"750": recipeSearchAvif750,
-							"500": recipeSearchAvif500,
-							"250": recipeSearchAvif250,
-						}),
-						webp: createStdSrcSet({
-							"1000": recipeSearchWebp1000,
-							"750": recipeSearchWebp750,
-							"500": recipeSearchWebp500,
-							"250": recipeSearchWebp250,
-						}),
-						jpeg: createStdSrcSet({
-							"1000": recipeSearchJpg1000,
-							"750": recipeSearchJpg750,
-							"500": recipeSearchJpg500,
-							"250": recipeSearchJpg250,
-						}),
-					}}
-					width={750}
-					height={1361}
-					src={recipeSearchJpg750}
-					alt="The search page of the recipe app"
-					loading="lazy"
-				/>
+				<a href={recipeSearchJpg1000} target="_blank" rel="noopener noreferrer">
+					<Img
+						srcset={{
+							avif: createStdSrcSet({
+								"1000": recipeSearchAvif1000,
+								"750": recipeSearchAvif750,
+								"500": recipeSearchAvif500,
+								"250": recipeSearchAvif250,
+							}),
+							webp: createStdSrcSet({
+								"1000": recipeSearchWebp1000,
+								"750": recipeSearchWebp750,
+								"500": recipeSearchWebp500,
+								"250": recipeSearchWebp250,
+							}),
+							jpeg: createStdSrcSet({
+								"1000": recipeSearchJpg1000,
+								"750": recipeSearchJpg750,
+								"500": recipeSearchJpg500,
+								"250": recipeSearchJpg250,
+							}),
+						}}
+						width={750}
+						height={1361}
+						src={recipeSearchJpg750}
+						alt="The search page of the recipe app"
+						loading="lazy"
+					/>
+				</a>
 				<figcaption>
 					Search page - Search by entering the name of a dish or a category of
 					dishes
 				</figcaption>
 			</figure>
 			<figure>
-				<Img
-					srcset={{
-						avif: createStdSrcSet({
-							"1000": recipeFavAvif1000,
-							"750": recipeFavAvif750,
-							"500": recipeFavAvif500,
-							"250": recipeFavAvif250,
-						}),
-						webp: createStdSrcSet({
-							"1000": recipeFavWebp1000,
-							"750": recipeFavWebp750,
-							"500": recipeFavWebp500,
-							"250": recipeFavWebp250,
-						}),
-						jpeg: createStdSrcSet({
-							"1000": recipeFavJpg1000,
-							"750": recipeFavJpg750,
-							"500": recipeFavJpg500,
-							"250": recipeFavJpg250,
-						}),
-					}}
-					width={750}
-					height={1361}
-					src={recipeFavJpg750}
-					alt="The favourites page of the recipe app"
-					loading="lazy"
-				/>
+				<a href={recipeFavJpg1000} target="_blank" rel="noopener noreferrer">
+					<Img
+						srcset={{
+							avif: createStdSrcSet({
+								"1000": recipeFavAvif1000,
+								"750": recipeFavAvif750,
+								"500": recipeFavAvif500,
+								"250": recipeFavAvif250,
+							}),
+							webp: createStdSrcSet({
+								"1000": recipeFavWebp1000,
+								"750": recipeFavWebp750,
+								"500": recipeFavWebp500,
+								"250": recipeFavWebp250,
+							}),
+							jpeg: createStdSrcSet({
+								"1000": recipeFavJpg1000,
+								"750": recipeFavJpg750,
+								"500": recipeFavJpg500,
+								"250": recipeFavJpg250,
+							}),
+						}}
+						width={750}
+						height={1361}
+						src={recipeFavJpg750}
+						alt="The favourites page of the recipe app"
+						loading="lazy"
+					/>
+				</a>
 				<figcaption>
 					Favourites page - Favourites are saved to localStorage, so they are
 					persisted over multiple sessions
 				</figcaption>
 			</figure>
 			<figure>
-				<Img
-					srcset={{
-						avif: createStdSrcSet({
-							"1000": recipeDetailAvif1000,
-							"750": recipeDetailAvif750,
-							"500": recipeDetailAvif500,
-							"250": recipeDetailAvif250,
-						}),
-						webp: createStdSrcSet({
-							"1000": recipeDetailWebp1000,
-							"750": recipeDetailWebp750,
-							"500": recipeDetailWebp500,
-							"250": recipeDetailWebp250,
-						}),
-						jpeg: createStdSrcSet({
-							"1000": recipeDetailJpg1000,
-							"750": recipeDetailJpg750,
-							"500": recipeDetailJpg500,
-							"250": recipeDetailJpg250,
-						}),
-					}}
-					width={750}
-					height={1361}
-					src={recipeDetailJpg750}
-					alt="The details view of a specific recipe"
-					loading="lazy"
-				/>
+				<a href={recipeDetailJpg1000} target="_blank" rel="noopener noreferrer">
+					<Img
+						srcset={{
+							avif: createStdSrcSet({
+								"1000": recipeDetailAvif1000,
+								"750": recipeDetailAvif750,
+								"500": recipeDetailAvif500,
+								"250": recipeDetailAvif250,
+							}),
+							webp: createStdSrcSet({
+								"1000": recipeDetailWebp1000,
+								"750": recipeDetailWebp750,
+								"500": recipeDetailWebp500,
+								"250": recipeDetailWebp250,
+							}),
+							jpeg: createStdSrcSet({
+								"1000": recipeDetailJpg1000,
+								"750": recipeDetailJpg750,
+								"500": recipeDetailJpg500,
+								"250": recipeDetailJpg250,
+							}),
+						}}
+						width={750}
+						height={1361}
+						src={recipeDetailJpg750}
+						alt="The details view of a specific recipe"
+						loading="lazy"
+					/>
+				</a>
 				<figcaption>
 					Details view - View cooking instructions and ingredients of a recipe
 				</figcaption>

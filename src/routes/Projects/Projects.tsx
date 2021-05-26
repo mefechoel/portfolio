@@ -42,12 +42,12 @@ const Project = () => (
 					</Card.Description>
 				</Card.Body>
 			</Card>
-			<Card route="/kochchef">
+			<Card route="/recipe-app">
 				<Card.Img label="Noodle dish in a bowl">
 					<RecipeApp />
 				</Card.Img>
 				<Card.Body>
-					<Card.Heading>Koch&shy;Chef</Card.Heading>
+					<Card.Heading>Recipe App</Card.Heading>
 					<Card.Description>
 						<q>Recipe App</q> was developed as part of my bachelor thesis. It
 						consists of a backend, responsible for providing the recipe data,
