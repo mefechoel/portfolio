@@ -1,0 +1,25 @@
+$desktopMinWidth: 16rem;
+
+.imgGrid {
+	--minCardWidth: 1fr;
+	display: grid;
+	grid-template-columns: repeat(auto-fill, minmax(var(--minCardWidth), 1fr));
+	@media screen and (min-width: 20em) {
+		--minCardWidth: #{$desktopMinWidth};
+	}
+	grid-auto-rows: auto;
+	gap: var(--innerSpacing);
+	padding-top: calc(2 * var(--innerSpacing));
+
+	figcaption {
+		line-height: var(--lineHeight);
+		padding: 1em 1em;
+		text-align: center;
+		color: var(--dimmedFontCol);
+		font-size: 0.9rem;
+	}
+
+	figure {
+		margin: 0;
+	}
+}

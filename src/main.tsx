@@ -10,7 +10,7 @@ const impressum = lazy(() => import("./routes/Impressum"));
 const datenschutz = lazy(() => import("./routes/Datenschutz"));
 const baThesis = lazy(() => import("./routes/BAThesis"));
 const svelteNavigator = lazy(() => import("./routes/SvelteNavigator"));
-const kochChef = lazy(() => import("./routes/KochChef"));
+const recipeApp = lazy(() => import("./routes/RecipeApp"));
 const hpStrelow = lazy(() => import("./routes/HPStrelow"));
 const portfolio = lazy(() => import("./routes/Portfolio"));
 const remote = lazy(() => import("./routes/Remote"));
@@ -26,7 +26,7 @@ const routes = createRoutes({
 	datenschutz,
 	baThesis,
 	svelteNavigator,
-	kochChef,
+	recipeApp,
 	hpStrelow,
 	portfolio,
 	remote,

@@ -7,7 +7,7 @@ export type RouteNames =
 	| "music"
 	| "datenschutz"
 	| "svelteNavigator"
-	| "kochChef"
+	| "recipeApp"
 	| "hpStrelow"
 	| "portfolio"
 	| "remote"
@@ -76,12 +76,12 @@ export const routeDescriptions: {
 		pageName: "Svelte Navigator",
 		mainPage: false,
 	},
-	kochChef: {
-		path: "/kochchef",
-		name: "kochchef",
-		filePath: "routes/KochChef/index.ts",
-		title: "KochChef - Portfolio Michel Strelow",
-		pageName: "KochChef",
+	recipeApp: {
+		path: "/recipe-app",
+		name: "recipe-app",
+		filePath: "routes/RecipeApp/index.ts",
+		title: "Recipe App - Portfolio Michel Strelow",
+		pageName: "Recipe App",
 		mainPage: false,
 	},
 	hpStrelow: {

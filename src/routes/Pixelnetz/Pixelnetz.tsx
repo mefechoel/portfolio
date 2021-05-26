@@ -1,5 +1,17 @@
 import DetailsWrapper from "../../components/DetailsWrapper";
 import PixelnetzImg from "../../components/Imgs/Pixelnetz";
+import pixelnetzAvif1000 from "./img/pixelnetz-1000.avif";
+import pixelnetzAvif750 from "./img/pixelnetz-750.avif";
+import pixelnetzAvif500 from "./img/pixelnetz-500.avif";
+import pixelnetzAvif250 from "./img/pixelnetz-250.avif";
+import pixelnetzWebp1000 from "./img/pixelnetz-1000.webp";
+import pixelnetzWebp750 from "./img/pixelnetz-750.webp";
+import pixelnetzWebp500 from "./img/pixelnetz-500.webp";
+import pixelnetzWebp250 from "./img/pixelnetz-250.webp";
+import pixelnetzJpg1000 from "./img/pixelnetz-1000.jpg";
+import pixelnetzJpg750 from "./img/pixelnetz-750.jpg";
+import pixelnetzJpg500 from "./img/pixelnetz-500.jpg";
+import pixelnetzJpg250 from "./img/pixelnetz-250.jpg";
 import style from "./Pixelnetz.module.scss";
 
 const Pixelnetz = () => (
@@ -71,6 +83,32 @@ const Pixelnetz = () => (
 			</a>
 			.
 		</DetailsWrapper.Body>
+		<figure className={style.figure}>
+			<picture>
+				<source
+					type="image/avif"
+					srcSet={`${pixelnetzAvif1000} 1000w, ${pixelnetzAvif750} 750w, ${pixelnetzAvif500} 500w, ${pixelnetzAvif250} 250w`}
+				/>
+				<source
+					type="image/webp"
+					srcSet={`${pixelnetzWebp1000} 1000w, ${pixelnetzWebp750} 750w, ${pixelnetzWebp500} 500w, ${pixelnetzWebp250} 250w`}
+				/>
+				<source
+					type="image/jpeg"
+					srcSet={`${pixelnetzJpg1000} 1000w, ${pixelnetzJpg750} 750w, ${pixelnetzJpg500} 500w, ${pixelnetzJpg250} 250w`}
+				/>
+				<img
+					width={1000 * 2}
+					height={562 * 2}
+					src={pixelnetzJpg1000}
+					alt="Multiple smartphones displaying a colorful gradient, next to a computer, controlling the animation via the control web app"
+					loading="lazy"
+				/>
+			</picture>
+			<figcaption className={style.caption}>
+				Control web page running an animation
+			</figcaption>
+		</figure>
 	</DetailsWrapper>
 );
 

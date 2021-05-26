@@ -11,7 +11,7 @@ import impressum from "./routes/Impressum";
 import datenschutz from "./routes/Datenschutz";
 import baThesis from "./routes/BAThesis";
 import svelteNavigator from "./routes/SvelteNavigator";
-import kochChef from "./routes/KochChef";
+import recipeApp from "./routes/RecipeApp";
 import hpStrelow from "./routes/HPStrelow";
 import portfolio from "./routes/Portfolio";
 import remote from "./routes/Remote";
@@ -28,7 +28,7 @@ const routes = createRoutes({
 	datenschutz,
 	baThesis,
 	svelteNavigator,
-	kochChef,
+	recipeApp,
 	hpStrelow,
 	portfolio,
 	remote,
@@ -119,11 +119,21 @@ async function main() {
 			let cssFiles: string[] = [...(chunk.css || [])];
 			let jsFiles: string[] = [chunk.file];
 
+			await prepass(app);
+			const html = renderToString(app);
+
 			loopDependentChunks(chunk, (c) => {
 				if (c.css) {
-					cssFiles = [...cssFiles, ...c.css];
+					const addCss = c.css.filter(
+						(css) =>
+							!html.includes(`href="/${css}"`) &&
+							!html.includes(`src="/${css}"`),
+					);
+					cssFiles = [...cssFiles, ...addCss];
 				}
-				jsFiles = [...jsFiles, c.file];
+				if (!html.includes(`href="/${c.file}"`)) {
+					jsFiles = [...jsFiles, c.file];
+				}
 			});
 
 			const cssLinks = [...new Set(createCssLinks(cssFiles))];
@@ -131,8 +141,6 @@ async function main() {
 
 			const additionalLinks = [...cssLinks, ...modulePreload].join("\n");
 
-			await prepass(app);
-			const html = renderToString(app);
 			const titleTag = `<title>${title}</title>`;
 			const prerender = template
 				.replace(/<!--\s*HTML_OUTLET\s*-->/, html)

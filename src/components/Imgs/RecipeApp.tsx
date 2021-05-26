@@ -1,6 +1,6 @@
 import SvgWrapper from "./SvgWrapper";
 
-const KochChef = () => (
+const RecipeApp = () => (
 	<SvgWrapper>
 		<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#41b883">
 			<path fill="none" d="M0 0h24v24H0z" />
@@ -9,4 +9,4 @@ const KochChef = () => (
 	</SvgWrapper>
 );
 
-export default KochChef;
+export default RecipeApp;

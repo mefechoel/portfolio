@@ -2,7 +2,7 @@ import Card from "../../components/Card";
 import GridPage from "../../components/GridPage";
 import BAThesis from "../../components/Imgs/BAThesis";
 import HPStrelow from "../../components/Imgs/HPStrelow";
-import KochChef from "../../components/Imgs/KochChef";
+import RecipeApp from "../../components/Imgs/RecipeApp";
 import Pixelnetz from "../../components/Imgs/Pixelnetz";
 import Portfolio from "../../components/Imgs/Portfolio";
 import Remote from "../../components/Imgs/Remote";
@@ -44,16 +44,16 @@ const Project = () => (
 			</Card>
 			<Card route="/kochchef">
 				<Card.Img label="Noodle dish in a bowl">
-					<KochChef />
+					<RecipeApp />
 				</Card.Img>
 				<Card.Body>
 					<Card.Heading>Koch&shy;Chef</Card.Heading>
 					<Card.Description>
-						<q>KochChef</q> is a recipe app, that was developed as part of my
-						bachelor thesis. It consists of a backend, responsible for providing
-						the recipe data, and three frontend apps. Each frontend is
-						implemented using a different JavaScript framework, to showcase each
-						frameworks advantages and disadvantages.
+						<q>Recipe App</q> was developed as part of my bachelor thesis. It
+						consists of a backend, responsible for providing the recipe data,
+						and three frontend apps. Each frontend is implemented using a
+						different JavaScript framework, to showcase each frameworks
+						advantages and disadvantages.
 					</Card.Description>
 				</Card.Body>
 			</Card>

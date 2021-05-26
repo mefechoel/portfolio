@@ -21,14 +21,13 @@ const Banner = () => {
 	return (
 		<header className={cx(style.banner, disabled && style.hidden)}>
 			<div className={style.headingWrapper}>
-				{routeList.map((route, i) => (
+				{routeList.map((route) => (
 					<h1
 						key={route.name}
 						className={cx(
 							style.heading,
 							route.pageName === name && style.activeHeading,
 						)}
-						style={`--i: ${i}`}
 						aria-hidden={route.pageName !== name ? "true" : "false"}
 					>
 						{route.pageName}
