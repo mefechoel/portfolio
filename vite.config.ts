@@ -2,6 +2,7 @@ import { defineConfig } from "vite";
 import preact from "@preact/preset-vite";
 import url from "@rollup/plugin-url";
 import autoprefixer from "autoprefixer";
+import cssDeclarationSorter from "css-declaration-sorter";
 import banner from "./bundlerPlugins/banner";
 
 const production = process.env.NODE_ENV === "production";
@@ -46,7 +47,11 @@ export default defineConfig({
 				: "[name]__[local]__[hash:base64:5]",
 		},
 		postcss: {
-			plugins: [autoprefixer()],
+			plugins: [
+				// eslint-disable-next-line @typescript-eslint/no-explicit-any
+				cssDeclarationSorter({ keepOverrides: true }) as any,
+				autoprefixer(),
+			],
 		},
 	},
 	build: {
@@ -65,6 +70,7 @@ export default defineConfig({
 					brotliSize: false,
 			  }
 			: {}),
+		polyfillDynamicImport: true,
 		target: "modules",
 		manifest: true,
 		assetsInlineLimit: 0,
