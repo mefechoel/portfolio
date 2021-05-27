@@ -1,9 +1,9 @@
 import { defineConfig } from "vite";
 import preact from "@preact/preset-vite";
 import autoprefixer from "autoprefixer";
-import url from "@rollup/plugin-url";
 import cssDeclarationSorter from "css-declaration-sorter";
 import banner from "./bundlerPlugins/banner";
+import url from "./bundlerPlugins/url";
 
 const production = process.env.NODE_ENV === "production";
 const env = process.env.NODE_ENV || "development";
