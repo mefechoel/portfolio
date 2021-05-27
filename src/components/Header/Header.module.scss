@@ -74,7 +74,7 @@ $arrowSize: 2rem;
 	display: flex;
 	align-items: center;
 	justify-content: center;
-	color: var(--textCol);
+	color: var(--fontCol);
 	cursor: pointer;
 
 	@include mq.wideScreen {
@@ -85,7 +85,7 @@ $arrowSize: 2rem;
 	&:hover,
 	&:focus,
 	&:active {
-		color: var(--textCol);
+		color: var(--fontCol);
 	}
 
 	animation: move 2s ease-in-out 2s 2 forwards;
