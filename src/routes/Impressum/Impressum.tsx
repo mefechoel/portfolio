@@ -16,8 +16,6 @@ const Impressum = () => (
 		<p>
 			Telefon: <Tel />
 			<br />
-			Telefon: 015751766448
-			<br />
 			E-Mail: <EMail />
 			<br />
 		</p>
