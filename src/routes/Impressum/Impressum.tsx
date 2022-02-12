@@ -1,5 +1,6 @@
 /* eslint-disable react/no-unescaped-entities */
 import EMail from "../../components/EMail";
+import Tel from "../../components/Tel";
 import style from "./Impressum.module.scss";
 
 const Impressum = () => (
@@ -13,6 +14,8 @@ const Impressum = () => (
 			28199 Bremen
 		</p>
 		<p>
+			Telefon: <Tel />
+			<br />
 			Telefon: 015751766448
 			<br />
 			E-Mail: <EMail />

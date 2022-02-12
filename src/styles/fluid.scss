@@ -1,4 +1,4 @@
-@use 'sass:math';
+@use "sass:math";
 
 // Default values
 $minViewport: 17.77rem;
@@ -7,7 +7,7 @@ $minScale: 1.33;
 $maxScale: 1.681;
 
 @function stripUnit($value) {
-	@return $value / ($value * 0 + 1);
+	@return math.div($value, ($value * 0 + 1));
 }
 
 @mixin fontSize(

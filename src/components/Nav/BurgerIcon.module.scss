@@ -1,4 +1,4 @@
-@use '../../styles/transitions.scss';
+@use "../../styles/transitions.scss";
 
 $strokeWidth: calc(var(--size) * var(--strokeWidthRatio));
 $strokeOffset: calc(var(--size) * var(--offsetRatio));

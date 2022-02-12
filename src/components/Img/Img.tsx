@@ -63,10 +63,9 @@ export const createStdSrcSet = ({
 	const filteredEntries = entries
 		.map(([size, sizeList]) => [
 			size,
-			((sizeList || []) as (
-				| { [density: string]: string }
-				| undefined
-			)[]).filter((size) => !!size),
+			(
+				(sizeList || []) as ({ [density: string]: string } | undefined)[]
+			).filter((size) => !!size),
 		])
 		.filter(([, sizeList]) => !!sizeList.length)
 		.map((entry) => {

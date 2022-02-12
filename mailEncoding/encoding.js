@@ -7,7 +7,7 @@ const createEncoding = (key) => {
 		encode: (str) => {
 			const codeList = [...str].map((char, i) => {
 				const charCode = char.charCodeAt(0);
-				const keyCode = key.charAt(i % key.length).charCodeAt(0);
+				const keyCode = key.charCodeAt(i % key.length);
 				const cypherCode = charCode ^ keyCode;
 				return cypherCode;
 			});
@@ -19,7 +19,7 @@ const createEncoding = (key) => {
 			const codeListStr = atob(encodedStr);
 			const codeList = codeListStr.split(delim).map(Number);
 			const charList = codeList.map((code, i) => {
-				const keyCode = key.charAt(i % key.length).charCodeAt(0);
+				const keyCode = key.charCodeAt(i % key.length);
 				const charCode = code ^ keyCode;
 				return String.fromCharCode(charCode);
 			});

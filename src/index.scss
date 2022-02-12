@@ -1,7 +1,7 @@
-@use './styles/reset.scss';
-@use './styles/theme.scss';
-@use './styles/typography.scss';
-@use './styles/transitions.scss';
+@use "./styles/reset.scss";
+@use "./styles/theme.scss";
+@use "./styles/typography.scss";
+@use "./styles/transitions.scss";
 
 body {
 	color: var(--fontCol);

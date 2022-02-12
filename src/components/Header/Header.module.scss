@@ -1,8 +1,9 @@
-@use '../../styles/animations.scss';
-@use '../../styles/a11y.scss';
-@use '../../styles/font.scss';
-@use '../../styles/mq.scss';
-@use '../../styles/transitions.scss';
+@use "sass:math";
+@use "../../styles/animations.scss";
+@use "../../styles/a11y.scss";
+@use "../../styles/font.scss";
+@use "../../styles/mq.scss";
+@use "../../styles/transitions.scss";
 
 .header {
 	background-color: var(--bgCol);
@@ -70,7 +71,7 @@ $arrowSize: 2rem;
 .scrollDownLink {
 	position: absolute;
 	bottom: 4rem;
-	left: calc(50% - #{$arrowSize / 2});
+	left: calc(50% - #{math.div($arrowSize, 2)});
 	display: flex;
 	align-items: center;
 	justify-content: center;

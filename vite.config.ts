@@ -3,6 +3,7 @@ import preact from "@preact/preset-vite";
 import url from "@rollup/plugin-url";
 import autoprefixer from "autoprefixer";
 import cssDeclarationSorter from "css-declaration-sorter";
+// import { VitePWA } from "vite-plugin-pwa";
 import banner from "./bundlerPlugins/banner";
 
 const production = process.env.NODE_ENV === "production";
@@ -35,6 +36,7 @@ export default defineConfig({
 			banner(
 				"/*! Licenses of used libraries, fonts and other software can be found at /lib-licenses.txt */\n",
 			),
+		// VitePWA(),
 	],
 	define: {
 		"process.env.NODE_ENV": JSON.stringify(env),
@@ -57,20 +59,23 @@ export default defineConfig({
 	build: {
 		...(ssr
 			? {
-					lib: {
-						entry: "./src/ssr.tsx",
-						name: "app",
-						formats: ["cjs"],
-						fileName: "ssr",
-					},
 					rollupOptions: {
-						external: ["fs/promises", "path", "html-minifier-terser"],
+						external: [
+							"fs/promises",
+							"path",
+							"html-minifier-terser",
+							"classnames",
+							"@svelte-navigator/history",
+							"preact",
+							"preact/hooks",
+							"preact/compat",
+							"preact-render-to-string",
+							"preact-ssr-prepass",
+						],
 					},
 					minify: false,
-					brotliSize: false,
 			  }
 			: {}),
-		polyfillDynamicImport: true,
 		target: "modules",
 		manifest: true,
 		assetsInlineLimit: 0,

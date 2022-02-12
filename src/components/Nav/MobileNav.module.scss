@@ -1,6 +1,7 @@
-@use '../../styles/transitions.scss';
-@use '../../styles/mq.scss';
-@use '../../styles/a11y.scss';
+@use "sass:math";
+@use "../../styles/transitions.scss";
+@use "../../styles/mq.scss";
+@use "../../styles/a11y.scss";
 
 $buttonSpacing: 1rem;
 
@@ -37,7 +38,7 @@ $buttonSpacing: 1rem;
 .burgerButton {
 	$size: 3rem;
 	position: fixed;
-	left: calc(50% - #{$size / 2});
+	left: calc(50% - #{math.div($size, 2)});
 	bottom: $buttonSpacing;
 
 	padding: 0;

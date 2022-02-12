@@ -1,22 +1,10 @@
+import { unscramble } from "botex";
 import { useEffect, useRef, useState } from "preact/hooks";
 import cx from "../../cx";
 import style from "./EMail.module.scss";
 
-const decode = (encodedStr: string, key: string): string => {
-	const delim = "%";
-	const codeListStr = atob(encodedStr);
-	const codeList = codeListStr.split(delim).map(Number);
-	const charList = codeList.map((code, i) => {
-		const keyCode = key.charAt(i % key.length).charCodeAt(0);
-		const charCode = code ^ keyCode;
-		return String.fromCharCode(charCode);
-	});
-	return charList.join("");
-};
-
-const KEY = "TTI2OC4yIDIwLjEzaC0uMTJhNS4xIDUuMSAwIDAxLT";
-const ENCODED =
-	"NTclNjElNDIlOTAlNDIlNDclMjYlMTAlNjElNTQlNDQlMjclMzUlMjklMTI0JTc3JTMzJTM2JTkzJTIwJTM2JTU2JTEwMCUxMSUzMyU2Mg==";
+const KEY = "vixfdwkitijyflpr";
+const ENCODED = "Br0re1rC1xBq0rfl9rC211x1iBel7drC1xBar4";
 
 const EMail = () => {
 	const [isOpen, setIsOpen] = useState(false);
@@ -33,11 +21,11 @@ const EMail = () => {
 	};
 
 	const handleCopy = () => {
-		navigator.clipboard.writeText(decode(ENCODED, KEY));
+		navigator.clipboard.writeText(unscramble(ENCODED, KEY));
 	};
 
 	const handleWrite = () => {
-		const mail = decode(ENCODED, KEY);
+		const mail = unscramble(ENCODED, KEY);
 		const href = `mailto:${mail}`;
 		window.location.href = href;
 	};

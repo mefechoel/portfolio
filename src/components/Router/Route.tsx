@@ -15,9 +15,8 @@ function Route({
 	children: ComponentChildren;
 }) {
 	const [id] = useState(() => createRouteId());
-	const { currentRoutes, registerRoute, unregisterRoute } = useContext(
-		RouterContext,
-	);
+	const { currentRoutes, registerRoute, unregisterRoute } =
+		useContext(RouterContext);
 
 	let matches = false;
 	if (isSSR) {

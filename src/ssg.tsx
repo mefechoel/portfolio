@@ -1,25 +1,27 @@
 import fs from "fs/promises";
 import path from "path";
+import { lazy } from "preact/compat";
 import renderToString from "preact-render-to-string";
 import prepass from "preact-ssr-prepass";
 import { minify as minifyHtml } from "html-minifier-terser";
 import App from "./App";
-import projects from "./routes/Projects";
-import index from "./routes/Home";
-import music from "./routes/Music";
-import impressum from "./routes/Impressum";
-import datenschutz from "./routes/Datenschutz";
-import baThesis from "./routes/BAThesis";
-import svelteNavigator from "./routes/SvelteNavigator";
-import recipeApp from "./routes/RecipeApp";
-import hpStrelow from "./routes/HPStrelow";
-import portfolio from "./routes/Portfolio";
-import remote from "./routes/Remote";
-import pixelnetz from "./routes/Pixelnetz";
-import nichtMehr from "./routes/NichtMehrEP";
-import prag from "./routes/PragSingle";
 import { createRoutes } from "./routes";
 import { resetIdCounter } from "./util";
+
+const projects = lazy(() => import("./routes/Projects"));
+const index = lazy(() => import("./routes/Home"));
+const music = lazy(() => import("./routes/Music"));
+const impressum = lazy(() => import("./routes/Impressum"));
+const datenschutz = lazy(() => import("./routes/Datenschutz"));
+const baThesis = lazy(() => import("./routes/BAThesis"));
+const svelteNavigator = lazy(() => import("./routes/SvelteNavigator"));
+const recipeApp = lazy(() => import("./routes/RecipeApp"));
+const hpStrelow = lazy(() => import("./routes/HPStrelow"));
+const portfolio = lazy(() => import("./routes/Portfolio"));
+const remote = lazy(() => import("./routes/Remote"));
+const pixelnetz = lazy(() => import("./routes/Pixelnetz"));
+const nichtMehr = lazy(() => import("./routes/NichtMehrEP"));
+const prag = lazy(() => import("./routes/PragSingle"));
 
 const routes = createRoutes({
 	projects,
@@ -151,7 +153,7 @@ async function main() {
 				.replace(/<!--\s*HTML_OUTLET\s*-->/, html)
 				.replace("</head>", `${additionalLinks}</head>`)
 				.replace(/<title>.*<\/title>/, titleTag);
-			const minifiedHtml = minifyHtml(prerender, minifierOptions);
+			const minifiedHtml = await minifyHtml(prerender, minifierOptions);
 			await fs.writeFile(
 				path.join(distDir, `${name}.html`),
 				minifiedHtml,
