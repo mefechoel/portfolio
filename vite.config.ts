@@ -65,6 +65,7 @@ export default defineConfig({
 							"path",
 							"html-minifier-terser",
 							"classnames",
+							"botex",
 							"@svelte-navigator/history",
 							"preact",
 							"preact/hooks",

@@ -96,11 +96,12 @@ async function main() {
 		});
 	};
 
+	const numRoutes = Object.keys(routes).length;
+	let doneCount = 0;
+	// eslint-disable-next-line no-console
+	console.log(`Prerendering ${numRoutes} routes...\n`);
 	const promises = Object.values(routes).map(
 		async ({ path: url, name, title, filePath }) => {
-			// eslint-disable-next-line no-console
-			console.log(`Prerendering chunk "${name}"`);
-
 			// Reset the id counter, so that no global state is persisted
 			// between pre-renders
 			resetIdCounter();
@@ -160,13 +161,18 @@ async function main() {
 				"utf8",
 			);
 
+			const numRouteDigits = numRoutes.toString().length;
+			doneCount += 1;
+			const doneLabel = doneCount.toString().padStart(numRouteDigits, " ");
 			// eslint-disable-next-line no-console
-			console.log(`Prerendering chunk "${name}" completed!`);
+			console.log(`${doneLabel}/${numRoutes}: ${name}`);
 		},
 	);
 
-	// eslint-disable-next-line no-console
-	return Promise.all(promises).then(() => console.log("Prerendering Done!\n"));
+	return Promise.all(promises).then(() =>
+		// eslint-disable-next-line no-console
+		console.log("\nPrerendering Done!\n"),
+	);
 }
 
 main();

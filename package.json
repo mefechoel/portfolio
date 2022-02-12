@@ -50,7 +50,7 @@
     "sass": "^1.49.4",
     "ts-node": "^10.4.0",
     "typescript": "^4.5.5",
-    "vite": "^2.7.13",
+    "vite": "^2.8.1",
     "vite-plugin-pwa": "^0.11.13",
     "wasm-brotli": "^2.0.2",
     "wasm-zopfli": "^1.0.2"

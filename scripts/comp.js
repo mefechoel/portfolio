@@ -8,6 +8,8 @@ const { gzip: compZopfli } = require("wasm-zopfli");
 
 const writeFile = promisify(fs.writeFile);
 
+const buildDir = path.resolve(path.join(__dirname, "../dist"));
+
 const supportedFormats = ["gzip", "brotli"];
 
 const formatRegex = /(--formats|-f)=(.+)(\s|$)/;
@@ -40,11 +42,12 @@ function compressArtifacts({ fileName, source, algorithm }) {
 	const ext = algorithm === "gzip" ? "gz" : "br";
 	return compressString(source, algorithm).then((blob) => {
 		const baseFilePath = path.resolve(path.join(fileName));
-		const basePathParts = baseFilePath.split(/[/|\\]/);
-		basePathParts.pop();
 		const filePath = `${baseFilePath}.${ext}`;
 		// eslint-disable-next-line no-console
-		console.log("WRITE", filePath);
+		console.log(
+			"writing",
+			filePath.replace(buildDir, "").replaceAll("\\", "/").replace(/^\//, ""),
+		);
 		return writeFile(filePath, blob, "binary");
 	});
 }
@@ -112,4 +115,4 @@ async function compDir(dir) {
 console.log("\nCompressing artifacts...\n");
 
 // eslint-disable-next-line no-console
-compDir(path.join(__dirname, "../dist")).then(() => console.log("\nDone!\n"));
+compDir(buildDir).then(() => console.log("\nDone!\n"));
